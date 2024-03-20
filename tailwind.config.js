@@ -13,7 +13,8 @@ export default {
         headerHeight: "75px",
       },
       padding: {
-        headerHeight: "75px",
+        headerHeight: "135px",
+        headerHeightFull: "75px",
       },
 
       gridTemplateColumns: {

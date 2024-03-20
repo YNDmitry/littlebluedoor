@@ -3,53 +3,49 @@
 @tailwind utilities;
 
 @layer utilities {
-	.widthBtn {
-		@apply w-[calc(100%_+_110px)];
-	}
-}
-
-@font-face {
-	font-family: 'Kyiv';
-	src: url('/font/KyivTypeSerif-Light.woff2') format('woff2'),
-		url('KyivTypeSerif-Light.woff') format('woff');
-
-	font-weight: 300;
+  .widthBtn {
+    @apply w-[calc(100%_+_110px)];
+  }
 }
 
 body {
-	background-color: rgb(244, 239, 233);
-	color: rgb(50, 74, 117);
+  background-color: rgb(244, 239, 233);
+  color: rgb(50, 74, 117);
 
-	font-family: 'Montserrat';
+  font-family: "Montserrat";
+}
+
+.titleMainBanner {
+  font-family: "Bebas";
 }
 
 input:focus,
 textarea:focus {
-	outline: none;
+  outline: none;
 }
 
 .swiper-button-disabled {
-	opacity: 0.2;
+  opacity: 0.2;
 }
 
 @media (min-width: 768px) {
-	.hotelTravel article:nth-child(even) .hotelSwiper {
-		order: 3;
-	}
-	.hotelTravel article:nth-child(even) .hotelContent {
-		order: 1;
-	}
+  .hotelTravel article:nth-child(even) .hotelSwiper {
+    order: 3;
+  }
+  .hotelTravel article:nth-child(even) .hotelContent {
+    order: 1;
+  }
 }
 
 @keyframes scroll {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(calc(-150px * 8));
-	}
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-150px * 8));
+  }
 }
 
 .partners {
-	animation: scroll 15s linear infinite;
+  animation: scroll 15s linear infinite;
 }
