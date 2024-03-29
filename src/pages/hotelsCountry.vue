@@ -4,7 +4,7 @@
       <h1
         class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
       >
-        SOME OF the hotels we parent with
+        SOME OF the Italy we parent with
       </h1>
 
       <div class="flex flex-col pt-[15px]">
@@ -21,15 +21,6 @@
 
       <div class="flex flex-col gap-12 pt-12">
         <div>
-          <div class="flex justify-between items-center pb-5">
-            <h2 class="text-[24px] font-semibold uppercase">Italy</h2>
-
-            <div class="flex items-center gap-1">
-              <a href="/hotelsCountry">Show all</a>
-              <IconsArrow customClasses="w-[16px] h-[16px] text-mainColor" />
-            </div>
-          </div>
-
           <div
             class="inline-grid w-full grid-cols-someOfTheHotels justify-between gap-7"
           >
@@ -81,89 +72,6 @@
                 </button>
               </div>
             </article>
-            <article class="inline-flex flex-col items-center gap-[10px]">
-              <img
-                class="h-[240px] w-[240px] object-cover"
-                src="/img/ourService.png"
-                alt=""
-              />
-
-              <div class="flex flex-col items-center px-2">
-                <p class="text-[18px] uppercase">Lorem</p>
-                <p class="text-[18px] uppercase">Lorem, ipsum</p>
-
-                <button class="pt-4 text-[18px] font-semibold uppercase">
-                  Book your room
-                </button>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between items-center pb-5">
-            <h2 class="text-[24px] font-semibold uppercase">Spain</h2>
-
-            <div class="flex items-center gap-1">
-              <a href="/hotelsCountry">Show all</a>
-              <IconsArrow customClasses="w-[16px] h-[16px] text-mainColor" />
-            </div>
-          </div>
-
-          <div
-            class="inline-grid w-full grid-cols-someOfTheHotels justify-between gap-7"
-          >
-            <article class="inline-flex flex-col items-center gap-[10px]">
-              <img
-                class="h-[240px] w-[240px] object-cover"
-                src="/img/ourService.png"
-                alt=""
-              />
-
-              <div class="flex flex-col items-center px-2">
-                <p class="text-[18px] uppercase">Lorem</p>
-                <p class="text-[18px] uppercase">Lorem, ipsum</p>
-
-                <button class="pt-4 text-[18px] font-semibold uppercase">
-                  Book your room
-                </button>
-              </div>
-            </article>
-
-            <article class="inline-flex flex-col items-center gap-[10px]">
-              <img
-                class="h-[240px] w-[240px] object-cover"
-                src="/img/ourService.png"
-                alt=""
-              />
-
-              <div class="flex flex-col items-center px-2">
-                <p class="text-[18px] uppercase">Lorem</p>
-                <p class="text-[18px] uppercase">Lorem, ipsum</p>
-
-                <button class="pt-4 text-[18px] font-semibold uppercase">
-                  Book your room
-                </button>
-              </div>
-            </article>
-
-            <article class="inline-flex flex-col items-center gap-[10px]">
-              <img
-                class="h-[240px] w-[240px] object-cover"
-                src="/img/ourService.png"
-                alt=""
-              />
-
-              <div class="flex flex-col items-center px-2">
-                <p class="text-[18px] uppercase">Lorem</p>
-                <p class="text-[18px] uppercase">Lorem, ipsum</p>
-
-                <button class="pt-4 text-[18px] font-semibold uppercase">
-                  Book your room
-                </button>
-              </div>
-            </article>
-
             <article class="inline-flex flex-col items-center gap-[10px]">
               <img
                 class="h-[240px] w-[240px] object-cover"
