@@ -1,0 +1,27 @@
+{
+  "id": "icon_w_ith_social_icons",
+  "type": "SharedSlice",
+  "name": "IconWIthSocialIcons",
+  "description": "IconWIthSocialIcons",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "Image",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

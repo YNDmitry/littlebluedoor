@@ -3,11 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "nuxt dev && start-slicemachine",
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "nuxt:dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@nuxt/fonts": "latest",
@@ -18,5 +20,10 @@
     "nuxt-swiper": "^1.2.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/prismic": "^3.0.0",
+    "@slicemachine/adapter-nuxt": "latest",
+    "slice-machine-ui": "latest"
   }
 }

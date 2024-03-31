@@ -1,0 +1,190 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "scientist",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"image_2",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"image_3",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "post",
+							"type": "Text"
+						}
+					],
+					[
+						"paragraph",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "again",
+							"type": "Text"
+						}
+					],
+					[
+						"days_and_nights",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "adjective",
+							"type": "Text"
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "commingSoon",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "author",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"image_2",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"image_3",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "path",
+							"type": "Text"
+						}
+					],
+					[
+						"paragraph",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "vertical",
+							"type": "Text"
+						}
+					],
+					[
+						"days_and_nights",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "adult",
+							"type": "Text"
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]

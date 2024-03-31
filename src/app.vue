@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 	const LenisOptions = ref({
 		duration: 0.2,
 		lerp: 0.1,
@@ -12,14 +12,10 @@
 
 <template>
 	<div class="flex min-h-screen flex-col">
-		<Header />
-
-		<main class="h-full flex-1">
+		<NuxtLayout>
 			<lenis :options="LenisOptions">
 				<NuxtPage />
 			</lenis>
-		</main>
-
-		<Footer />
+		</NuxtLayout>
 	</div>
 </template>

@@ -1,0 +1,27 @@
+{
+  "id": "hotels_and_villas",
+  "type": "SharedSlice",
+  "name": "HotelsAndVillas",
+  "description": "HotelsAndVillas",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "slider_image": {
+          "type": "Image",
+          "config": {
+            "label": "Slider image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

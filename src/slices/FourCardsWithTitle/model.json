@@ -1,0 +1,49 @@
+{
+  "id": "four_cards_with_title",
+  "type": "SharedSlice",
+  "name": "FourCardsWithTitle",
+  "description": "FourCardsWithTitle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

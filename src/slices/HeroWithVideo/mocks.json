@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "The Art Of Elevated Travel"
+			},
+			"pre_heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "LITTLE BLUE DOOR"
+			},
+			"paragraph": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Elevate your Travel: Experience the difference of Tailored advice and unique destinations"
+			}
+		},
+		"items": []
+	}
+]

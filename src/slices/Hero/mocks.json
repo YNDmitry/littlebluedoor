@@ -1,0 +1,27 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Title"
+			},
+			"image": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ImageLink",
+					"id": "6ArTTluciuA",
+					"name": "body of water under sky",
+					"kind": "image",
+					"url": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxvY2VhbnxlbnwwfHx8fDE3MTE3MTEwMzB8MA&ixlib=rb-4.0.3&q=85",
+					"size": "0",
+					"height": "4000",
+					"width": "6000"
+				}
+			}
+		},
+		"items": []
+	}
+]

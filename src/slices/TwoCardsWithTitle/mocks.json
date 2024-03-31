@@ -1,0 +1,50 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "kids",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "situation",
+							"type": "Text"
+						}
+					],
+					[
+						"paragraph",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "writer",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

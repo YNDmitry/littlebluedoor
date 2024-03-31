@@ -1,0 +1,109 @@
+{
+  "format": "page",
+  "id": "page",
+  "label": "Page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "slideshow": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "our_partners": {
+              "type": "SharedSlice"
+            },
+            "two_cards_with_title": {
+              "type": "SharedSlice"
+            },
+            "three_slider_cards_with_title": {
+              "type": "SharedSlice"
+            },
+            "whats_app_section": {
+              "type": "SharedSlice"
+            },
+            "slider_cards": {
+              "type": "SharedSlice"
+            },
+            "instagram_cards": {
+              "type": "SharedSlice"
+            },
+            "four_cards_with_title": {
+              "type": "SharedSlice"
+            },
+            "icon_w_ith_social_icons": {
+              "type": "SharedSlice"
+            },
+            "form": {
+              "type": "SharedSlice"
+            },
+            "title_with_slider_cards": {
+              "type": "SharedSlice"
+            },
+            "title_with_text": {
+              "type": "SharedSlice"
+            },
+            "comming_soon": {
+              "type": "SharedSlice"
+            },
+            "hotels_and_villas": {
+              "type": "SharedSlice"
+            },
+            "text_cards": {
+              "type": "SharedSlice"
+            },
+            "image_with_text": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "hero_with_video": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "instagram_cards",
+  "type": "SharedSlice",
+  "name": "InstagramCards",
+  "description": "InstagramCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "Image",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      }
+    }
+  ]
+}

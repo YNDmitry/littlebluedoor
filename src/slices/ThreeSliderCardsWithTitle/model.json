@@ -1,0 +1,152 @@
+{
+  "id": "three_slider_cards_with_title",
+  "type": "SharedSlice",
+  "name": "ThreeSliderCardsWithTitle",
+  "description": "ThreeSliderCardsWithTitle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "Image",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "image_2": {
+          "type": "Link",
+          "config": {
+            "label": "Image 2",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "image_3": {
+          "type": "Link",
+          "config": {
+            "label": "Image 3",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": ""
+          }
+        },
+        "days_and_nights": {
+          "type": "Text",
+          "config": {
+            "label": "Days and nights",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    },
+    {
+      "id": "commingSoon",
+      "name": "CommingSoon",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "Image",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "image_2": {
+          "type": "Link",
+          "config": {
+            "label": "Image 2",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "image_3": {
+          "type": "Link",
+          "config": {
+            "label": "Image 3",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": ""
+          }
+        },
+        "days_and_nights": {
+          "type": "Text",
+          "config": {
+            "label": "Days and nights",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}
