@@ -12,11 +12,11 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="relative max-tablet:mt-[35px] max-tablet:pb-[65px] tablet:mt-[65px] tablet:pb-[115px]"
+		class="relative pb-[100px]"
 	>
 		<div class="relative">
 			<Swiper
-				class="pt-[40px] mt-6"
+				class="pt-[40px]"
 				:space-between="20"
 				:modules="[SwiperEffectFade, SwiperAutoplay]"
 				:speed="700"
@@ -29,7 +29,12 @@
 			>
 				<SwiperSlide v-for="item in slice?.items">
 					<NuxtImg
+						provider="prismic"
+						v-if="item?.image?.url"
 						:src="item?.image?.url"
+						:quality="80"
+						width="2000"
+						height="1000"
 						class="w-full object-cover tablet:aspect-[1440/500] max-tablet:aspect-[700/500]"
 					/>
 
@@ -48,10 +53,10 @@
 			</p>
 		</div>
 
-		<div class="px-4 flex items-center justify-center">
+		<div class="px-4 flex items-center justify-center" v-if="slice?.primary?.button_link">
 			<NuxtLink
 				:to="slice.primary.button_link"
-				class="hover:bg-mainColorHover mx-auto flex items-center justify-center px-6 bg-mainColor text-[25px] font-medium text-bg transition-colors max-tablet:mt-[40px] max-tablet:h-[55px] max-tablet:text-[20px] tablet:mt-[70px] tablet:h-[67px]"
+				class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors max-tablet:mt-[40px] mt-[40px] uppercase"
 			>
 				{{ slice.primary.button_label }}
 			</NuxtLink>

@@ -19,46 +19,53 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<div class="mx-auto max-w-[1310px] px-4">
-			<h2 class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]">
+		<div class="mx-auto max-w-[1400px] px-4">
+			<h2 class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]">
 				{{ slice?.primary?.title }}
 			</h2>
 
 			<div
 				v-if="slice?.variation === 'default'"
-				class="grid justify-items-start gap-x-6 pt-[45px] gap-y-11 mobile:grid-cols-lbdOffer"
+				class="grid justify-items-start gap-x-6 gap-y-12 pt-[45px] mobile:grid-cols-lbdOffer"
 			>
-				<div class="flex w-full flex-col items-center" v-for="item in slice?.items" :key="item">
+				<div
+					class="flex w-full flex-col items-center"
+					v-for="(item, idx) in slice?.items"
+					:key="item"
+				>
 					<div class="relative">
 						<Swiper
 							:modules="[SwiperNavigation]"
 							:navigation="{
-								nextEl: '.swiper-lbdOne-btn.button-next',
-								prevEl: '.swiper-lbdOne-btn.button-prev',
+								nextEl: '#swiper-ldbOne-prev-' + idx,
+								prevEl: '#swiper-ldbOne-next-' + idx,
 							}"
 							:spaceBetween="20"
-							class="w-[260px] overflow-hidden"
+							class="w-[300px] overflow-hidden"
 						>
-							<SwiperSlide>
+							<SwiperSlide class="w-full">
 								<NuxtImg
+									provider="prismic"
 									v-if="item?.image?.url"
-									class="object-cover tablet:h-[260px] tablet:w-[260px]"
+									class="object-cover aspect-square"
 									:src="item?.image?.url"
 									width="300"
 								/>
 							</SwiperSlide>
 							<SwiperSlide>
 								<NuxtImg
+									provider="prismic"
 									v-if="item?.image_2?.url"
-									class="object-cover tablet:h-[260px] tablet:w-[260px]"
+									class="object-cover aspect-square"
 									:src="item?.image_2?.url"
 									width="300"
 								/>
 							</SwiperSlide>
 							<SwiperSlide>
 								<NuxtImg
+									provider="prismic"
 									v-if="item?.image_3?.url"
-									class="object-cover tablet:h-[260px] tablet:w-[260px]"
+									class="object-cover aspect-square"
 									:src="item?.image_3.url"
 									width="300"
 								/>
@@ -69,12 +76,14 @@
 							class="tablet:widthBtn z-10 flex justify-between max-tablet:pt-4 tablet:absolute tablet:left-0 tablet:top-1/2 tablet:translate-x-[-55px] tablet:translate-y-[-50%]"
 						>
 							<button
+								:id="'swiper-ldbOne-next-' + idx"
 								class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 							>
 								<IconsArrow customClasses="rotate-180" />
 							</button>
 
 							<button
+								:id="'swiper-ldbOne-prev-' + idx"
 								class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 							>
 								<IconsArrow />
@@ -107,10 +116,10 @@
 			>
 				<article class="flex flex-col items-center" v-for="item in slice?.items">
 					<NuxtImg
+						provider="prismic"
 						v-if="item?.image?.url"
-						class="object-cover tablet:h-[300px] tablet:w-[300px]"
+						class="object-cover w-full aspect-square"
 						:src="item?.image?.url"
-						alt=""
 					/>
 
 					<div class="flex flex-col gap-4 pt-[20px]">

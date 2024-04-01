@@ -10,11 +10,18 @@
 
 <template>
 	<section
-		class="flex flex-col gap-[40px] py-[150px]"
+		class="flex flex-col gap-[40px] py-[100px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<NuxtImg class="mx-auto w-[80px]" :src="slice?.primary?.image.url" width="80" />
+		<NuxtImg
+			provider="prismic"
+			v-if="slice?.primary?.image?.url"
+			:quality="80"
+			class="mx-auto w-[80px]"
+			:src="slice?.primary?.image?.url"
+			width="80"
+		/>
 		<p class="text-center uppercase max-tablet:text-[20px] tablet:text-[30px]">
 			{{ slice?.primary?.title }}
 		</p>

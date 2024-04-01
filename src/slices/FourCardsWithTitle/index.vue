@@ -12,10 +12,10 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="pt-[100px] pb-[100px]"
+		class="py-[100px]"
 	>
-		<div class="mx-auto max-w-[1315px] px-4 pb-5">
-			<h2 class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]">
+		<div class="mx-auto max-w-[1415px] px-4 pb-5">
+			<h2 class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]">
 				{{ slice?.primary?.title }}
 			</h2>
 
@@ -23,13 +23,21 @@
 				{{ slice?.primary?.paragraph }}
 			</p>
 
-			<div class="grid gap-5 pt-8 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-4">
+			<div
+				class="grid gap-5 pt-8 mt-9 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-4"
+			>
 				<div
 					class="flex flex-col gap-[15px] max-laptop:items-center"
 					v-for="item in slice?.items"
 					:key="item"
 				>
-					<NuxtImg class="w-[300px] object-cover" :src="item?.image?.url" alt="" />
+					<NuxtImg
+						provider="prismic"
+						v-if="item?.image?.url"
+						class="w-full h-[350px] object-cover"
+						:src="item?.image?.url"
+						alt=""
+					/>
 
 					<div class="flex flex-col gap-[10px]">
 						<p class="text-center">

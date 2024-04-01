@@ -10,14 +10,14 @@
 
 <template>
 	<section
-		class="pb-[55px]"
+		class="py-[100px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<div class="mx-auto max-w-[582px] px-4">
-			<div class="mt-[25px] px-[10px] py-[20px]">
+		<div class="mx-auto max-w-[582px]">
+			<div class="px-[10px]">
 				<div
-					class="flex w-full justify-between pt-[30px] text-[12px] text-white max-tablet:gap-3 max-tablet:px-4 tablet:gap-5 tablet:px-9"
+					class="flex w-full justify-between text-[12px] text-white max-tablet:gap-3 max-tablet:px-4 tablet:gap-5 tablet:px-9"
 				>
 					<NuxtLink
 						to="/hotels"
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 
-		<div class="mx-auto pt-4">
+		<div class="mx-auto pt-4 mt-5">
 			<Swiper
 				:loop="true"
 				:breakpoints="{
@@ -57,18 +57,21 @@
 						slidesPerView: 4,
 						spaceBetween: 20,
 					},
-
 					991: {
 						slidesPerView: 5,
 						spaceBetween: 20,
 					},
 				}"
 			>
-				<SwiperSlide v-for="slide in slice.items" :key="slide">
+				<SwiperSlide v-for="slide in slice?.items" :key="slide" class="max-w-[400px]">
 					<NuxtImg
-						class="h-[300px] w-full object-cover"
-						:src="slide?.slider_image?.url"
-						:alt="slide?.slider_image?.alt"
+						provider="prismic"
+						class="object-cover aspect-square"
+						v-if="slide?.slider_image?.url"
+						:src="slide?.slider_image?.url || null"
+						:alt="slide?.slider_image?.alt || null"
+						width="600"
+						height="600"
 					/>
 				</SwiperSlide>
 			</Swiper>

@@ -19,7 +19,7 @@
 	>
 		<div class="px-4 mx-auto max-w-[1300px]">
 			<h2
-				class="px-4 text-center font-[500] uppercase max-tablet:text-[25px] max-mobile:text-[20px] tablet:text-[42px]"
+				class="px-4 text-center text-[28px] font-[500] uppercase max-tablet:text-[25px] max-mobile:text-[20px]"
 			>
 				{{ slice?.primary?.title }}
 			</h2>
@@ -62,8 +62,12 @@
 							<IconsEllipsis />
 						</div>
 
-						<div>
-							<NuxtImg class="mx-auto object-cover w-full h-[250px]" :src="slide?.image?.url" />
+						<div v-if="slide?.image?.url">
+							<NuxtImg
+								provider="prismic"
+								class="mx-auto object-cover w-full h-[250px]"
+								:src="slide?.image?.url"
+							/>
 						</div>
 					</NuxtLink>
 				</SwiperSlide>

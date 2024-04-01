@@ -15,7 +15,7 @@
 		:data-slice-variation="slice.variation"
 	>
 		<div class="px-4 mx-auto max-w-[1300px]">
-			<h2 class="px-4 text-center font-[500] uppercase max-tablet:text-[35px] tablet:text-[42px]">
+			<h2 class="px-4 text-center font-[500] uppercase max-tablet:text-[26px] text-[28px]">
 				{{ slice?.primary.title }}
 			</h2>
 
@@ -38,13 +38,22 @@
 			>
 				<SwiperSlide v-for="item in slice?.items" :key="item">
 					<div class="flex flex-col bg-white min-h-[417px]">
-						<NuxtImg :src="item?.image?.url" class="h-[200px] bg-cover w-full" />
+						<NuxtImg
+							provider="prismic"
+							:quality="80"
+							:src="item?.image?.url"
+							v-if="item?.image?.url"
+							width="400"
+							height="200"
+							format="webp"
+							class="h-[200px] object-cover w-full"
+						/>
 						<div class="px-[25px] py-8">
-							<h3 class="text-[25px] font-medium">{{ item?.title }}</h3>
+							<h3 class="text-[20px] font-medium">{{ item?.title }}</h3>
 
-							<span class="tablet:text-[20px] tablet:font-medium">
+							<p class="tablet:font-medium mt-4">
 								{{ item?.paragraph }}
-							</span>
+							</p>
 						</div>
 					</div>
 				</SwiperSlide>

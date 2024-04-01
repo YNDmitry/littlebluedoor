@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	const settings = useSettings()
+</script>
+
 <template>
 	<footer class="bg-mainColor">
 		<div class="mx-auto px-4">
@@ -17,14 +21,25 @@
 				</form>
 
 				<div class="flex items-center justify-center gap-5 max-tablet:pt-[45px] tablet:pt-[90px]">
-					<NuxtLink to="/" class="hover:scale-125 transition-all">
+					<NuxtLink
+						:to="settings?.data?.instagram?.url"
+						:target="settings?.data?.instagram?.target || ''"
+						class="hover:scale-125 transition-all"
+					>
 						<IconsInstagram customClasses="text-white" />
 					</NuxtLink>
-					<NuxtLink to="/" class="hover:scale-125 transition-all">
+					<NuxtLink
+						:to="settings?.data?.whatsapp?.url"
+						:target="settings?.data?.whatsapp?.target || ''"
+						class="hover:scale-125 transition-all"
+					>
 						<IconsWhatsapp customClasses="text-white" />
 					</NuxtLink>
 
-					<NuxtLink to="/" class="hover:scale-125 transition-all">
+					<NuxtLink
+						:to="'mailto:' + settings?.data?.email?.url"
+						class="hover:scale-125 transition-all"
+					>
 						<IconsMail customClasses="text-white" />
 					</NuxtLink>
 				</div>

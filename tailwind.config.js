@@ -18,7 +18,7 @@ export default {
       },
 
       gridTemplateColumns: {
-        travelPopular: "485px 1fr",
+        travelPopular: "550px 1fr",
         travelPopularReverse: "1fr 485px",
 
         travelPopularTablet: "385px 1fr",

@@ -15,12 +15,12 @@
 
 <template>
 	<section
-		class="max-tablet:pb-[120px] tablet:pb-[200px]"
+		class="py-[100px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
 		<div class="mx-auto max-w-[680px]">
-			<h2 class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]">
+			<h2 class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]">
 				{{ slice?.primary.title }}
 			</h2>
 		</div>
@@ -29,17 +29,17 @@
 			class="hotelTravel mx-auto flex max-w-[1210px] flex-col px-4 pt-[50px] max-tablet:gap-[50px] tablet:gap-[100px]"
 		>
 			<article
-				class="grid max-laptop:grid-cols-travelPopularTablet max-laptop:gap-[25px] max-laptop:even:grid-cols-travelPopularReverseTablet max-tablet:grid-cols-1 max-tablet:even:grid-cols-1 laptop:grid-cols-travelPopular laptop:gap-[45px] laptop:even:grid-cols-travelPopularReverse"
+				class="grid max-laptop:grid-cols-travelPopularTablet max-laptop:even:grid-cols-travelPopularReverseTablet max-tablet:grid-cols-1 max-tablet:even:grid-cols-1 laptop:grid-cols-travelPopular gap-x-[120px] gap-y-7 laptop:even:grid-cols-travelPopularReverse"
 				v-for="(item, idx) in slice?.items"
 				:key="idx"
 			>
-				<div class="hotelSwiper flex flex-col gap-4">
+				<div class="hotelSwiper relative flex flex-col gap-4">
 					<Swiper
 						:modules="[SwiperNavigation]"
-						class="w-full max-w-[485px]"
+						class="w-full max-w-[455px] max-tablet:max-w-none ml-4"
 						:navigation="{
-							nextEl: '.swiper-popularTravelOne-btn.button-next',
-							prevEl: '.swiper-popularTravelOne-btn.button-prev',
+							nextEl: '#swiper-popularTravelOne-next-' + idx,
+							prevEl: '#swiper-popularTravelOne-prev-' + idx,
 						}"
 						:breakpoints="{
 							320: {
@@ -50,34 +50,48 @@
 					>
 						<SwiperSlide>
 							<NuxtImg
+								provider="prismic"
 								class="w-full object-cover"
+								v-if="item?.image?.url"
 								:src="item?.image?.url"
 								:alt="item?.image?.alt || ''"
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
 							<NuxtImg
+								provider="prismic"
 								class="w-full object-cover"
+								v-if="item?.image_2?.url"
 								:src="item?.image_2?.url"
 								:alt="item?.image_2?.alt || ''"
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
 							<NuxtImg
+								provider="prismic"
 								class="w-full object-cover"
+								v-if="item?.image_3?.url"
 								:src="item?.image_3?.url"
 								:alt="item?.image_3?.alt || ''"
 							/>
 						</SwiperSlide>
 					</Swiper>
 
-					<div class="flex justify-between">
-						<button class="swiper-popularTravelOne-btn button-prev">
-							<IconsArrow customClasses="rotate-180 w-[32px] h-[32px]" />
+					<div
+						class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 pt-4 absolute top-1/2 translate-y-[-50%]"
+					>
+						<button
+							:id="'swiper-popularTravelOne-prev-' + idx"
+							class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
+						>
+							<IconsArrow customClasses="rotate-180" />
 						</button>
 
-						<button class="swiper-popularTravelOne-btn button-next">
-							<IconsArrow customClasses="w-[32px] h-[32px]" />
+						<button
+							:id="'swiper-popularTravelOne-next-' + idx"
+							class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
+						>
+							<IconsArrow />
 						</button>
 					</div>
 				</div>
@@ -85,11 +99,11 @@
 				<div
 					class="hotelContent items-start flex w-full flex-col justify-center gap-[15px] text-[14px]"
 				>
-					<h3 class="text-[20px] font-medium text-center tablet:uppercase" v-if="item?.title">
+					<h3 class="text-[20px] font-medium uppercase" v-if="item?.title">
 						{{ item?.title }}
 					</h3>
 
-					<p class="tablet:uppercase" v-if="item?.paragraph">
+					<p class="uppercase" v-if="item?.paragraph">
 						{{ item?.paragraph }}
 					</p>
 

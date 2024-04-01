@@ -10,25 +10,25 @@
 
 <template>
 	<section
-		class="pb-[120px]"
+		class="py-[100px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
 		<h2
 			v-if="slice?.primary?.title"
-			class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+			class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px] pb-[45px]"
 		>
 			{{ slice?.primary?.title }}
 		</h2>
 
-		<div class="mx-auto flex max-w-[747px] flex-col items-center px-4 pt-[45px]">
+		<div class="mx-auto flex max-w-[747px] flex-col items-center px-4">
 			<PrismicRichText
 				:field="slice?.primary?.body"
 				v-if="slice?.primary?.body"
 				class="text-center"
 			/>
 
-			<div class="block text-center my-[70px]" v-if="slice.primary.button_link">
+			<div class="block text-center mt-[70px]" v-if="slice.primary.button_link">
 				<NuxtLink
 					:to="slice.primary.button_link || ''"
 					class="inline-block uppercase hover:bg-mainColorHover mx-auto px-8 py-4 bg-mainColor text-[25px] font-medium text-bg transition-colors max-tablet:mt-[40px] max-tablet:h-[55px] max-tablet:text-[20px] tablet:h-[67px]"
@@ -36,8 +36,15 @@
 				>
 			</div>
 
-			<div v-if="slice?.variation === 'textWithButtonAndIcon'" class="block">
-				<NuxtImg :src="slice?.primary?.image?.url" width="200" class="w-full" />
+			<div v-if="slice?.variation === 'textWithButtonAndIcon'" class="block mt-[70px]">
+				<NuxtImg
+					provider="prismic"
+					v-if="slice?.primary?.image?.url"
+					:src="slice?.primary?.image?.url"
+					:quality="80"
+					width="200"
+					class="w-full"
+				/>
 			</div>
 		</div>
 	</section>

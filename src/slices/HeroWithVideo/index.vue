@@ -28,7 +28,7 @@
 						class="mt-[-20px ] text-center titleMainBanner capitalize max-largeDesktop:mt-[-10px] max-largeDesktop:text-[35px] max-tablet:text-[25px] largeDesktop:text-[70px]"
 					>
 						<span
-							class="text-center block font-medium uppercase max-largeDesktop:text-[16px] max-tablet:text-[14px] largeDesktop:text-[30px]"
+							class="text-center text-[24px] tracking-[6px] block font-montserrat font-medium uppercase max-largeDesktop:text-[16px] max-tablet:text-[14px]"
 							>{{ slice.primary.pre_heading }}</span
 						>
 						{{ slice.primary.heading }}
@@ -36,7 +36,7 @@
 				</div>
 
 				<p
-					class="text-center font-openSans max-largeDesktop:text-[14px] max-tablet:text-[12px] largeDesktop:text-[25px]"
+					class="text-center max-largeDesktop:text-[14px] max-tablet:text-[12px] largeDesktop:text-[25px]"
 				>
 					{{ slice.primary.paragraph }}
 				</p>

@@ -12,13 +12,13 @@ export default defineNuxtConfig({
 				lang: 'en',
 			},
 			link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
-			// script: [
-			// 	{
-			// 		async: true,
-			// 		defer: true,
-			// 		src: 'https://static.cdn.prismic.io/prismic.js?new=true&repo=littlebluedoor',
-			// 	},
-			// ],
+			script: [
+				{
+					async: true,
+					defer: true,
+					src: 'https://static.cdn.prismic.io/prismic.js?new=true&repo=littlebluedoor',
+				},
+			],
 		},
 	},
 
@@ -29,6 +29,7 @@ export default defineNuxtConfig({
 		'@nuxt/image',
 		'nuxt-lenis',
 		'@nuxtjs/prismic',
+		'nuxt-build-cache',
 	],
 
 	css: ['~/assets/css/global.css'],
@@ -46,6 +47,8 @@ export default defineNuxtConfig({
 	},
 
 	image: {
+		format: ['webp'],
+		quality: 75,
 		prismic: {},
 	},
 })

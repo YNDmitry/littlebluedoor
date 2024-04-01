@@ -20,11 +20,13 @@
 
 		<div>
 			<NuxtImg
+				provider="prismic"
 				v-if="slice?.primary?.image?.url"
 				:src="slice?.primary?.image?.url"
 				class="w-full object-cover max-tablet:h-[250px] h-[440px]"
-				width="1440"
-				height="440"
+				width="2000"
+				height="600"
+				:quality="80"
 			/>
 		</div>
 	</section>
