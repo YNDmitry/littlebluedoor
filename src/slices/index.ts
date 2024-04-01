@@ -26,6 +26,7 @@ export const components = defineSliceZoneComponents({
     () => import("./InstagramCards/index.vue"),
   ),
   our_partners: defineAsyncComponent(() => import("./OurPartners/index.vue")),
+  rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
   slider_cards: defineAsyncComponent(() => import("./SliderCards/index.vue")),
   slideshow: defineAsyncComponent(() => import("./Slideshow/index.vue")),
   testimonials: defineAsyncComponent(() => import("./Testimonials/index.vue")),

@@ -13,15 +13,17 @@
 		class="pt-headerHeight"
 	>
 		<div class="px-4 pt-2 pb-8">
-			<h1 class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]">
-				{{ slice.primary.heading }}
+			<h1
+				v-if="slice?.primary?.heading"
+				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+			>
+				{{ slice?.primary?.heading }}
 			</h1>
 		</div>
 
-		<div>
+		<div v-if="slice?.primary?.image.url">
 			<NuxtImg
 				provider="prismic"
-				v-if="slice?.primary?.image?.url"
 				:src="slice?.primary?.image?.url"
 				class="w-full object-cover max-tablet:h-[250px] h-[440px]"
 				width="2000"

@@ -28,6 +28,13 @@
             "placeholder": "",
             "select": "media"
           }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
         }
       }
     }

@@ -18,6 +18,14 @@
             "label": "Title",
             "placeholder": ""
           }
+        },
+        "avatar": {
+          "type": "Link",
+          "config": {
+            "label": "avatar",
+            "placeholder": "",
+            "select": "media"
+          }
         }
       },
       "items": {
@@ -27,6 +35,13 @@
             "label": "Image",
             "placeholder": "",
             "select": "media"
+          }
+        },
+        "country": {
+          "type": "Text",
+          "config": {
+            "label": "country",
+            "placeholder": ""
           }
         }
       }

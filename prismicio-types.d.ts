@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ExperiencesDocumentDataSlicesSlice = RichTextSlice | HeroSlice;
+
+/**
+ * Content for Experiences documents
+ */
+interface ExperiencesDocumentData {
+  /**
+   * Slice Zone field in *Experiences*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ExperiencesDocumentDataSlicesSlice> /**
+   * Meta Description field in *Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: experiences.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Experiences*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: experiences.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Experiences document from Prismic
+ *
+ * - **API ID**: `experiences`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ExperiencesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ExperiencesDocumentData>,
+    "experiences",
+    Lang
+  >;
+
 type HomeDocumentDataSlicesSlice =
   | TestimonialsSlice
   | SlideshowSlice
@@ -264,7 +329,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomeDocument | PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | ExperiencesDocument
+  | HomeDocument
+  | PageDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *CommingSoon → Primary*
@@ -403,6 +472,16 @@ export interface FourCardsWithTitleSliceDefaultPrimary {
  */
 export interface FourCardsWithTitleSliceDefaultItem {
   /**
+   * title field in *FourCardsWithTitle → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_cards_with_title.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * Image field in *FourCardsWithTitle → Items*
    *
    * - **Field Type**: Image
@@ -413,14 +492,14 @@ export interface FourCardsWithTitleSliceDefaultItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Paragraph field in *FourCardsWithTitle → Items*
+   * body field in *FourCardsWithTitle → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: four_cards_with_title.items[].paragraph
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: four_cards_with_title.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  paragraph: prismic.KeyTextField;
+  body: prismic.RichTextField;
 }
 
 /**
@@ -540,7 +619,7 @@ export interface HeroWithVideoSliceDefaultPrimary {
   paragraph: prismic.KeyTextField;
 
   /**
-   * Video field in *HeroWithVideo → Primary*
+   * Video WEBM field in *HeroWithVideo → Primary*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
@@ -548,6 +627,16 @@ export interface HeroWithVideoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   video: prismic.LinkToMediaField;
+
+  /**
+   * video mp4 field in *HeroWithVideo → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.primary.video_mp4
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_mp4: prismic.LinkToMediaField;
 }
 
 /**
@@ -685,14 +774,14 @@ export interface ImageWithTextSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * Paragraph field in *ImageWithText → Primary*
+   * paragraph field in *ImageWithText → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: image_with_text.primary.paragraph
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  paragraph: prismic.KeyTextField;
+  paragraph: prismic.RichTextField;
 }
 
 /**
@@ -738,6 +827,16 @@ export interface InstagramCardsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * avatar field in *InstagramCards → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_cards.primary.avatar
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  avatar: prismic.LinkToMediaField;
 }
 
 /**
@@ -753,6 +852,16 @@ export interface InstagramCardsSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   image: prismic.LinkToMediaField;
+
+  /**
+   * country field in *InstagramCards → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_cards.items[].country
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  country: prismic.KeyTextField;
 }
 
 /**
@@ -841,6 +950,51 @@ export type OurPartnersSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *RichText → Primary*
+ */
+export interface RichTextSliceDefaultPrimary {
+  /**
+   * body field in *RichText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RichText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RichTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RichText*
+ */
+type RichTextSliceVariation = RichTextSliceDefault;
+
+/**
+ * RichText Shared Slice
+ *
+ * - **API ID**: `rich_text`
+ * - **Description**: RichText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextSlice = prismic.SharedSlice<
+  "rich_text",
+  RichTextSliceVariation
+>;
+
+/**
  * Primary content in *SliderCards → Primary*
  */
 export interface SliderCardsSliceDefaultPrimary {
@@ -868,6 +1022,16 @@ export interface SliderCardsSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   image: prismic.LinkToMediaField;
+
+  /**
+   * title field in *SliderCards → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_cards.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
 }
 
 /**
@@ -1417,6 +1581,16 @@ export interface TitleWithSliderCardsSliceDefaultItem {
   paragraph: prismic.KeyTextField;
 
   /**
+   * body field in *TitleWithSliderCards → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_with_slider_cards.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
    * Button label field in *TitleWithSliderCards → Items*
    *
    * - **Field Type**: Text
@@ -1778,6 +1952,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ExperiencesDocument,
+      ExperiencesDocumentData,
+      ExperiencesDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -1830,6 +2007,10 @@ declare module "@prismicio/client" {
       OurPartnersSliceDefaultPrimary,
       OurPartnersSliceVariation,
       OurPartnersSliceDefault,
+      RichTextSlice,
+      RichTextSliceDefaultPrimary,
+      RichTextSliceVariation,
+      RichTextSliceDefault,
       SliderCardsSlice,
       SliderCardsSliceDefaultPrimary,
       SliderCardsSliceDefaultItem,

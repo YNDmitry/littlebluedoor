@@ -3,21 +3,24 @@
 </script>
 
 <template>
-	<footer class="bg-mainColor">
+	<footer class="bg-mainColor text-white">
 		<div class="mx-auto px-4">
 			<div class="pb-[20px] pt-[40px]">
-				<p class="text-center text-white">Stay Tuned.</p>
+				<div class="text-center max-w-[390px] mx-auto">
+					<div class="text-[20px] font-medium">JOIN OUR MAILING LIST</div>
+					<p class="mt-4">
+						Be the first to hear about upcoming trips, unique destinations, and preferred rates.
+					</p>
+				</div>
 
-				<form class="flex h-[75px] max-w-[750px] mx-auto pt-6">
+				<form class="flex h-[75px] mx-auto pt-6 max-w-[390px]">
 					<input
 						type="text"
 						placeholder="EMAIL ADDRESS"
-						class="w-full border-b border-gray-400 pl-4 tracking-[3px] tablet:text-[20px]"
+						class="w-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black"
 					/>
 
-					<button class="w-[140px] bg-primary border-primary border text-[14px] text-white">
-						SUBSCRIBE
-					</button>
+					<button class="w-[140px] bg-primary border-primary border text-[14px]">SUBSCRIBE</button>
 				</form>
 
 				<div class="flex items-center justify-center gap-5 max-tablet:pt-[45px] tablet:pt-[90px]">
@@ -48,19 +51,9 @@
 			<div
 				class="flex items-center justify-center gap-8 text-[14px] text-white max-tablet:flex-col max-tablet:gap-4 max-tablet:pb-4 tablet:h-[50px] tablet:gap-2"
 			>
-				<div class="flex gap-8">
-					<a href="#" class="uppercase">T&S</a>
-					<a href="#" class="uppercase">REFUND POLICY</a>
-				</div>
-
 				<a href="#" class="uppercase mx-4"
 					>© {{ new Date().getFullYear() }} LITTLEBLUEDOOR | ALL RIGHTS RESERVED</a
 				>
-
-				<div class="flex gap-8">
-					<a href="#">PRIVACY POLICY</a>
-					<a href="#">REVIEWS</a>
-				</div>
 			</div>
 		</div>
 	</footer>

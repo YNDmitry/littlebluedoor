@@ -17,7 +17,7 @@
 				<div>
 					<div class="inline-grid w-full grid-cols-someOfTheHotels justify-between gap-7">
 						<article class="inline-flex flex-col items-center gap-[10px]">
-							<img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" />
+							<!-- <img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" /> -->
 
 							<div class="flex flex-col items-center px-2">
 								<p class="text-[18px] uppercase">Lorem</p>
@@ -27,7 +27,7 @@
 							</div>
 						</article>
 						<article class="inline-flex flex-col items-center gap-[10px]">
-							<img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" />
+							<!-- <img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" /> -->
 
 							<div class="flex flex-col items-center px-2">
 								<p class="text-[18px] uppercase">Lorem</p>
@@ -37,7 +37,7 @@
 							</div>
 						</article>
 						<article class="inline-flex flex-col items-center gap-[10px]">
-							<img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" />
+							<!-- <img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" /> -->
 
 							<div class="flex flex-col items-center px-2">
 								<p class="text-[18px] uppercase">Lorem</p>
@@ -47,7 +47,7 @@
 							</div>
 						</article>
 						<article class="inline-flex flex-col items-center gap-[10px]">
-							<img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" />
+							<!-- <img class="h-[240px] w-[240px] object-cover" src="/img/ourService.png" alt="" /> -->
 
 							<div class="flex flex-col items-center px-2">
 								<p class="text-[18px] uppercase">Lorem</p>

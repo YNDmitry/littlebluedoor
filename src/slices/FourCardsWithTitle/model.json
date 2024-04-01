@@ -28,6 +28,13 @@
         }
       },
       "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -36,11 +43,13 @@
             "thumbnails": []
           }
         },
-        "paragraph": {
-          "type": "Text",
+        "body": {
+          "type": "StructuredText",
           "config": {
-            "label": "Paragraph",
-            "placeholder": ""
+            "label": "body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       }

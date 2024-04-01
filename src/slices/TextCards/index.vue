@@ -20,12 +20,12 @@
 					class="grid justify-items-center gap-x-3 max-tablet:gap-y-[35px] max-tablet:pt-[40px] tablet:grid-cols-2 tablet:gap-y-[50px] tablet:pt-[80px]"
 				>
 					<div
-						v-for="card in slice.items"
-						:key="card"
-						class="flex w-full flex-col text-center max-tablet:gap-[15px] tablet:gap-[30px] tablet:px-4 tablet:py-2"
+						v-for="(card, idx) in slice.items"
+						:key="idx"
+						class="flex w-full flex-col text-center max-tablet:gap-[15px] tablet:px-4 tablet:py-2"
 					>
 						<h3 class="font-bold max-tablet:text-[18px] text-[20px]">{{ card.title }}</h3>
-						<p class="">
+						<p class="mt-4">
 							{{ card.paragraph }}
 						</p>
 					</div>

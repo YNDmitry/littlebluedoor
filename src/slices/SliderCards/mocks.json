@@ -26,6 +26,14 @@
 								"__TYPE__": "FileLink"
 							}
 						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "tea",
+							"type": "Text"
+						}
 					]
 				]
 			}

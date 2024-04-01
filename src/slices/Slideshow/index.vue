@@ -6,6 +6,12 @@
 	defineProps(
 		getSliceComponentProps<Content.SlideshowSlice>(['slice', 'index', 'slices', 'context'])
 	)
+
+	const slideIndex = ref(0)
+
+	const getSlideIndex = (value: number) => {
+		return (slideIndex.value = value)
+	}
 </script>
 
 <template>
@@ -14,9 +20,9 @@
 		:data-slice-variation="slice.variation"
 		class="relative pb-[100px]"
 	>
-		<div class="relative">
+		<div class="relative flex flex-col items-center justify-center">
 			<Swiper
-				class="pt-[40px]"
+				class="pt-[40px] w-full"
 				:space-between="20"
 				:modules="[SwiperEffectFade, SwiperAutoplay]"
 				:speed="700"
@@ -26,6 +32,7 @@
 				}"
 				:loop="true"
 				:effect="'fade'"
+				@slide-change="getSlideIndex($event.activeIndex)"
 			>
 				<SwiperSlide v-for="item in slice?.items">
 					<NuxtImg
@@ -34,23 +41,17 @@
 						:src="item?.image?.url"
 						:quality="80"
 						width="2000"
-						height="1000"
-						class="w-full object-cover tablet:aspect-[1440/500] max-tablet:aspect-[700/500]"
+						height="600"
+						class="w-full object-cover h-[600px] max-tablet:h-[400px]"
 					/>
-
-					<p
-						class="absolute uppercase z-10 tablet:right-[-8px] max-tablet:right-[-4px] text-start top-1/2 tablet:w-[45%] max-tablet:w-[35%] translate-y-[-20%] text-[40px] font-semibold text-white max-tablet:text-[25px]"
-					>
-						{{ item?.country }}
-					</p>
 				</SwiperSlide>
 			</Swiper>
 
-			<p
-				class="absolute z-10 left-0 top-1/2 tablet:w-[55%] max-tablet:w-[65%] text-right translate-y-[-20%] text-center text-[40px] font-semibold text-white max-tablet:text-[25px]"
+			<div
+				class="absolute uppercase z-10 text-[40px] font-semibold text-white max-tablet:text-[25px]"
 			>
-				YOUR DOOR TO
-			</p>
+				Your door to {{ slice.items[slideIndex].country }}
+			</div>
 		</div>
 
 		<div class="px-4 flex items-center justify-center" v-if="slice?.primary?.button_link">

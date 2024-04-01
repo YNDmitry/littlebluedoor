@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"paragraph": {
-				"__TYPE__": "FieldContent",
-				"value": "rice",
-				"type": "Text"
-			},
 			"image": {
 				"origin": {
 					"id": "main",
@@ -30,6 +25,17 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"paragraph": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim laboris occaecat cillum occaecat anim Lorem adipisicing minim quis consectetur veniam sint qui dolore."
+						}
+					}
+				]
 			}
 		},
 		"items": []

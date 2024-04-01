@@ -15,7 +15,7 @@
 
 <template>
 	<section
-		class="py-[100px]"
+		class="py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -103,14 +103,14 @@
 						{{ item?.title }}
 					</h3>
 
-					<p class="uppercase" v-if="item?.paragraph">
-						{{ item?.paragraph }}
-					</p>
+					<div v-if="item?.body">
+						<PrismicRichText :field="item?.body" />
+					</div>
 
 					<NuxtLink
 						v-if="item?.button_link"
 						:to="item?.button_link"
-						class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors"
+						class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
 					>
 						{{ item?.button_label }}
 					</NuxtLink>

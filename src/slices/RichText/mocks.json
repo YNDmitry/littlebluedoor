@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis magna commodo in est nulla culpa nisi sit minim in incididunt ullamco sit dolor nostrud. Aute aliquip quis voluptate nulla commodo pariatur minim nulla minim."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

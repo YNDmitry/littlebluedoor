@@ -30,7 +30,6 @@ export default {
 
       fontFamily: {
         montserrat: ["Montserrat"],
-        openSans: ["Open Sans"],
         kyiv: ["Kyiv"],
       },
 

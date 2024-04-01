@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="py-[100px]"
+		class="py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -28,10 +28,10 @@
 				class="text-center"
 			/>
 
-			<div class="block text-center mt-[70px]" v-if="slice.primary.button_link">
+			<div class="block text-center mt-[40px]" v-if="slice.primary.button_link">
 				<NuxtLink
 					:to="slice.primary.button_link || ''"
-					class="inline-block uppercase hover:bg-mainColorHover mx-auto px-8 py-4 bg-mainColor text-[25px] font-medium text-bg transition-colors max-tablet:mt-[40px] max-tablet:h-[55px] max-tablet:text-[20px] tablet:h-[67px]"
+					class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
 					>{{ slice.primary.button_label }}</NuxtLink
 				>
 			</div>

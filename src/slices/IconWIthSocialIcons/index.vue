@@ -15,7 +15,7 @@
 
 <template>
 	<section
-		class="flex flex-col items-center py-[80px]"
+		class="flex flex-col items-center pt-[80px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>

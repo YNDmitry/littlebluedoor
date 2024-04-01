@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="max-tablet:pb-[50px] py-[100px]"
+		class="max-tablet:pb-[50px] py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -25,9 +25,10 @@
 			<div class="relative">
 				<Swiper
 					class="max-tablet:pt-[50px]"
+					:modules="[SwiperNavigation]"
 					:navigation="{
-						nextEl: '#swiper-next',
-						prevEl: '#swiper-prev',
+						nextEl: '.swiper-lbdOne-btn.button-next',
+						prevEl: '.swiper-lbdOne-btn.button-prev',
 					}"
 					:breakpoints="{
 						320: {
@@ -56,21 +57,22 @@
 							width="200"
 							height="300"
 						/>
+						<div v-if="slide?.title" class="text-center mt-3">{{ slide?.title }}</div>
 					</SwiperSlide>
 				</Swiper>
 
 				<div
-					class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 pt-4 absolute top-1/2 translate-y-[-50%]"
+					class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 max-tablet:static max-tablet:mt-7 pt-4 absolute top-1/2 translate-y-[-50%]"
 				>
 					<button
-						id="swiper-prev"
+						type="button"
 						class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 					>
 						<IconsArrow customClasses="rotate-180" />
 					</button>
 
 					<button
-						id="swiper-next"
+						type="button"
 						class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 					>
 						<IconsArrow />

@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="py-[100px]"
+		class="py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -41,40 +41,25 @@
 			</div>
 		</div>
 
-		<div class="mx-auto pt-4 mt-5">
-			<Swiper
-				:loop="true"
-				:breakpoints="{
-					320: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					460: {
-						slidesPerView: 3,
-						spaceBetween: 20,
-					},
-					768: {
-						slidesPerView: 4,
-						spaceBetween: 20,
-					},
-					991: {
-						slidesPerView: 5,
-						spaceBetween: 20,
-					},
-				}"
-			>
-				<SwiperSlide v-for="slide in slice?.items" :key="slide" class="max-w-[400px]">
+		<component :is="'style'">
+			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
+			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
+		</component>
+		<div class="mx-auto pt-4 mt-5 hav-swiper flex gap-5">
+			<template v-for="(item, index) in 3" :key="index">
+				<div v-for="(slide, idx) in slice?.items" :key="idx" class="max-w-[400px] shrink-0">
 					<NuxtImg
 						provider="prismic"
 						class="object-cover aspect-square"
-						v-if="slide?.slider_image?.url"
-						:src="slide?.slider_image?.url || null"
-						:alt="slide?.slider_image?.alt || null"
+						:src="slide?.slider_image?.url || ''"
+						:alt="slide?.slider_image?.alt || ''"
 						width="600"
 						height="600"
 					/>
-				</SwiperSlide>
-			</Swiper>
+				</div>
+			</template>
 		</div>
 	</section>
 </template>
+
+<style></style>

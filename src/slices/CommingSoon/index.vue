@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="flex flex-col gap-[40px] py-[100px]"
+		class="flex flex-col gap-[40px] py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -22,7 +22,7 @@
 			:src="slice?.primary?.image?.url"
 			width="80"
 		/>
-		<p class="text-center uppercase max-tablet:text-[20px] tablet:text-[30px]">
+		<p class="text-center uppercase">
 			{{ slice?.primary?.title }}
 		</p>
 	</section>

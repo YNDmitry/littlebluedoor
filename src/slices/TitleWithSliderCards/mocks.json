@@ -88,6 +88,20 @@
 								"__TYPE__": "FileLink"
 							}
 						}
+					],
+					[
+						"body",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Exercitation ullamco eu aliquip consequat aliquip nisi sunt ut fugiat laborum deserunt. Quis amet incididunt deserunt. Reprehenderit magna deserunt esse."
+									}
+								}
+							]
+						}
 					]
 				]
 			}

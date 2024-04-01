@@ -36,7 +36,15 @@
         "video": {
           "type": "Link",
           "config": {
-            "label": "Video",
+            "label": "Video WEBM",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "video_mp4": {
+          "type": "Link",
+          "config": {
+            "label": "video mp4",
             "placeholder": "",
             "select": "media"
           }

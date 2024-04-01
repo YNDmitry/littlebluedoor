@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="py-[100px]"
+		class="py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -19,24 +19,10 @@
 				{{ slice?.primary.title }}
 			</h2>
 
-			<Swiper
-				class="pt-[40px] mt-8"
-				:breakpoints="{
-					320: {
-						slidesPerView: 1,
-						spaceBetween: 20,
-					},
-					615: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					991: {
-						slidesPerView: 3,
-						spaceBetween: 35,
-					},
-				}"
+			<div
+				class="grid grid-cols-3 gap-[35px] max-tablet:gap-[20px] mt-11 max-laptop:grid-cols-2 max-mobile:grid-cols-1"
 			>
-				<SwiperSlide v-for="item in slice?.items" :key="item">
+				<template v-for="(item, idx) in slice?.items" :key="idx">
 					<div class="flex flex-col bg-white min-h-[417px]">
 						<NuxtImg
 							provider="prismic"
@@ -46,9 +32,9 @@
 							width="400"
 							height="200"
 							format="webp"
-							class="h-[200px] object-cover w-full"
+							class="h-[200px] object-cover w-full max-tablet:aspect-square"
 						/>
-						<div class="px-[25px] py-8">
+						<div class="px-[25px] py-8 h-full">
 							<h3 class="text-[20px] font-medium">{{ item?.title }}</h3>
 
 							<p class="tablet:font-medium mt-4">
@@ -56,8 +42,8 @@
 							</p>
 						</div>
 					</div>
-				</SwiperSlide>
-			</Swiper>
+				</template>
+			</div>
 		</div>
 	</section>
 </template>

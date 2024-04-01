@@ -8,11 +8,11 @@
 
 <template>
 	<section
-		class="max-tablet:pt-[50px] py-[100px]"
+		class="max-tablet:pt-[50px] py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<div class="mx-auto max-w-[900px] px-4">
+		<div class="mx-auto max-w-[1100px] px-4">
 			<h2
 				v-if="slice?.primary?.title"
 				class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
@@ -29,34 +29,81 @@
 							<input
 								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
 								type="text"
-								placeholder="FIRST NAME"
+								placeholder="Where would you like to go?"
+								aria-label="Where would you like to go?"
+							/>
+
+							<input
+								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
+								type="date"
+								placeholder="When would you like to go?"
+								aria-label="When would you like to go?"
 							/>
 
 							<input
 								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
 								type="text"
-								placeholder="LAST NAME"
+								placeholder="How long would you like to go for?"
+								aria-label="How long would you like to go for?"
 							/>
 						</div>
 
-						<input
-							class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-							type="text"
-							placeholder="EMAIL"
-						/>
+						<div class="flex gap-[30px]">
+							<select
+								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
+								placeholder="Gender"
+							>
+								<option value="">Gender</option>
+								<option value="mr">Mr</option>
+								<option value="mrs">Mrs</option>
+							</select>
+							<input
+								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
+								type="text"
+								placeholder="First name"
+								aria-label="First name"
+							/>
+
+							<input
+								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
+								type="text"
+								placeholder="Last name"
+								aria-label="Last name"
+							/>
+						</div>
+
+						<div class="flex gap-[30px]">
+							<input
+								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
+								type="email"
+								placeholder="Email address"
+								aria-label="Email address"
+								required
+							/>
+
+							<input
+								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
+								type="phone"
+								placeholder="Phone number"
+								aria-label="Phone number"
+							/>
+						</div>
 
 						<textarea
 							class="h-[170px] w-full border-b border-gray-400 bg-transparent"
-							placeholder="MESSAGE"
+							placeholder="Any specific comment or request?"
 						></textarea>
 					</div>
 				</div>
 
-				<button
-					class="hover:bg-mainColorHover mx-auto mt-[20px] table h-[48px] bg-mainColor px-2 font-regular text-bg transition-colors tablet:text-[25px] px-7"
-				>
-					Send
-				</button>
+				<div class="text-center">
+					<button
+						type="submit"
+						class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+					>
+						Request my journey
+					</button>
+				</div>
 			</form>
 		</div>
 	</section>

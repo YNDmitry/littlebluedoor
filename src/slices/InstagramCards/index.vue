@@ -45,17 +45,22 @@
 					<NuxtLink :to="settings?.data?.instagram?.url">
 						<div class="flex justify-between items-center bg-white px-3 py-3">
 							<div class="flex items-center gap-3">
-								<div class="rounded-[100%] overflow-hidden">
-									<img
-										src="https://a.storyblok.com/f/152732/320x320/53ce304c6e/instagram-avatar.jpeg/m/30x30/filters:quality(auto:best)"
+								<div
+									class="rounded-[100%] overflow-hidden h-[30px] w-[30px]"
+									v-if="slice?.primary?.avatar?.url"
+								>
+									<NuxtImg
+										provider="prismic"
+										:src="slice?.primary?.avatar?.url"
 										width="30"
 										height="30"
+										class="object-cover w-full h-full"
 									/>
 								</div>
 
 								<div class="instagram__photos-item-user">
 									<div class="text-[10px]">{{ slice?.primary?.title }}</div>
-									<div class="text-[10px]">London</div>
+									<div class="text-[10px]">{{ slide?.country || '' }}</div>
 								</div>
 							</div>
 
@@ -67,6 +72,8 @@
 								provider="prismic"
 								class="mx-auto object-cover w-full h-[250px]"
 								:src="slide?.image?.url"
+								width="350"
+								:quality="80"
 							/>
 						</div>
 					</NuxtLink>

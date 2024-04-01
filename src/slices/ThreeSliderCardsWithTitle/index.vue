@@ -26,12 +26,12 @@
 
 			<div
 				v-if="slice?.variation === 'default'"
-				class="grid justify-items-start gap-x-6 gap-y-12 pt-[45px] mobile:grid-cols-lbdOffer"
+				class="grid gap-x-6 gap-y-20 pt-[45px] mobile:grid-cols-lbdOffer"
 			>
 				<div
 					class="flex w-full flex-col items-center"
 					v-for="(item, idx) in slice?.items"
-					:key="item"
+					:key="idx"
 				>
 					<div class="relative">
 						<Swiper
@@ -41,30 +41,27 @@
 								prevEl: '#swiper-ldbOne-next-' + idx,
 							}"
 							:spaceBetween="20"
-							class="w-[300px] overflow-hidden"
+							class="w-[300px] max-tablet:w-full max-tablet:max-w-[500px] overflow-hidden"
 						>
-							<SwiperSlide class="w-full">
+							<SwiperSlide class="w-full" v-if="item?.image?.url">
 								<NuxtImg
 									provider="prismic"
-									v-if="item?.image?.url"
-									class="object-cover aspect-square"
+									class="object-cover aspect-square max-tablet:w-full"
 									:src="item?.image?.url"
 									width="300"
 								/>
 							</SwiperSlide>
-							<SwiperSlide>
+							<SwiperSlide v-if="item?.image_2?.url">
 								<NuxtImg
 									provider="prismic"
-									v-if="item?.image_2?.url"
 									class="object-cover aspect-square"
 									:src="item?.image_2?.url"
 									width="300"
 								/>
 							</SwiperSlide>
-							<SwiperSlide>
+							<SwiperSlide v-if="item?.image_3?.url">
 								<NuxtImg
 									provider="prismic"
-									v-if="item?.image_3?.url"
 									class="object-cover aspect-square"
 									:src="item?.image_3.url"
 									width="300"
@@ -91,21 +88,32 @@
 						</div>
 					</div>
 
-					<div class="flex flex-col items-center gap-6 pt-[20px]">
-						<p class="text-[20px] font-medium uppercase">{{ item?.title }}</p>
-
-						<span class="max-w-[450px] text-center text-[14px] font-medium uppercase">{{
-							item?.paragraph
-						}}</span>
-
-						<p class="text-[20px] font-medium uppercase">{{ item?.days_and_nights }}</p>
-
-						<NuxtLink
-							:to="item?.button_link?.url"
-							class="hover:bg-mainColorHover uppercase py-2 px-7 table bg-mainColor text-[16px] font-regular text-bg transition-colors"
+					<div class="grid grid-rows-[min-content_1fr_min-content] h-full gap-6 pt-[20px]">
+						<!-- Title -->
+						<h3
+							class="min-h-[60px] max-tablet:min-h-max mb-auto text-[20px] font-medium uppercase text-center"
 						>
-							find out more
-						</NuxtLink>
+							{{ item?.title }}
+						</h3>
+
+						<!-- Paragraph -->
+						<span class="max-w-[450px] text-center text-[14px] font-medium">
+							{{ item?.paragraph }}
+						</span>
+
+						<!-- Days, Nights, and Button -->
+						<div class="flex flex-col items-center justify-end">
+							<p class="text-[20px] font-medium uppercase">
+								{{ item?.days_and_nights }}
+							</p>
+							<NuxtLink
+								v-if="item?.button_link"
+								:to="item?.button_link?.url || '/experiences/' + item?.button_link?.uid || null"
+								class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
+							>
+								find out more
+							</NuxtLink>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -114,15 +122,20 @@
 				v-if="slice?.variation === 'commingSoon'"
 				class="grid gap-y-10 items-start gap-x-6 pt-[45px] mobile:grid-cols-lbdOffer"
 			>
-				<article class="flex flex-col items-center" v-for="item in slice?.items">
-					<NuxtImg
-						provider="prismic"
-						v-if="item?.image?.url"
-						class="object-cover w-full aspect-square"
-						:src="item?.image?.url"
-					/>
+				<article
+					class="flex flex-col items-center h-full"
+					v-for="(item, idx) in slice?.items"
+					:key="idx"
+				>
+					<div v-if="item?.image?.url" class="w-full">
+						<NuxtImg
+							provider="prismic"
+							class="object-cover w-full aspect-square h-[300px]"
+							:src="item?.image?.url"
+						/>
+					</div>
 
-					<div class="flex flex-col gap-4 pt-[20px]">
+					<div class="flex flex-col justify-between gap-4 pt-[20px] h-full">
 						<p class="text-[20px] font-medium uppercase">{{ item?.title }}</p>
 
 						<span class="text-center text-[14px] font-medium uppercase">{{

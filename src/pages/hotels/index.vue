@@ -1,3 +1,7 @@
+<script setup lang="ts">
+	const settings = useSettings()
+</script>
+
 <template>
 	<div>
 		<section class="pb-[120px] pt-headerHeight">
@@ -18,11 +22,6 @@
 					<div>
 						<div class="flex justify-between items-center pb-5">
 							<h2 class="text-[24px] font-semibold uppercase">Italy</h2>
-
-							<div class="flex items-center gap-1">
-								<NuxtLink to="/hotels/country">Show all</NuxtLink>
-								<IconsArrow customClasses="w-[16px] h-[16px] text-mainColor" />
-							</div>
 						</div>
 
 						<div class="inline-grid w-full grid-cols-someOfTheHotels justify-between gap-7">
@@ -37,7 +36,12 @@
 									<p class="text-[18px] uppercase">Lorem</p>
 									<p class="text-[18px] uppercase">Lorem, ipsum</p>
 
-									<button class="pt-4 text-[18px] font-semibold uppercase">Book your room</button>
+									<NuxtLink
+										:to="settings?.data?.whatsapp?.url"
+										class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
+									>
+										Book your room
+									</NuxtLink>
 								</div>
 							</article>
 						</div>
@@ -45,11 +49,6 @@
 					<div>
 						<div class="flex justify-between items-center pb-5">
 							<h2 class="text-[24px] font-semibold uppercase">Spain</h2>
-
-							<div class="flex items-center gap-1">
-								<NuxtLink to="/hotels/country">Show all</NuxtLink>
-								<IconsArrow customClasses="w-[16px] h-[16px] text-mainColor" />
-							</div>
 						</div>
 
 						<div class="inline-grid w-full grid-cols-someOfTheHotels justify-between gap-7">
@@ -64,7 +63,12 @@
 									<p class="text-[18px] uppercase">Lorem</p>
 									<p class="text-[18px] uppercase">Lorem, ipsum</p>
 
-									<button class="pt-4 text-[18px] font-semibold uppercase">Book your room</button>
+									<NuxtLink
+										:to="settings?.data?.whatsapp?.url"
+										class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
+									>
+										Book your room
+									</NuxtLink>
 								</div>
 							</article>
 						</div>

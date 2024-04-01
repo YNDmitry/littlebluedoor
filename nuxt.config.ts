@@ -29,7 +29,7 @@ export default defineNuxtConfig({
 		'@nuxt/image',
 		'nuxt-lenis',
 		'@nuxtjs/prismic',
-		'nuxt-build-cache',
+		'@vueuse/nuxt',
 	],
 
 	css: ['~/assets/css/global.css'],

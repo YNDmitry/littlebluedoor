@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="py-[100px]"
+		class="py-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>

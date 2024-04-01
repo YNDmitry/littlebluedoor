@@ -45,11 +45,25 @@
 						}
 					],
 					[
-						"paragraph",
+						"title",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "level",
+							"value": "grain",
 							"type": "Text"
+						}
+					],
+					[
+						"body",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Occaecat consequat consequat sit commodo tempor anim esse non veniam magna et. Esse culpa velit eiusmod officia ex ipsum est proident dolor anim eu tempor est."
+									}
+								}
+							]
 						}
 					]
 				]
