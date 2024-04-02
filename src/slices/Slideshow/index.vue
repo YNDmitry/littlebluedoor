@@ -12,6 +12,10 @@
 	const getSlideIndex = (value: number) => {
 		return (slideIndex.value = value)
 	}
+
+	const getActiveCounty = computed(() => {
+		return slideIndex.value
+	})
 </script>
 
 <template>
@@ -32,7 +36,7 @@
 				}"
 				:loop="true"
 				:effect="'fade'"
-				@slide-change="getSlideIndex($event.activeIndex)"
+				@slide-change="getSlideIndex($event.realIndex)"
 			>
 				<SwiperSlide v-for="item in slice?.items">
 					<NuxtImg
@@ -48,9 +52,10 @@
 			</Swiper>
 
 			<div
+				v-motion-fade-in
 				class="absolute uppercase z-10 text-[40px] font-semibold text-white max-tablet:text-[25px]"
 			>
-				Your door to {{ slice.items[slideIndex].country }}
+				Your door to {{ slice?.items[getActiveCounty]?.country }}
 			</div>
 		</div>
 

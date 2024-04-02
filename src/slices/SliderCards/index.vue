@@ -16,6 +16,7 @@
 	>
 		<div class="relative mx-auto max-w-[1315px] px-4">
 			<h2
+				v-motion-fade-in
 				v-if="slice?.primary?.title"
 				class="text-center font-[500] uppercase max-tablet:text-[20px] tablet:text-[30px] pb-[50px]"
 			>
@@ -24,6 +25,7 @@
 
 			<div class="relative">
 				<Swiper
+					v-motion-fade-in
 					class="max-tablet:pt-[50px]"
 					:modules="[SwiperNavigation]"
 					:navigation="{

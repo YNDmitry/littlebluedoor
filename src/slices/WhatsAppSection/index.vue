@@ -14,6 +14,7 @@
 <template>
 	<section :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
 		<NuxtLink
+			v-motion-fade-in
 			:to="settings?.data?.whatsapp.url"
 			:target="settings?.data?.whatsapp.target || ''"
 			class="flex flex-col items-center justify-center gap-5 px-4 pb-[100px]"

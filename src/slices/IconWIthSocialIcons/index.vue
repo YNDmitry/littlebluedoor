@@ -19,9 +19,9 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<NuxtImg class="mx-auto w-[80px]" src="/img/homePage/logo.png" width="80" />
+		<NuxtImg v-motion-fade-in class="mx-auto w-[80px]" src="/img/homePage/logo.png" width="80" />
 
-		<div class="mt-[15px] flex items-center justify-center gap-5 p-3">
+		<div v-motion-fade-in class="mt-[15px] flex items-center justify-center gap-5 p-3">
 			<NuxtLink to="/" class="hover:scale-125 transition-all">
 				<IconsInstagram customClasses="text-mainColor" />
 			</NuxtLink>

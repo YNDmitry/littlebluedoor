@@ -17,6 +17,7 @@
 		<div class="mx-auto max-w-[582px]">
 			<div class="px-[10px]">
 				<div
+					v-motion-fade-in
 					class="flex w-full justify-between text-[12px] text-white max-tablet:gap-3 max-tablet:px-4 tablet:gap-5 tablet:px-9"
 				>
 					<NuxtLink
@@ -45,7 +46,7 @@
 			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
 			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
 		</component>
-		<div class="mx-auto pt-4 mt-5 hav-swiper flex gap-5">
+		<div v-motion-fade-in class="mx-auto pt-4 mt-5 hav-swiper flex gap-5">
 			<template v-for="(item, index) in 3" :key="index">
 				<div v-for="(slide, idx) in slice?.items" :key="idx" class="max-w-[400px] shrink-0">
 					<NuxtImg
@@ -61,5 +62,3 @@
 		</div>
 	</section>
 </template>
-
-<style></style>

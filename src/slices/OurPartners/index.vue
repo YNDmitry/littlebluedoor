@@ -29,7 +29,10 @@
 			</div>
 		</div>
 		<div class="relative h-[250px] overflow-hidden">
-			<div class="partners absolute left-0 top-[55px] flex w-full items-center gap-[100px]">
+			<div
+				v-motion-fade-in
+				class="partners absolute left-0 top-[55px] flex w-full items-center gap-[100px]"
+			>
 				<template v-for="item in 3" :key="item">
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
@@ -47,11 +50,6 @@
 						width="150"
 					/>
 
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/logoBlue.png"
-						width="150"
-					/>
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
 						src="/img/logos/luxury.png"

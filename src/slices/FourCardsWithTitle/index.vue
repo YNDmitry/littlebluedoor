@@ -16,13 +16,14 @@
 	>
 		<div class="mx-auto max-w-[1415px] px-4 pb-5">
 			<h2
+				v-motion-fade-in
 				class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
 				v-if="slice?.primary?.title"
 			>
 				{{ slice?.primary?.title }}
 			</h2>
 
-			<p class="pt-4 text-center" v-if="slice?.primary?.paragraph">
+			<p v-motion-fade-in class="pt-4 text-center" v-if="slice?.primary?.paragraph">
 				{{ slice?.primary?.paragraph }}
 			</p>
 
@@ -30,6 +31,7 @@
 				class="grid gap-5 pt-8 mt-9 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-4"
 			>
 				<div
+					v-motion-fade-in
 					class="flex flex-col gap-[15px] max-laptop:items-center"
 					v-for="(item, idx) in slice?.items"
 					:key="idx"

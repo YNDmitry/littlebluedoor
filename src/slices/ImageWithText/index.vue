@@ -14,11 +14,11 @@
 		:data-slice-variation="slice.variation"
 		class="flex flex-col items-center pt-[60px]"
 	>
-		<div class="pb-[50px]">
+		<div v-motion-fade-in class="pb-[50px]">
 			<NuxtImg src="/img/homePage/logo.png" width="80" />
 		</div>
 
-		<div v-if="slice?.primary?.paragraph.length > 0">
+		<div v-motion-fade-in v-if="slice?.primary?.paragraph.length > 0">
 			<PrismicRichText :field="slice?.primary?.paragraph" class="max-w-[650px] text-center" />
 		</div>
 	</section>

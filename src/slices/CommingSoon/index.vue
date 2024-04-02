@@ -15,6 +15,7 @@
 		:data-slice-variation="slice.variation"
 	>
 		<NuxtImg
+			v-motion-fade-in
 			provider="prismic"
 			v-if="slice?.primary?.image?.url"
 			:quality="80"
@@ -22,7 +23,7 @@
 			:src="slice?.primary?.image?.url"
 			width="80"
 		/>
-		<p class="text-center uppercase">
+		<p v-motion-fade-in class="text-center uppercase">
 			{{ slice?.primary?.title }}
 		</p>
 	</section>

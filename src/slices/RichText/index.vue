@@ -9,9 +9,9 @@
 
 	const serializer = {
 		heading1: ({ children }) =>
-			`<h1 class="font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px] mb-[25px]">${children}</h1>`,
+			`<h1 class="first:mt-0 font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px] mb-[25px]">${children}</h1>`,
 		heading2: ({ children }) =>
-			`<h2 class="font-[500] uppercase max-tablet:text-[20px] text-[28px] mb-[20px] mt-[25px]">${children}</h2>`,
+			`<h2 class="first:mt-0 font-[500] uppercase max-tablet:text-[20px] text-[28px] mb-[20px] mt-[25px]">${children}</h2>`,
 		heading3: ({ children }) =>
 			`<h3 class="text-[20px] mb-[15px] mt-[20px] uppercase font-[500]">${children}</h3>`,
 		heading4: ({ children }) => `<h4 class="text-[16px] my-[15px]">${children}</h4>`,
@@ -64,9 +64,9 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="py-[100px]"
+		class="pt-[60px] pb-[100px]"
 	>
-		<div v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
+		<div v-motion-fade-in v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
 			<PrismicRichText :field="slice?.primary?.body" :serializer="serializer" />
 		</div>
 	</section>

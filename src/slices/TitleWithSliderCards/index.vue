@@ -20,7 +20,10 @@
 		:data-slice-variation="slice.variation"
 	>
 		<div class="mx-auto max-w-[680px]">
-			<h2 class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]">
+			<h2
+				v-motion-fade-in
+				class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
+			>
 				{{ slice?.primary.title }}
 			</h2>
 		</div>
@@ -33,7 +36,7 @@
 				v-for="(item, idx) in slice?.items"
 				:key="idx"
 			>
-				<div class="hotelSwiper relative flex flex-col gap-4">
+				<div v-motion-fade-in class="hotelSwiper relative flex flex-col gap-4">
 					<Swiper
 						:modules="[SwiperNavigation]"
 						class="w-full max-w-[455px] max-tablet:max-w-none ml-4"
@@ -99,17 +102,18 @@
 				<div
 					class="hotelContent items-start flex w-full flex-col justify-center gap-[15px] text-[14px]"
 				>
-					<h3 class="text-[20px] font-medium uppercase" v-if="item?.title">
+					<h3 v-motion-fade-in class="text-[20px] font-medium uppercase" v-if="item?.title">
 						{{ item?.title }}
 					</h3>
 
-					<div v-if="item?.body">
+					<div v-motion-fade-in v-if="item?.body">
 						<PrismicRichText :field="item?.body" />
 					</div>
 
 					<NuxtLink
+						v-motion-fade-in
 						v-if="item?.button_link"
-						:to="item?.button_link"
+						:to="item?.button_link?.url"
 						class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
 					>
 						{{ item?.button_label }}

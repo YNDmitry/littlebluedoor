@@ -22,6 +22,24 @@ export default defineNuxtConfig({
 		},
 	},
 
+	runtimeConfig: {
+		public: {
+			motion: {
+				directives: {
+					'fade-in': {
+						initial: {
+							opacity: 0,
+						},
+						visibleOnce: {
+							opacity: 1,
+							decay: 0.8,
+						},
+					},
+				},
+			},
+		},
+	},
+
 	modules: [
 		'@nuxtjs/tailwindcss',
 		'nuxt-swiper',
@@ -30,6 +48,7 @@ export default defineNuxtConfig({
 		'nuxt-lenis',
 		'@nuxtjs/prismic',
 		'@vueuse/nuxt',
+		'@vueuse/motion/nuxt',
 	],
 
 	css: ['~/assets/css/global.css'],

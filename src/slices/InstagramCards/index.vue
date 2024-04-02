@@ -19,12 +19,14 @@
 	>
 		<div class="px-4 mx-auto max-w-[1300px]">
 			<h2
+				v-motion-fade-in
 				class="px-4 text-center text-[28px] font-[500] uppercase max-tablet:text-[25px] max-mobile:text-[20px]"
 			>
 				{{ slice?.primary?.title }}
 			</h2>
 
 			<Swiper
+				v-motion-fade-in
 				class="pt-[50px] mt-6"
 				:breakpoints="{
 					320: {
@@ -42,7 +44,7 @@
 				}"
 			>
 				<SwiperSlide v-for="slide in slice?.items" :key="slide">
-					<NuxtLink :to="settings?.data?.instagram?.url">
+					<NuxtLink v-motion-fade-in :to="settings?.data?.instagram?.url">
 						<div class="flex justify-between items-center bg-white px-3 py-3">
 							<div class="flex items-center gap-3">
 								<div

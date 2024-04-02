@@ -20,7 +20,10 @@
 		:data-slice-variation="slice.variation"
 	>
 		<div class="mx-auto max-w-[1400px] px-4">
-			<h2 class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]">
+			<h2
+				v-motion-fade-in
+				class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
+			>
 				{{ slice?.primary?.title }}
 			</h2>
 
@@ -35,6 +38,7 @@
 				>
 					<div class="relative">
 						<Swiper
+							v-motion-fade-in
 							:modules="[SwiperNavigation]"
 							:navigation="{
 								nextEl: '#swiper-ldbOne-prev-' + idx,
@@ -91,18 +95,19 @@
 					<div class="grid grid-rows-[min-content_1fr_min-content] h-full gap-6 pt-[20px]">
 						<!-- Title -->
 						<h3
+							v-motion-fade-in
 							class="min-h-[60px] max-tablet:min-h-max mb-auto text-[20px] font-medium uppercase text-center"
 						>
 							{{ item?.title }}
 						</h3>
 
 						<!-- Paragraph -->
-						<span class="max-w-[450px] text-center text-[14px] font-medium">
+						<span v-motion-fade-in class="max-w-[450px] text-center text-[14px] font-medium">
 							{{ item?.paragraph }}
 						</span>
 
 						<!-- Days, Nights, and Button -->
-						<div class="flex flex-col items-center justify-end">
+						<div v-motion-fade-in class="flex flex-col items-center justify-end">
 							<p class="text-[20px] font-medium uppercase">
 								{{ item?.days_and_nights }}
 							</p>
@@ -127,7 +132,7 @@
 					v-for="(item, idx) in slice?.items"
 					:key="idx"
 				>
-					<div v-if="item?.image?.url" class="w-full">
+					<div v-motion-fade-in v-if="item?.image?.url" class="w-full">
 						<NuxtImg
 							provider="prismic"
 							class="object-cover w-full aspect-square h-[300px]"
@@ -135,7 +140,7 @@
 						/>
 					</div>
 
-					<div class="flex flex-col justify-between gap-4 pt-[20px] h-full">
+					<div v-motion-fade-in class="flex flex-col justify-between gap-4 pt-[20px] h-full">
 						<p class="text-[20px] font-medium uppercase">{{ item?.title }}</p>
 
 						<span class="text-center text-[14px] font-medium uppercase">{{

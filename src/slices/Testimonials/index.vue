@@ -15,11 +15,15 @@
 		:data-slice-variation="slice.variation"
 	>
 		<div class="px-4 mx-auto max-w-[1300px]">
-			<h2 class="px-4 text-center font-[500] uppercase max-tablet:text-[26px] text-[28px]">
+			<h2
+				v-motion-fade-in
+				class="px-4 text-center font-[500] uppercase max-tablet:text-[26px] text-[28px]"
+			>
 				{{ slice?.primary.title }}
 			</h2>
 
 			<div
+				v-motion-fade-in
 				class="grid grid-cols-3 gap-[35px] max-tablet:gap-[20px] mt-11 max-laptop:grid-cols-2 max-mobile:grid-cols-1"
 			>
 				<template v-for="(item, idx) in slice?.items" :key="idx">

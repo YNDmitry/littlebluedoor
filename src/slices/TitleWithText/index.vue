@@ -15,20 +15,21 @@
 		:data-slice-variation="slice.variation"
 	>
 		<h2
+			v-motion-fade-in
 			v-if="slice?.primary?.title"
 			class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px] pb-[45px]"
 		>
 			{{ slice?.primary?.title }}
 		</h2>
 
-		<div class="mx-auto flex max-w-[747px] flex-col items-center px-4">
+		<div v-motion-fade-in class="mx-auto flex max-w-[747px] flex-col items-center px-4">
 			<PrismicRichText
 				:field="slice?.primary?.body"
 				v-if="slice?.primary?.body"
 				class="text-center"
 			/>
 
-			<div class="block text-center mt-[40px]" v-if="slice.primary.button_link">
+			<div v-motion-fade-in class="block text-center mt-[40px]" v-if="slice.primary.button_link">
 				<NuxtLink
 					:to="slice.primary.button_link || ''"
 					class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
@@ -36,7 +37,11 @@
 				>
 			</div>
 
-			<div v-if="slice?.variation === 'textWithButtonAndIcon'" class="block mt-[70px]">
+			<div
+				v-motion-fade-in
+				v-if="slice?.variation === 'textWithButtonAndIcon'"
+				class="block mt-[70px]"
+			>
 				<NuxtImg
 					provider="prismic"
 					v-if="slice?.primary?.image?.url"

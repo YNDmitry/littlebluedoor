@@ -14,6 +14,7 @@
 	>
 		<div class="px-4 pt-2 pb-8">
 			<h1
+				v-motion-fade-in
 				v-if="slice?.primary?.heading"
 				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
 			>
@@ -21,7 +22,7 @@
 			</h1>
 		</div>
 
-		<div v-if="slice?.primary?.image.url">
+		<div v-motion-fade-in v-if="slice?.primary?.image.url">
 			<NuxtImg
 				provider="prismic"
 				:src="slice?.primary?.image?.url"

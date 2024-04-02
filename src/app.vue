@@ -13,9 +13,7 @@
 <template>
 	<div class="flex min-h-screen flex-col">
 		<NuxtLayout>
-			<lenis :options="LenisOptions">
-				<NuxtPage />
-			</lenis>
+			<NuxtPage />
 		</NuxtLayout>
 	</div>
 </template>

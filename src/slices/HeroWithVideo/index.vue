@@ -30,7 +30,7 @@
 			<div
 				class="absolute left-1/2 top-1/2 flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center px-3 text-white"
 			>
-				<div class="flex flex-col items-center">
+				<div v-motion-fade-in class="flex flex-col items-center">
 					<h1
 						class="text-center titleMainBanner capitalize max-largeDesktop:mt-[-10px] max-largeDesktop:text-[35px] max-tablet:text-[25px] text-[60px]"
 					>
@@ -42,7 +42,10 @@
 					</h1>
 				</div>
 
-				<p class="text-center max-tablet:text-[12px] text-[20px] mt-[50px] max-tablet:mt-[30px]">
+				<p
+					v-motion-fade-in
+					class="text-center max-tablet:text-[12px] text-[20px] mt-[50px] max-tablet:mt-[30px]"
+				>
 					{{ slice.primary.paragraph }}
 				</p>
 			</div>

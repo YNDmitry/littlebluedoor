@@ -96,7 +96,7 @@
 					</div>
 				</div>
 
-				<div class="text-center">
+				<div v-motion-fade-in class="text-center">
 					<button
 						type="submit"
 						class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
