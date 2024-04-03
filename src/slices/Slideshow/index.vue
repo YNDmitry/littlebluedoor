@@ -48,12 +48,17 @@
 						height="600"
 						class="w-full object-cover h-[600px] max-tablet:h-[400px]"
 					/>
+					<!-- <span
+						v-motion-fade-in
+						class="absolute top-1/2 left-1/2 mr-[-40px] z-40 text-[40px] font-semibold text-white max-tablet:text-[25px] uppercase"
+						>{{ slice?.items[getActiveCounty]?.country }}</span
+					> -->
 				</SwiperSlide>
 			</Swiper>
 
 			<div
 				v-motion-fade-in
-				class="absolute uppercase z-10 text-[40px] font-semibold text-white max-tablet:text-[25px]"
+				class="absolute text-center mx-2 top-1/2 left-1/3 max-tablet:left-auto max-w-[600px] uppercase z-10 text-[40px] font-semibold text-white max-tablet:text-[25px]"
 			>
 				Your door to {{ slice?.items[getActiveCounty]?.country }}
 			</div>

@@ -34,6 +34,12 @@ export default defineNuxtConfig({
 							opacity: 1,
 							decay: 0.8,
 						},
+						transition: {
+							type: 'spring',
+							stiffness: 100,
+							damping: 25,
+							mass: 0.1,
+						},
 					},
 				},
 			},

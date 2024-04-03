@@ -10,7 +10,7 @@
 
 <template>
 	<section
-		class="pb-[150px] pt-[170px]"
+		class="pb-[150px] pt-[170px] max-tablet:pb-[80px] max-tablet:pt-[130px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>

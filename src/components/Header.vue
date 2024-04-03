@@ -13,7 +13,7 @@
 </script>
 
 <template>
-	<header class="fixed z-[1000] w-full bg-bg">
+	<header class="fixed z-[1000] w-full bg-mainColor text-white">
 		<div class="px-[16px]">
 			<div id="nav" class="relative flex h-headerHeight items-center justify-between gap-6">
 				<NuxtLink to="/" class="z-[1000]">
@@ -30,7 +30,7 @@
 
 				<div
 					v-show="showMobileNavigation"
-					class="max-largeDesktop:fixed max-largeDesktop:bg-bg max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0 max-largeDesktop:pt-[150px] max-largeDesktop:h-full"
+					class="max-largeDesktop:fixed max-largeDesktop:bg-mainColor max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0 max-largeDesktop:pt-[150px] max-largeDesktop:h-full"
 				>
 					<nav
 						class="absolute max-largeDesktop:static left-[50%] translate-x-[-50%] max-largeDesktop:translate-x-0"
@@ -42,7 +42,7 @@
 								<NuxtLink
 									@click="isMobile ? (show = !show) : null"
 									:to="item?.link?.url || ''"
-									class="hover:text-mainColorHover transition-colors max-largeDesktop:text-[25px]"
+									class="hover:opacity-70 transition-opacity max-largeDesktop:text-[25px]"
 									>{{ item?.label }}</NuxtLink
 								>
 							</li>
@@ -52,9 +52,9 @@
 					<NuxtLink
 						:to="settings?.data?.whatsapp?.url"
 						:target="settings?.data?.whatsapp?.target || ''"
-						class="hover:text-mainColorHover flex items-center justify-center gap-2 max-largeDesktop:pt-[50px] max-largeDesktop:text-[20px]"
+						class="flex items-center justify-center gap-2 max-largeDesktop:pt-[50px] max-largeDesktop:text-[20px]"
 					>
-						<IconsWhatsapp customClasses="text-mainColor" />
+						<IconsWhatsapp customClasses="text-white" />
 
 						<span>PLAN YOUR JOURNEY</span>
 					</NuxtLink>

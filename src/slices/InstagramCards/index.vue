@@ -27,23 +27,23 @@
 
 			<Swiper
 				v-motion-fade-in
-				class="pt-[50px] mt-6"
+				id="instagram-slider"
+				class="pt-[50px] mt-6 !ml-[-1rem] !pl-[1rem] !mr-[-1rem] !pr-[1rem]"
 				:breakpoints="{
 					320: {
-						slidesPerView: 1,
-						spaceBetween: 20,
+						slidesPerView: 'auto',
 					},
-					768: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					1250: {
+					1200: {
 						slidesPerView: 4,
 						spaceBetween: 35,
 					},
 				}"
 			>
-				<SwiperSlide v-for="slide in slice?.items" :key="slide">
+				<SwiperSlide
+					v-for="slide in slice?.items"
+					:key="slide"
+					class="max-largeDesktop:max-w-[400px] max-largeDesktop:mr-[20px] max-tablet:max-w-[300px]"
+				>
 					<NuxtLink v-motion-fade-in :to="settings?.data?.instagram?.url">
 						<div class="flex justify-between items-center bg-white px-3 py-3">
 							<div class="flex items-center gap-3">
@@ -84,3 +84,9 @@
 		</div>
 	</section>
 </template>
+
+<style>
+	#instagram-slider .swiper-wrapper {
+		@apply overflow-visible;
+	}
+</style>

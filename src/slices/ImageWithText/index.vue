@@ -12,7 +12,7 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="flex flex-col items-center pt-[60px]"
+		class="flex flex-col items-center pt-[60px] px-4"
 	>
 		<div v-motion-fade-in class="pb-[50px]">
 			<NuxtImg src="/img/homePage/logo.png" width="80" />

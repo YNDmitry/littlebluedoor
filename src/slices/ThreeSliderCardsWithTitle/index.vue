@@ -45,12 +45,12 @@
 								prevEl: '#swiper-ldbOne-next-' + idx,
 							}"
 							:spaceBetween="20"
-							class="w-[300px] max-tablet:w-full max-tablet:max-w-[500px] overflow-hidden"
+							class="w-[300px] max-tablet:w-full max-tablet:max-w-[320px]"
 						>
 							<SwiperSlide class="w-full" v-if="item?.image?.url">
 								<NuxtImg
 									provider="prismic"
-									class="object-cover aspect-square max-tablet:w-full"
+									class="object-cover aspect-square w-full"
 									:src="item?.image?.url"
 									width="300"
 								/>
@@ -58,7 +58,7 @@
 							<SwiperSlide v-if="item?.image_2?.url">
 								<NuxtImg
 									provider="prismic"
-									class="object-cover aspect-square"
+									class="object-cover aspect-square w-full"
 									:src="item?.image_2?.url"
 									width="300"
 								/>
@@ -66,7 +66,7 @@
 							<SwiperSlide v-if="item?.image_3?.url">
 								<NuxtImg
 									provider="prismic"
-									class="object-cover aspect-square"
+									class="object-cover aspect-square w-full"
 									:src="item?.image_3.url"
 									width="300"
 								/>

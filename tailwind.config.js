@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         bg: "rgb(244, 239, 233)",
-        mainColor: "rgb(50, 74, 117)",
+        mainColor: "#131f5b",
         mainColorHover: "rgb(79 108 161)",
       },
 

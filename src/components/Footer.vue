@@ -19,7 +19,7 @@
 							v-motion-fade-in
 							type="text"
 							placeholder="EMAIL ADDRESS"
-							class="w-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black"
+							class="w-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black rounded-none"
 						/>
 
 						<button

@@ -2,15 +2,23 @@
 	import { components } from '../slices'
 	const prismic = usePrismic()
 
-	const { data: page } = await useAsyncData('home', async () => {
-		const document = await prismic.client.getSingle('home')
+	const { data: page } = await useAsyncData(
+		'home',
+		async () => {
+			const document = await prismic.client.getSingle('home')
 
-		if (document) {
-			return document
-		} else {
-			throw createError({ statusCode: 404, message: 'Page not found' })
+			if (document) {
+				return document
+			} else {
+				throw createError({ statusCode: 404, message: 'Page not found' })
+			}
+		},
+		{
+			getCachedData(key, nuxtApp) {
+				return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
+			},
 		}
-	})
+	)
 
 	useSeoMeta({
 		title: page?.value?.data?.meta_title || 'Littlebluedoor',

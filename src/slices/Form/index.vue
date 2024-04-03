@@ -44,12 +44,12 @@
 			<p class="pt-4 text-center uppercase">{{ slice?.primary?.paragraph }}</p>
 
 			<form @submit.prevent="onSubmit" class="mt-[30px]">
-				<div class="px-12 py-8">
+				<div class="px-12 max-tablet:px-0 py-8">
 					<div class="flex flex-col gap-[30px]">
-						<div class="flex gap-[30px]">
+						<div class="flex max-tablet:flex-col gap-[30px]">
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="text"
 									name="destination"
 									placeholder="Where would you like to go?"
@@ -60,7 +60,7 @@
 
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="date"
 									name="date"
 									placeholder="When would you like to go?"
@@ -71,7 +71,7 @@
 
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="text"
 									name="howLong"
 									placeholder="How long would you like to go for?"
@@ -81,12 +81,12 @@
 							</div>
 						</div>
 
-						<div class="flex gap-[30px]">
+						<div class="flex max-tablet:flex-col gap-[30px]">
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
 									name="gender"
 									as="select"
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									placeholder="Gender"
 								>
 									<option value="">Gender</option>
@@ -97,7 +97,7 @@
 							</div>
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="text"
 									name="firstName"
 									placeholder="First name"
@@ -108,7 +108,7 @@
 
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="text"
 									name="lastName"
 									placeholder="Last name"
@@ -118,10 +118,10 @@
 							</div>
 						</div>
 
-						<div class="flex gap-[30px]">
+						<div class="flex max-tablet:flex-col gap-[30px]">
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="email"
 									name="email"
 									placeholder="Email address"
@@ -132,7 +132,7 @@
 
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="phone"
 									name="phone"
 									placeholder="Phone number"
@@ -146,7 +146,7 @@
 							<Field
 								as="textarea"
 								name="comment"
-								class="min-h-[170px] w-full border-b border-gray-400 bg-transparent"
+								class="min-h-[170px] w-full border-b border-gray-400 bg-transparent rounded-none"
 								placeholder="Any specific comment or request?"
 							/>
 							<ErrorMessage name="comment" class="text-[red]" />

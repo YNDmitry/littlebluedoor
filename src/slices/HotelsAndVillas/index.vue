@@ -48,10 +48,14 @@
 		</component>
 		<div v-motion-fade-in class="mx-auto pt-4 mt-5 hav-swiper flex gap-5">
 			<template v-for="(item, index) in 3" :key="index">
-				<div v-for="(slide, idx) in slice?.items" :key="idx" class="max-w-[400px] shrink-0">
+				<div
+					v-for="(slide, idx) in slice?.items"
+					:key="idx"
+					class="max-w-[400px] max-tablet:max-w-[300] shrink-0"
+				>
 					<NuxtImg
 						provider="prismic"
-						class="object-cover aspect-square"
+						class="object-cover aspect-square max-tablet:max-w-[300px]"
 						:src="slide?.slider_image?.url || ''"
 						:alt="slide?.slider_image?.alt || ''"
 						width="600"
