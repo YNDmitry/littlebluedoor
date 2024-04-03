@@ -49,6 +49,9 @@ export default defineNuxtConfig({
 		'@nuxtjs/prismic',
 		'@vueuse/nuxt',
 		'@vueuse/motion/nuxt',
+		'@vee-validate/nuxt',
+		'nuxt-primevue',
+		'@formkit/auto-animate',
 	],
 
 	css: ['~/assets/css/global.css'],
@@ -62,6 +65,15 @@ export default defineNuxtConfig({
 					path: '/:uid',
 				},
 			],
+		},
+	},
+
+	primevue: {
+		options: {
+			unstyled: true,
+		},
+		components: {
+			include: ['Accordion', 'AccordionTab'],
 		},
 	},
 

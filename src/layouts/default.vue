@@ -6,9 +6,9 @@
 	<div>
 		<Header />
 
-		<main class="h-full flex-1">
+		<div class="h-full flex-1 overflow-x-clip">
 			<slot />
-		</main>
+		</div>
 
 		<Footer />
 		<SpeedInsights />

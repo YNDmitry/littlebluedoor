@@ -1,9 +1,30 @@
 <script setup lang="ts">
 	import { type Content } from '@prismicio/client'
+	import { object, string } from 'yup'
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
 	defineProps(getSliceComponentProps<Content.FormSlice>(['slice', 'index', 'slices', 'context']))
+
+	const schema = object({
+		destination: string(),
+		date: string(),
+		howLong: string(),
+		gender: string(),
+		firstName: string().required('First name is a required field'),
+		lastName: string().required('Last name is a required field'),
+		email: string().email('').required('Email is a required field'),
+		phone: string(),
+		comment: string().required('Comment is a required field'),
+	})
+
+	const { handleSubmit, isSubmitting } = useForm({
+		validationSchema: schema,
+	})
+
+	const onSubmit = handleSubmit((values) => {
+		console.log(values)
+	})
 </script>
 
 <template>
@@ -22,77 +43,114 @@
 
 			<p class="pt-4 text-center uppercase">{{ slice?.primary?.paragraph }}</p>
 
-			<form class="mt-[30px]">
+			<form @submit.prevent="onSubmit" class="mt-[30px]">
 				<div class="px-12 py-8">
 					<div class="flex flex-col gap-[30px]">
 						<div class="flex gap-[30px]">
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="text"
-								placeholder="Where would you like to go?"
-								aria-label="Where would you like to go?"
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="text"
+									name="destination"
+									placeholder="Where would you like to go?"
+									aria-label="Where would you like to go?"
+								/>
+								<ErrorMessage name="destination" class="text-[red]" />
+							</div>
 
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="date"
-								placeholder="When would you like to go?"
-								aria-label="When would you like to go?"
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="date"
+									name="date"
+									placeholder="When would you like to go?"
+									aria-label="When would you like to go?"
+								/>
+								<ErrorMessage name="date" class="text-[red]" />
+							</div>
 
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="text"
-								placeholder="How long would you like to go for?"
-								aria-label="How long would you like to go for?"
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="text"
+									name="howLong"
+									placeholder="How long would you like to go for?"
+									aria-label="How long would you like to go for?"
+								/>
+								<ErrorMessage name="howLong" class="text-[red]" />
+							</div>
 						</div>
 
 						<div class="flex gap-[30px]">
-							<select
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								placeholder="Gender"
-							>
-								<option value="">Gender</option>
-								<option value="mr">Mr</option>
-								<option value="mrs">Mrs</option>
-							</select>
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="text"
-								placeholder="First name"
-								aria-label="First name"
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									name="gender"
+									as="select"
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									placeholder="Gender"
+								>
+									<option value="">Gender</option>
+									<option value="mr">Mr</option>
+									<option value="mrs">Mrs</option>
+								</Field>
+								<ErrorMessage name="gender" class="text-[red]" />
+							</div>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="text"
+									name="firstName"
+									placeholder="First name"
+									aria-label="First name"
+								/>
+								<ErrorMessage name="firstName" class="text-[red]" />
+							</div>
 
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="text"
-								placeholder="Last name"
-								aria-label="Last name"
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="text"
+									name="lastName"
+									placeholder="Last name"
+									aria-label="Last name"
+								/>
+								<ErrorMessage name="lastName" class="text-[red]" />
+							</div>
 						</div>
 
 						<div class="flex gap-[30px]">
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="email"
-								placeholder="Email address"
-								aria-label="Email address"
-								required
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="email"
+									name="email"
+									placeholder="Email address"
+									aria-label="Email address"
+								/>
+								<ErrorMessage name="email" class="text-[red]" />
+							</div>
 
-							<input
-								class="h-[45px] w-full border-b border-gray-400 bg-transparent"
-								type="phone"
-								placeholder="Phone number"
-								aria-label="Phone number"
-							/>
+							<div v-auto-animate class="w-full flex flex-col gap-y-2">
+								<Field
+									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent"
+									type="phone"
+									name="phone"
+									placeholder="Phone number"
+									aria-label="Phone number"
+								/>
+								<ErrorMessage name="phone" class="text-[red]" />
+							</div>
 						</div>
 
-						<textarea
-							class="h-[170px] w-full border-b border-gray-400 bg-transparent"
-							placeholder="Any specific comment or request?"
-						></textarea>
+						<div v-auto-animate class="w-full flex flex-col gap-y-2">
+							<Field
+								as="textarea"
+								name="comment"
+								class="min-h-[170px] w-full border-b border-gray-400 bg-transparent"
+								placeholder="Any specific comment or request?"
+							/>
+							<ErrorMessage name="comment" class="text-[red]" />
+						</div>
 					</div>
 				</div>
 
@@ -101,7 +159,8 @@
 						type="submit"
 						class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
 					>
-						Request my journey
+						<span v-if="!isSubmitting">Request my journey</span>
+						<Spiner v-else />
 					</button>
 				</div>
 			</form>

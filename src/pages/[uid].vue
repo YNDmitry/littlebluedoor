@@ -3,7 +3,7 @@
 	const prismic = usePrismic()
 	const route = useRoute()
 
-	const { data: page } = await useAsyncData(route.params.uid, async () => {
+	const { data: page } = await useAsyncData(`[page-uid-${route.params.uid}]`, async () => {
 		const document = await prismic.client.getByUID('page', route.params.uid)
 
 		if (document) {

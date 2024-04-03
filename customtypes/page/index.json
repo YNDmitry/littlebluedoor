@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "rich_text": {
+              "type": "SharedSlice"
+            },
+            "country_cards": {
+              "type": "SharedSlice"
+            },
             "slideshow": {
               "type": "SharedSlice"
             },

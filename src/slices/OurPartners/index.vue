@@ -36,39 +36,39 @@
 				<template v-for="item in 3" :key="item">
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/belmond.png"
+						src="/img/logos/belmond@2x.png"
 						width="150"
 					/>
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/elite.png"
+						src="/img/logos/elite@2x.png"
 						width="150"
 					/>
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/lata.png"
-						width="150"
-					/>
-
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/luxury.png"
+						src="/img/logos/lata@2x.png"
 						width="150"
 					/>
 
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/membership.png"
+						src="/img/logos/luxury@2x.png"
+						width="150"
+					/>
+
+					<NuxtImg
+						class="w-[150px] shrink-0 object-contain"
+						src="/img/logos/membership@2x.png"
 						width="150"
 					/>
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/prefered.png"
+						src="/img/logos/prefered@2x.png"
 						width="150"
 					/>
 					<NuxtImg
 						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/virtuoso.png"
+						src="/img/logos/virtuoso@2x.png"
 						width="150"
 					/>
 				</template>

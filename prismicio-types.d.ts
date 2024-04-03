@@ -149,6 +149,8 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | RichTextSlice
+  | CountryCardsSlice
   | SlideshowSlice
   | TestimonialsSlice
   | OurPartnersSlice
@@ -388,6 +390,126 @@ type CommingSoonSliceVariation = CommingSoonSliceDefault;
 export type CommingSoonSlice = prismic.SharedSlice<
   "comming_soon",
   CommingSoonSliceVariation
+>;
+
+/**
+ * Primary content in *CountryCards → Primary*
+ */
+export interface CountryCardsSliceDefaultPrimary {
+  /**
+   * Title field in *CountryCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_cards.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Paragraph field in *CountryCards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_cards.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Default variation for CountryCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CountryCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CountryCardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *CountryCards → Primary*
+ */
+export interface CountryCardsSliceCountryCardsPrimary {
+  /**
+   * Country title field in *CountryCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_cards.primary.country_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  country_title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CountryCards → Items*
+ */
+export interface CountryCardsSliceCountryCardsItem {
+  /**
+   * Title field in *CountryCards → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_cards.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * body field in *CountryCards → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_cards.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * image field in *CountryCards → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_cards.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image: prismic.LinkToMediaField;
+}
+
+/**
+ * CountryCards variation for CountryCards Slice
+ *
+ * - **API ID**: `countryCards`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CountryCardsSliceCountryCards = prismic.SharedSliceVariation<
+  "countryCards",
+  Simplify<CountryCardsSliceCountryCardsPrimary>,
+  Simplify<CountryCardsSliceCountryCardsItem>
+>;
+
+/**
+ * Slice variation for *CountryCards*
+ */
+type CountryCardsSliceVariation =
+  | CountryCardsSliceDefault
+  | CountryCardsSliceCountryCards;
+
+/**
+ * CountryCards Shared Slice
+ *
+ * - **API ID**: `country_cards`
+ * - **Description**: CountryCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CountryCardsSlice = prismic.SharedSlice<
+  "country_cards",
+  CountryCardsSliceVariation
 >;
 
 /**
@@ -1969,6 +2091,13 @@ declare module "@prismicio/client" {
       CommingSoonSliceDefaultPrimary,
       CommingSoonSliceVariation,
       CommingSoonSliceDefault,
+      CountryCardsSlice,
+      CountryCardsSliceDefaultPrimary,
+      CountryCardsSliceCountryCardsPrimary,
+      CountryCardsSliceCountryCardsItem,
+      CountryCardsSliceVariation,
+      CountryCardsSliceDefault,
+      CountryCardsSliceCountryCards,
       FormSlice,
       FormSliceDefaultPrimary,
       FormSliceVariation,
