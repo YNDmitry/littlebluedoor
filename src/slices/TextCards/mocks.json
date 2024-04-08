@@ -41,6 +41,20 @@
 							"type": "Text",
 							"value": "Our portfolio features a carefully curated collection of the world's finest hotels, exclusive villas, yacht rentals, and unique Airbnb properties."
 						}
+					],
+					[
+						"icon",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
 					]
 				]
 			},
@@ -61,6 +75,20 @@
 							"__TYPE__": "FieldContent",
 							"type": "Text",
 							"value": "Whether it's a romantic honeymoon, an adventurous safari, a relaxing weekend escape, a culinary exploration or a family voyage, LBD will custom create a unique itinerary to reflect your individuality, interests, special moments, and of course, budget."
+						}
+					],
+					[
+						"icon",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
 						}
 					]
 				]
@@ -83,6 +111,20 @@
 							"type": "Text",
 							"value": "From securing last-minute dining reservations, to planning sudden weekend getaways, to arranging private jet travel, our 24/7 WhatsApp support is at your service to accommodate your every need."
 						}
+					],
+					[
+						"icon",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
+						}
 					]
 				]
 			},
@@ -103,6 +145,20 @@
 							"__TYPE__": "FieldContent",
 							"type": "Text",
 							"value": "Enjoy preferential rates, upgrades, special amenities and unique “money-can’t-buy” experiences, courtesy of our extensive expertise and connections."
+						}
+					],
+					[
+						"icon",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"id": "mock_Media_link",
+								"kind": "image/jpeg",
+								"name": "mock_name",
+								"url": "https://source.unsplash.com/daily",
+								"size": "0",
+								"__TYPE__": "FileLink"
+							}
 						}
 					]
 				]

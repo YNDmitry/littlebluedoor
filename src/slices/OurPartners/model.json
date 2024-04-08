@@ -27,7 +27,18 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {
+              "width": null
+            },
+            "thumbnails": []
+          }
+        }
+      }
     }
   ]
 }

@@ -17,12 +17,15 @@
     "@nuxt/image": "^1.4.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@vee-validate/nuxt": "^4.12.6",
+    "@vee-validate/yup": "^4.12.6",
     "@vercel/speed-insights": "^1.0.10",
     "@vueuse/core": "^10.9.0",
     "@vueuse/motion": "^2.1.0",
     "@vueuse/nuxt": "^10.9.0",
     "nuxt": "^3.11.1",
+    "nuxt-build-cache": "^0.1.1",
     "nuxt-lenis": "^1.0.8",
+    "nuxt-mail": "^5.0.0",
     "nuxt-primevue": "^0.3.1",
     "nuxt-swiper": "^1.2.2",
     "primevue": "^3.50.0",
@@ -32,7 +35,9 @@
   },
   "devDependencies": {
     "@nuxtjs/prismic": "^3.0.0",
+    "@prisma/client": "^5.12.1",
     "@slicemachine/adapter-nuxt": "latest",
+    "prisma": "^5.12.1",
     "slice-machine-ui": "latest"
   }
 }

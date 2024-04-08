@@ -693,9 +693,103 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceHeroWithSliderPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceHeroWithSliderItem {
+  /**
+   * image field in *Hero → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image: prismic.LinkToMediaField;
+}
+
+/**
+ * HeroWithSlider variation for Hero Slice
+ *
+ * - **API ID**: `heroWithSlider`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceHeroWithSlider = prismic.SharedSliceVariation<
+  "heroWithSlider",
+  Simplify<HeroSliceHeroWithSliderPrimary>,
+  Simplify<HeroSliceHeroWithSliderItem>
+>;
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceHeroWithRichTextPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Rich text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image: prismic.LinkToMediaField;
+}
+
+/**
+ * HeroWithRichText variation for Hero Slice
+ *
+ * - **API ID**: `heroWithRichText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceHeroWithRichText = prismic.SharedSliceVariation<
+  "heroWithRichText",
+  Simplify<HeroSliceHeroWithRichTextPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation =
+  | HeroSliceDefault
+  | HeroSliceHeroWithSlider
+  | HeroSliceHeroWithRichText;
 
 /**
  * Hero Shared Slice
@@ -820,9 +914,40 @@ export type HotelsAndVillasSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HotelsAndVillas → Primary*
+ */
+export interface HotelsAndVillasSliceHotelsAndVillasWithImagePrimary {
+  /**
+   * Image field in *HotelsAndVillas → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hotels_and_villas.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * HotelsAndVillasWithImage variation for HotelsAndVillas Slice
+ *
+ * - **API ID**: `hotelsAndVillasWithImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HotelsAndVillasSliceHotelsAndVillasWithImage =
+  prismic.SharedSliceVariation<
+    "hotelsAndVillasWithImage",
+    Simplify<HotelsAndVillasSliceHotelsAndVillasWithImagePrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *HotelsAndVillas*
  */
-type HotelsAndVillasSliceVariation = HotelsAndVillasSliceDefault;
+type HotelsAndVillasSliceVariation =
+  | HotelsAndVillasSliceDefault
+  | HotelsAndVillasSliceHotelsAndVillasWithImage;
 
 /**
  * HotelsAndVillas Shared Slice
@@ -1042,6 +1167,21 @@ export interface OurPartnersSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *OurPartners → Items*
+ */
+export interface OurPartnersSliceDefaultItem {
+  /**
+   * Logo field in *OurPartners → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_partners.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
  * Default variation for OurPartners Slice
  *
  * - **API ID**: `default`
@@ -1051,7 +1191,7 @@ export interface OurPartnersSliceDefaultPrimary {
 export type OurPartnersSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<OurPartnersSliceDefaultPrimary>,
-  never
+  Simplify<OurPartnersSliceDefaultItem>
 >;
 
 /**
@@ -1385,6 +1525,16 @@ export interface TextCardsSliceDefaultPrimary {
  * Primary content in *TextCards → Items*
  */
 export interface TextCardsSliceDefaultItem {
+  /**
+   * Icon field in *TextCards → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_cards.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  icon: prismic.LinkToMediaField;
+
   /**
    * Title field in *TextCards → Items*
    *
@@ -2109,16 +2259,23 @@ declare module "@prismicio/client" {
       FourCardsWithTitleSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceHeroWithSliderPrimary,
+      HeroSliceHeroWithSliderItem,
+      HeroSliceHeroWithRichTextPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroSliceHeroWithSlider,
+      HeroSliceHeroWithRichText,
       HeroWithVideoSlice,
       HeroWithVideoSliceDefaultPrimary,
       HeroWithVideoSliceVariation,
       HeroWithVideoSliceDefault,
       HotelsAndVillasSlice,
       HotelsAndVillasSliceDefaultItem,
+      HotelsAndVillasSliceHotelsAndVillasWithImagePrimary,
       HotelsAndVillasSliceVariation,
       HotelsAndVillasSliceDefault,
+      HotelsAndVillasSliceHotelsAndVillasWithImage,
       IconWIthSocialIconsSlice,
       IconWIthSocialIconsSliceDefaultPrimary,
       IconWIthSocialIconsSliceVariation,
@@ -2134,6 +2291,7 @@ declare module "@prismicio/client" {
       InstagramCardsSliceDefault,
       OurPartnersSlice,
       OurPartnersSliceDefaultPrimary,
+      OurPartnersSliceDefaultItem,
       OurPartnersSliceVariation,
       OurPartnersSliceDefault,
       RichTextSlice,

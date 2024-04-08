@@ -17,59 +17,28 @@
 		<div class="mx-auto max-w-[1450px]">
 			<div class="flex flex-col gap-[10px] px-4">
 				<h2
+					v-motion-fade-in
 					v-if="slice?.primary?.title"
 					class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
 				>
 					{{ slice?.primary?.title }}
 				</h2>
 
-				<p v-if="slice?.primary?.paragraph" class="text-center">
+				<p v-motion-fade-in v-if="slice?.primary?.paragraph" class="text-center">
 					{{ slice?.primary?.paragraph }}
 				</p>
 			</div>
 		</div>
-		<div class="relative h-[250px] overflow-hidden">
-			<div
-				v-motion-fade-in
-				class="partners absolute left-0 top-[55px] flex w-full items-center gap-[100px]"
-			>
+		<div v-motion-fade-in class="relative h-[250px] overflow-hidden">
+			<div class="partners absolute left-0 top-[55px] flex w-full items-end gap-[100px]">
 				<template v-for="item in 3" :key="item">
 					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/belmond@2x.png"
+						v-for="(item, idx) in slice?.items"
+						:key="idx"
+						class="w-[150px] h-[90px] shrink-0 object-contain"
+						:src="item.logo?.url || ''"
 						width="150"
-					/>
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/elite@2x.png"
-						width="150"
-					/>
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/lata@2x.png"
-						width="150"
-					/>
-
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/luxury@2x.png"
-						width="150"
-					/>
-
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/membership@2x.png"
-						width="150"
-					/>
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/prefered@2x.png"
-						width="150"
-					/>
-					<NuxtImg
-						class="w-[150px] shrink-0 object-contain"
-						src="/img/logos/virtuoso@2x.png"
-						width="150"
+						:quality="90"
 					/>
 				</template>
 			</div>

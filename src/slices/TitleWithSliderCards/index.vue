@@ -19,7 +19,7 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<div class="mx-auto max-w-[680px]">
+		<div class="mx-auto max-w-[680px] px-4">
 			<h2
 				v-motion-fade-in
 				class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
@@ -100,9 +100,13 @@
 				</div>
 
 				<div
-					class="hotelContent items-start flex w-full flex-col justify-center gap-[15px] text-[14px]"
+					class="hotelContent items-start flex w-full flex-col justify-center gap-[15px] text-[14px] max-tablet:text-center"
 				>
-					<h3 v-motion-fade-in class="text-[20px] font-medium uppercase" v-if="item?.title">
+					<h3
+						v-motion-fade-in
+						class="text-[20px] font-medium uppercase max-tablet:mx-auto"
+						v-if="item?.title"
+					>
 						{{ item?.title }}
 					</h3>
 
@@ -114,7 +118,7 @@
 						v-motion-fade-in
 						v-if="item?.button_link"
 						:to="item?.button_link?.url"
-						class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
+						class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4 max-tablet:mx-auto"
 					>
 						{{ item?.button_label }}
 					</NuxtLink>

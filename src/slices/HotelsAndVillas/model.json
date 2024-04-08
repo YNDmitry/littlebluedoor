@@ -22,6 +22,25 @@
           }
         }
       }
+    },
+    {
+      "id": "hotelsAndVillasWithImage",
+      "name": "HotelsAndVillasWithImage",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

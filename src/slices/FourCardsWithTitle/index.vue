@@ -12,7 +12,7 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="py-[60px]"
+		class="py-[60px] pt-[160px]"
 	>
 		<div class="mx-auto max-w-[1415px] px-4 pb-5">
 			<h2
@@ -28,7 +28,7 @@
 			</p>
 
 			<div
-				class="grid gap-5 pt-8 mt-9 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-4"
+				class="grid gap-5 max-tablet:gap-y-12 pt-8 mt-9 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-4"
 			>
 				<div
 					v-motion-fade-in
@@ -45,7 +45,7 @@
 						alt=""
 					/>
 
-					<div class="flex flex-col gap-[10px]" v-if="item?.body">
+					<div class="flex flex-col gap-[10px] max-tablet:text-center" v-if="item?.body">
 						<PrismicRichText :field="item?.body" />
 					</div>
 				</div>

@@ -36,6 +36,14 @@
         }
       },
       "items": {
+        "icon": {
+          "type": "Link",
+          "config": {
+            "label": "Icon",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
         "title": {
           "type": "Text",
           "config": {

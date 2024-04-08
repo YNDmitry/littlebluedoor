@@ -42,11 +42,15 @@
 			</div>
 		</div>
 
-		<component :is="'style'">
+		<component :is="'style'" v-if="slice?.variation === 'default'">
 			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
 			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
 		</component>
-		<div v-motion-fade-in class="mx-auto pt-4 mt-5 hav-swiper flex gap-5">
+		<div
+			v-motion-fade-in
+			class="mx-auto pt-4 mt-5 hav-swiper flex gap-5"
+			v-if="slice?.variation === 'default'"
+		>
 			<template v-for="(item, index) in 3" :key="index">
 				<div
 					v-for="(slide, idx) in slice?.items"
@@ -63,6 +67,20 @@
 					/>
 				</div>
 			</template>
+		</div>
+
+		<div
+			v-motion-fade-in
+			v-if="slice?.primary?.image?.url && slice?.variation === 'hotelsAndVillasWithImage'"
+		>
+			<NuxtImg
+				provider="prismic"
+				:src="slice?.primary?.image?.url"
+				class="w-full object-cover max-tablet:h-[250px] h-[440px] mt-7"
+				width="2000"
+				height="600"
+				:quality="80"
+			/>
 		</div>
 	</section>
 </template>

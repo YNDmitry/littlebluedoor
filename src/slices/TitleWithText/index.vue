@@ -39,12 +39,11 @@
 
 			<div
 				v-motion-fade-in
-				v-if="slice?.variation === 'textWithButtonAndIcon'"
+				v-if="slice?.variation === 'textWithButtonAndIcon' && slice?.primary?.image?.url"
 				class="block mt-[70px]"
 			>
 				<NuxtImg
 					provider="prismic"
-					v-if="slice?.primary?.image?.url"
 					:src="slice?.primary?.image?.url"
 					:quality="80"
 					width="200"

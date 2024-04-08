@@ -7,14 +7,13 @@
 	defineProps(getSliceComponentProps<Content.FormSlice>(['slice', 'index', 'slices', 'context']))
 
 	const schema = object({
-		destination: string(),
-		date: string(),
-		howLong: string(),
-		gender: string(),
+		destination: string().required('Destination is a required field'),
+		date: string().required('Date is a required field'),
+		travelDuration: string().required('Travel duration is a required field'),
 		firstName: string().required('First name is a required field'),
 		lastName: string().required('Last name is a required field'),
-		email: string().email('').required('Email is a required field'),
-		phone: string(),
+		email: string().email('Enter a valid email').required('Email is a required field'),
+		phone: string().required('Phone is a required field'),
 		comment: string().required('Comment is a required field'),
 	})
 
@@ -61,8 +60,10 @@
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
 									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
-									type="date"
+									type="text"
 									name="date"
+									onfocus="(this.type='date')"
+									onblur="(this.type='text')"
 									placeholder="When would you like to go?"
 									aria-label="When would you like to go?"
 								/>
@@ -73,28 +74,15 @@
 								<Field
 									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
 									type="text"
-									name="howLong"
+									name="travelDuration"
 									placeholder="How long would you like to go for?"
 									aria-label="How long would you like to go for?"
 								/>
-								<ErrorMessage name="howLong" class="text-[red]" />
+								<ErrorMessage name="travelDuration" class="text-[red]" />
 							</div>
 						</div>
 
 						<div class="flex max-tablet:flex-col gap-[30px]">
-							<div v-auto-animate class="w-full flex flex-col gap-y-2">
-								<Field
-									name="gender"
-									as="select"
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
-									placeholder="Gender"
-								>
-									<option value="">Gender</option>
-									<option value="mr">Mr</option>
-									<option value="mrs">Mrs</option>
-								</Field>
-								<ErrorMessage name="gender" class="text-[red]" />
-							</div>
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
 								<Field
 									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"

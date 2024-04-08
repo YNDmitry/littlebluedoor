@@ -11,6 +11,8 @@
 			'context',
 		])
 	)
+
+	const settings = useSettings()
 </script>
 
 <template>
@@ -22,13 +24,21 @@
 		<NuxtImg v-motion-fade-in class="mx-auto w-[80px]" src="/img/homePage/logo.png" width="80" />
 
 		<div v-motion-fade-in class="mt-[15px] flex items-center justify-center gap-5 p-3">
-			<NuxtLink to="/" class="hover:scale-125 transition-all">
+			<NuxtLink
+				:to="settings?.data?.instagram?.url"
+				target="_blank"
+				class="hover:scale-125 transition-all"
+			>
 				<IconsInstagram customClasses="text-mainColor" />
 			</NuxtLink>
-			<NuxtLink to="/" class="hover:scale-125 transition-all">
+			<NuxtLink
+				:to="settings?.data?.whatsapp?.url"
+				target="_blank"
+				class="hover:scale-125 transition-all"
+			>
 				<IconsWhatsapp customClasses="text-mainColor" />
 			</NuxtLink>
-			<NuxtLink to="/" class="hover:scale-125 transition-all">
+			<NuxtLink :to="'mailto:' + settings?.data?.email?.url" class="hover:scale-125 transition-all">
 				<IconsMail customClasses="text-mainColor"
 			/></NuxtLink>
 		</div>

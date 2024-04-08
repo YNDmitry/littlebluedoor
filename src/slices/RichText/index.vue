@@ -67,7 +67,7 @@
 		class="pt-[60px] pb-[100px]"
 	>
 		<div v-motion-fade-in v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
-			<PrismicRichText :field="slice?.primary?.body" :serializer="serializer" />
+			<PrismicRichText :field="slice?.primary?.body" :serializer="serializer" class="px-4" />
 		</div>
 	</section>
 </template>

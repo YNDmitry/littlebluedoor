@@ -15,7 +15,7 @@
 
 <template>
 	<section
-		class="pb-[150px] pt-[100px]"
+		class="pb-[150px] pt-[100px] max-tablet:pb-[80px] max-tablet:pt-[60px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -92,7 +92,9 @@
 						</div>
 					</div>
 
-					<div class="grid grid-rows-[min-content_1fr_min-content] h-full gap-6 pt-[20px]">
+					<div
+						class="grid grid-rows-[min-content_1fr_min-content] h-full gap-6 pt-[20px] w-[300px] max-tablet:w-[320px]"
+					>
 						<!-- Title -->
 						<h3
 							v-motion-fade-in

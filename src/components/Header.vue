@@ -5,10 +5,8 @@
 
 	const show = ref(false)
 
-	const showMobileNavigation = computed(() => {
-		if (!isMobile.value) return true
-		if (isMobile.value && show.value) return true
-		return false
+	const isMobileShow = computed(() => {
+		return !isMobile.value ? true : false
 	})
 </script>
 
@@ -29,7 +27,9 @@
 				<Burger :show="show" @click="show = !show" class="z-[1000]" />
 
 				<div
-					v-show="showMobileNavigation"
+					:class="{
+						'max-largeDesktop:hidden': !show,
+					}"
 					class="max-largeDesktop:fixed max-largeDesktop:bg-mainColor max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0 max-largeDesktop:pt-[150px] max-largeDesktop:h-full"
 				>
 					<nav
@@ -42,7 +42,7 @@
 								<NuxtLink
 									@click="isMobile ? (show = !show) : null"
 									:to="item?.link?.url || ''"
-									class="hover:opacity-70 transition-opacity max-largeDesktop:text-[25px]"
+									class="hover:opacity-70 transition-opacity max-largeDesktop:text-[25px] whitespace-nowrap"
 									>{{ item?.label }}</NuxtLink
 								>
 							</li>

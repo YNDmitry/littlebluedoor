@@ -31,7 +31,7 @@
 				:modules="[SwiperEffectFade, SwiperAutoplay]"
 				:speed="700"
 				:autoplay="{
-					delay: 3000,
+					delay: 1500,
 					disableOnInteraction: true,
 				}"
 				:loop="true"
@@ -48,11 +48,6 @@
 						height="600"
 						class="w-full object-cover h-[600px] max-tablet:h-[400px]"
 					/>
-					<!-- <span
-						v-motion-fade-in
-						class="absolute top-1/2 left-1/2 mr-[-40px] z-40 text-[40px] font-semibold text-white max-tablet:text-[25px] uppercase"
-						>{{ slice?.items[getActiveCounty]?.country }}</span
-					> -->
 				</SwiperSlide>
 			</Swiper>
 

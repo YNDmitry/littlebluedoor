@@ -1,5 +1,30 @@
 <script setup lang="ts">
+	import { object, string } from 'yup'
 	const settings = useSettings()
+	const mail = useMail()
+
+	const schema = object({
+		email: string().email('Enter a valid email').required('Email is a required'),
+	})
+
+	const { handleSubmit, isSubmitting } = useForm({
+		validationSchema: schema,
+	})
+
+	const onSubmit = handleSubmit(async (values) => {
+		await $fetch('/api/newsletter', {
+			method: 'post',
+			body: { email: values.email },
+		}).then((res) => {
+			console.log(res)
+
+			// mail.send({
+			// 	from: 'Newsletter',
+			// 	subject: 'Newsletter',
+			// 	text: 'New newsletter email: ' + res.email,
+			// })
+		})
+	})
 </script>
 
 <template>
@@ -14,20 +39,25 @@
 				</div>
 
 				<div class="flex items-center justify-center w-full max-w-[450px] mx-auto">
-					<form class="flex h-[75px] pt-6 w-full">
-						<input
-							v-motion-fade-in
-							type="text"
-							placeholder="EMAIL ADDRESS"
-							class="w-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black rounded-none"
-						/>
+					<form @submit.prevent="onSubmit" class="flex h-[75px] pt-6 w-full">
+						<div class="flex flex-col w-full h-full relative">
+							<Field
+								v-motion-fade-in
+								name="email"
+								type="email"
+								placeholder="EMAIL ADDRESS"
+								class="w-full h-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black rounded-none"
+							/>
+							<ErrorMessage name="email" class="absolute bottom-[-2rem] text-red" />
+						</div>
 
 						<button
 							v-motion-fade-in
 							type="submit"
 							class="w-[140px] bg-primary border-primary border text-[14px]"
 						>
-							SUBSCRIBE
+							<span v-if="!isSubmitting">SUBSCRIBE</span>
+							<Spiner v-else />
 						</button>
 					</form>
 				</div>

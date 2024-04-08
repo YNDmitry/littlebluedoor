@@ -10,7 +10,7 @@
 
 <template>
 	<section :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
-		<div class="mx-auto max-w-[1300px] px-4">
+		<div class="mx-auto max-w-[910px] px-4">
 			<div class="flex flex-col items-center pb-[70px] max-tablet:pt-[50px] tablet:pt-[100px]">
 				<h2
 					v-motion-fade-in
@@ -20,14 +20,20 @@
 				</h2>
 
 				<div
-					class="grid justify-items-center gap-x-3 max-tablet:gap-y-[35px] max-tablet:pt-[40px] tablet:grid-cols-2 tablet:gap-y-[50px] tablet:pt-[80px]"
+					class="grid justify-items-center max-tablet:gap-y-[35px] max-tablet:pt-[40px] tablet:grid-cols-2 gap-y-[50px] gap-x-[80px] tablet:pt-[80px]"
 				>
 					<div
 						v-motion-fade-in
 						v-for="(card, idx) in slice.items"
 						:key="idx"
-						class="flex w-full flex-col text-center max-tablet:gap-[15px] tablet:px-4 tablet:py-2"
+						class="flex w-full flex-col text-center max-tablet:gap-[15px] max-tablet:px-[40px]"
 					>
+						<NuxtImg
+							v-if="card?.icon?.url"
+							:src="card?.icon?.url"
+							class="mb-3 mx-auto"
+							width="45"
+						/>
 						<h3 class="font-bold max-tablet:text-[18px] text-[20px]">{{ card.title }}</h3>
 						<p class="mt-4">
 							{{ card.paragraph }}

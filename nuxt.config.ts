@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	srcDir: 'src/',
+	serverDir: 'server/',
 
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
@@ -34,12 +35,6 @@ export default defineNuxtConfig({
 							opacity: 1,
 							decay: 0.8,
 						},
-						transition: {
-							type: 'spring',
-							stiffness: 100,
-							damping: 25,
-							mass: 0.1,
-						},
 					},
 				},
 			},
@@ -58,6 +53,8 @@ export default defineNuxtConfig({
 		'@vee-validate/nuxt',
 		'nuxt-primevue',
 		'@formkit/auto-animate',
+		'nuxt-mail',
+		'nuxt-build-cache',
 	],
 
 	css: ['~/assets/css/global.css'],
@@ -66,12 +63,17 @@ export default defineNuxtConfig({
 		endpoint: 'littlebluedoor',
 		clientConfig: {
 			routes: [
+				{ type: 'home', path: '/' },
 				{
 					type: 'page',
 					path: '/:uid',
 				},
 			],
 		},
+	},
+
+	fonts: {
+		families: [{ name: 'Montserrat', global: true, weights: [100, 800] }],
 	},
 
 	primevue: {
@@ -87,5 +89,18 @@ export default defineNuxtConfig({
 		format: ['webp'],
 		quality: 75,
 		prismic: {},
+	},
+
+	mail: {
+		message: {
+			to: process.env.MAIL_TO,
+		},
+		smtp: {
+			service: 'gmail',
+			auth: {
+				user: process.env.MAIL_USER,
+				pass: process.env.MAIL_PASSWORD,
+			},
+		},
 	},
 })
