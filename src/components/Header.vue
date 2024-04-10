@@ -4,24 +4,14 @@
 	const isMobile = useMediaQuery('(max-width: 1200px)')
 
 	const show = ref(false)
-
-	const isMobileShow = computed(() => {
-		return !isMobile.value ? true : false
-	})
 </script>
 
 <template>
 	<header class="fixed z-[1000] w-full bg-mainColor text-white">
 		<div class="px-[16px]">
 			<div id="nav" class="relative flex h-headerHeight items-center justify-between gap-6">
-				<NuxtLink to="/" class="z-[1000]">
-					<NuxtImg
-						provider="prismic"
-						v-if="settings?.data?.logo?.url"
-						:src="settings?.data?.logo?.url"
-						class="w-[60px]"
-						width="60"
-					/>
+				<NuxtLink to="/" class="z-[1000]" @click="show = false">
+					<IconsLogo class="text-white w-[65px]" />
 				</NuxtLink>
 
 				<Burger :show="show" @click="show = !show" class="z-[1000]" />

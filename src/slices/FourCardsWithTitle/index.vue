@@ -12,7 +12,7 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="py-[60px] pt-[160px]"
+		class="py-[60px] pt-[120px]"
 	>
 		<div class="mx-auto max-w-[1415px] px-4 pb-5">
 			<h2
@@ -23,7 +23,11 @@
 				{{ slice?.primary?.title }}
 			</h2>
 
-			<p v-motion-fade-in class="pt-4 text-center" v-if="slice?.primary?.paragraph">
+			<p
+				v-motion-fade-in
+				class="pt-4 text-center max-tablet:max-w-[340px] max-tablet:mx-auto"
+				v-if="slice?.primary?.paragraph"
+			>
 				{{ slice?.primary?.paragraph }}
 			</p>
 

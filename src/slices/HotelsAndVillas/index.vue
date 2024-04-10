@@ -48,7 +48,7 @@
 		</component>
 		<div
 			v-motion-fade-in
-			class="mx-auto pt-4 mt-5 hav-swiper flex gap-5"
+			class="mx-auto pt-4 mt-[60px] hav-swiper flex gap-5"
 			v-if="slice?.variation === 'default'"
 		>
 			<template v-for="(item, index) in 3" :key="index">
@@ -60,6 +60,7 @@
 					<NuxtImg
 						provider="prismic"
 						class="object-cover aspect-square max-tablet:max-w-[300px]"
+						v-if="slide?.slider_image?.url"
 						:src="slide?.slider_image?.url || ''"
 						:alt="slide?.slider_image?.alt || ''"
 						width="600"
@@ -76,7 +77,7 @@
 			<NuxtImg
 				provider="prismic"
 				:src="slice?.primary?.image?.url"
-				class="w-full object-cover max-tablet:h-[250px] h-[440px] mt-7"
+				class="w-full object-cover max-tablet:h-[250px] h-[440px] mt-[60px]"
 				width="2000"
 				height="600"
 				:quality="80"

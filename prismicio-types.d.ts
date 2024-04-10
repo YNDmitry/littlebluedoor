@@ -750,6 +750,16 @@ export interface HeroSliceHeroWithRichTextPrimary {
   heading: prismic.KeyTextField;
 
   /**
+   * Small image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.small_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  small_image: prismic.ImageField<never>;
+
+  /**
    * Rich text field in *Hero → Primary*
    *
    * - **Field Type**: Rich Text
@@ -2129,14 +2139,14 @@ export interface TwoCardsWithTitleSliceDefaultItem {
   title: prismic.KeyTextField;
 
   /**
-   * Paragraph field in *TwoCardsWithTitle → Items*
+   * paragraph field in *TwoCardsWithTitle → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: two_cards_with_title.items[].paragraph
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: two_cards_with_title.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  paragraph: prismic.KeyTextField;
+  body: prismic.RichTextField;
 }
 
 /**

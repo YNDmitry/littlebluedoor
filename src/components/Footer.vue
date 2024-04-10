@@ -11,18 +11,19 @@
 		validationSchema: schema,
 	})
 
+	const isFormSubmitted = ref(false)
+
 	const onSubmit = handleSubmit(async (values) => {
 		await $fetch('/api/newsletter', {
 			method: 'post',
 			body: { email: values.email },
 		}).then((res) => {
-			console.log(res)
-
-			// mail.send({
-			// 	from: 'Newsletter',
-			// 	subject: 'Newsletter',
-			// 	text: 'New newsletter email: ' + res.email,
-			// })
+			isFormSubmitted.value = true
+			mail.send({
+				from: 'Newsletter',
+				subject: 'Newsletter',
+				text: 'New newsletter email: ' + res.email,
+			})
 		})
 	})
 </script>
@@ -39,7 +40,11 @@
 				</div>
 
 				<div class="flex items-center justify-center w-full max-w-[450px] mx-auto">
-					<form @submit.prevent="onSubmit" class="flex h-[75px] pt-6 w-full">
+					<form
+						v-if="!isFormSubmitted"
+						@submit.prevent="onSubmit"
+						class="flex h-[75px] pt-6 w-full"
+					>
 						<div class="flex flex-col w-full h-full relative">
 							<Field
 								v-motion-fade-in
@@ -60,6 +65,7 @@
 							<Spiner v-else />
 						</button>
 					</form>
+					<div v-else class="mt-8">Thank you for subscribing</div>
 				</div>
 
 				<div
@@ -93,7 +99,7 @@
 			<div
 				class="flex items-center justify-center gap-8 text-[14px] text-white max-tablet:flex-col max-tablet:gap-4 max-tablet:pb-4 tablet:h-[50px] tablet:gap-2"
 			>
-				<div v-motion-fade-in class="uppercase mx-4">
+				<div v-motion-fade-in class="uppercase mx-4 text-center">
 					© {{ new Date().getFullYear() }} LITTLEBLUEDOOR | ALL RIGHTS RESERVED
 				</div>
 			</div>

@@ -1,3 +1,5 @@
+import path from 'path'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
@@ -54,7 +56,6 @@ export default defineNuxtConfig({
 		'nuxt-primevue',
 		'@formkit/auto-animate',
 		'nuxt-mail',
-		'nuxt-build-cache',
 	],
 
 	css: ['~/assets/css/global.css'],
@@ -80,8 +81,9 @@ export default defineNuxtConfig({
 		options: {
 			unstyled: true,
 		},
+		importPT: { from: path.resolve(__dirname, './src/assets/presets/lara/calendar/index') },
 		components: {
-			include: ['Accordion', 'AccordionTab'],
+			include: ['Accordion', 'AccordionTab', 'Calendar'],
 		},
 	},
 

@@ -37,19 +37,6 @@ textarea:focus {
 	}
 }
 
-@keyframes scroll {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(calc(-250px * 7));
-	}
-}
-
-.partners {
-	animation: scroll 15s linear infinite;
-}
-
 .page-enter-active,
 .page-leave-active {
 	transition: all 0.4s;

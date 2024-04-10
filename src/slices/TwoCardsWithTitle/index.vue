@@ -22,22 +22,28 @@
 				{{ slice?.primary?.title }}
 			</h1>
 
-			<div class="flex items-center justify-between gap-8 pt-[45px] max-tablet:flex-col">
+			<div class="flex items-start justify-between gap-8 pt-[45px] max-tablet:flex-col">
 				<div class="flex flex-col w-full" v-for="item in slice?.items" :key="item">
 					<NuxtImg
 						v-motion-fade-in
 						provider="prismic"
-						class="w-full object-cover"
+						class="w-full object-cover h-[550px]"
 						:src="item?.image?.url"
 						v-if="item?.image?.url"
+						height="650"
 					/>
 
-					<div v-motion-fade-in class="flex flex-col items-center gap-4 pt-[15px]">
+					<div v-motion-fade-in class="flex flex-col items-center gap-4 pt-[25px]">
 						<p class="text-center font-[500] uppercase max-tablet:text-[20px] tablet:text-[25px]">
 							{{ item?.title }}
 						</p>
 
-						<span v-motion-fade-in>{{ item?.paragraph }}</span>
+						<PrismicRichText
+							v-motion-fade-in
+							:field="item?.body"
+							v-if="item?.body"
+							class="text-center"
+						/>
 					</div>
 				</div>
 			</div>

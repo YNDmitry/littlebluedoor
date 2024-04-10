@@ -19,7 +19,9 @@
 				autoplay
 				muted
 				loop
+				playsInline
 				class="w-full h-[550px] object-cover max-laptop:h-[400px] pointer-events-none"
+				@scroll="console.log('scroll')"
 				v-if="slice?.primary?.video?.url"
 			>
 				<source :src="slice?.primary?.video?.url" type="video/webm" />

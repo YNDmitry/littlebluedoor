@@ -5,6 +5,7 @@
 	// Consider it as a visual hint for you when templating your slice.
 	defineProps(getSliceComponentProps<Content.HeroSlice>(['slice', 'index', 'slices', 'context']))
 
+	const img = useImage()
 	const serializer = {
 		paragraph: ({ children }) => `<p class="my-[15px]">${children}</p>`,
 		strong: ({ children }) => `<strong>${children}</strong>`,
@@ -13,15 +14,15 @@
 			const linkTarget =
 				node.linkTo && node.linkTo.target ? `target="${node.linkTo.target}" rel="noopener"` : ''
 			const wrapperClassList = [node.label || '', 'block-img']
-			const img = `<img class="mx-auto text-center" src="${node.url}" alt="${
+			const image = `<img class="mx-auto text-center w-[80px]" src="${img(node.url, { format: 'webp', provider: 'prismic' })}" alt="${
 				node.alt ? node.alt : ''
 			}" copyright="${node.copyright ? node.copyright : ''}" />`
 
 			return `
-        <p class="${wrapperClassList.join(' ')}">
-          ${linkUrl ? `<a ${linkTarget} href="${linkUrl}">${img}</a>` : img}
-        </p>
-      `
+	       <p class="${wrapperClassList.join(' ')}">
+	         ${linkUrl ? `<a ${linkTarget} href="${linkUrl}">${image}</a>` : image}
+	       </p>
+	     `
 		},
 	}
 </script>
@@ -45,28 +46,42 @@
 		<div
 			v-motion-fade-in
 			v-if="slice?.primary?.rich_text && slice?.variation === 'heroWithRichText'"
+			class="text-center"
 		>
+			<NuxtImg
+				v-if="slice?.primary?.small_image?.url"
+				:src="slice?.primary?.small_image?.url"
+				provider="prismic"
+				width="80"
+				format="webp"
+				class="mx-auto"
+			/>
 			<PrismicRichText
 				:field="slice?.primary?.rich_text"
 				:serializer="serializer"
-				class="max-w-[650px] mx-auto text-center px-[40px] mb-8"
+				class="max-w-[650px] mx-auto text-center px-8 mb-8"
 			/>
 		</div>
 
 		<div v-motion-fade-in v-if="slice?.variation === 'default' || 'heroWIthRichText'">
 			<NuxtImg
 				provider="prismic"
+				v-if="slice?.primary?.image?.url"
 				:src="slice?.primary?.image?.url"
 				class="w-full object-cover max-tablet:h-[250px] h-[440px]"
 				width="2000"
 				height="600"
 				:quality="80"
+				format="webp"
 			/>
 		</div>
 
 		<component :is="'style'" v-if="slice?.variation === 'heroWithSlider'">
 			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
 			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
+			@media screen and (max-width: 768px) { @keyframes scrollMob { 0% { transform: translateX(0); }
+			100% { transform: translateX(calc(-320px * {{ slice?.items.length }})); } } .hav-swiper {
+			animation: scrollMob 30s linear infinite; } }
 		</component>
 		<div
 			v-motion-fade-in
@@ -77,13 +92,12 @@
 				<div
 					v-for="(slide, idx) in slice?.items"
 					:key="idx"
-					class="max-w-[400px] max-tablet:max-w-[300] shrink-0"
+					class="max-w-[400px] max-tablet:max-w-[300px] shrink-0"
 				>
 					<NuxtImg
 						provider="prismic"
 						class="object-cover aspect-square max-tablet:max-w-[300px]"
-						:src="slide?.image?.url || ''"
-						:alt="slide?.image?.alt || ''"
+						:src="slide?.image?.url"
 						width="600"
 						height="600"
 					/>

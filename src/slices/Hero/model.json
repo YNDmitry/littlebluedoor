@@ -72,6 +72,14 @@
             "placeholder": ""
           }
         },
+        "small_image": {
+          "type": "Image",
+          "config": {
+            "label": "Small image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "rich_text": {
           "type": "StructuredText",
           "config": {

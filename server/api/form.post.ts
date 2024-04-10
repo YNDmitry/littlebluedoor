@@ -1,21 +1,34 @@
-// import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 
-// export default defineEventHandler(async (event) => {
-// 	const body = await readBody(event).then((res) => res)
+export default defineEventHandler(async (event) => {
+	const body = await readBody(event)
 
-// 	const prisma = new PrismaClient()
+	const prisma = new PrismaClient()
 
-// 	try {
-// 		const d = await prisma.newsletter.create({
-// 			data: {
-// 				email: body.email,
-// 			},
-// 		})
+	try {
+		const { comment, date, destination, email, firstName, lastName, travelDuration, phone } =
+			body.values
 
-// 		prisma.$disconnect()
-// 		return { email: d.email }
-// 	} catch (error) {
-// 		prisma.$disconnect()
-// 		throw createError({ statusCode: 500, message: error })
-// 	}
-// })
+		const formatedDate = new Date(date).toISOString()
+
+		const d = await prisma.form.create({
+			data: {
+				comment,
+				date: formatedDate,
+				destination,
+				email,
+				firstName,
+				lastName,
+				travelDuration,
+				phone,
+			},
+		})
+
+		prisma.$disconnect()
+
+		return d
+	} catch (error) {
+		prisma.$disconnect()
+		throw createError({ statusCode: 500, message: error.message })
+	}
+})

@@ -36,11 +36,17 @@
 						}
 					],
 					[
-						"paragraph",
+						"body",
 						{
-							"__TYPE__": "FieldContent",
-							"value": "writer",
-							"type": "Text"
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Laborum nostrud commodo voluptate exercitation nostrud ut fugiat ad eu enim. Exercitation consequat officia pariatur duis fugiat Lorem sint ex enim. Id qui ut aute veniam esse reprehenderit minim est Lorem mollit."
+									}
+								}
+							]
 						}
 					]
 				]

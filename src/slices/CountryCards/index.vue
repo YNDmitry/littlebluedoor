@@ -31,7 +31,7 @@
 				<div v-motion-fade-in v-if="slice?.primary?.paragraph">
 					<PrismicRichText
 						:field="slice?.primary?.paragraph"
-						class="text-center max-w-[600px] mx-auto mt-4"
+						class="text-center max-w-[600px] mx-auto mt-4 max-tablet:px-4"
 					/>
 				</div>
 			</div>

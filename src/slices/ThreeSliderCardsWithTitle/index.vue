@@ -143,7 +143,7 @@
 					</div>
 
 					<div v-motion-fade-in class="flex flex-col justify-between gap-4 pt-[20px] h-full">
-						<p class="text-[20px] font-medium uppercase">{{ item?.title }}</p>
+						<h3 class="text-[20px] font-medium uppercase text-center">{{ item?.title }}</h3>
 
 						<span class="text-center text-[14px] font-medium uppercase">{{
 							item?.days_and_nights

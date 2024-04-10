@@ -17,8 +17,8 @@ model Newsletter {
 model Form {
   id String @id @default(uuid())
   destination String
-  date String
-  howLong String
+  date DateTime
+  travelDuration String
   firstName String
   lastName String
   email String

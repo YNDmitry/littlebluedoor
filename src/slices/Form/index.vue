@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import { type Content } from '@prismicio/client'
 	import { object, string } from 'yup'
+	const mail = useMail()
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
@@ -14,16 +15,39 @@
 		lastName: string().required('Last name is a required field'),
 		email: string().email('Enter a valid email').required('Email is a required field'),
 		phone: string().required('Phone is a required field'),
-		comment: string().required('Comment is a required field'),
+		comment: string().required('This is a required field'),
 	})
 
 	const { handleSubmit, isSubmitting } = useForm({
 		validationSchema: schema,
 	})
 
-	const onSubmit = handleSubmit((values) => {
-		console.log(values)
+	const isFormSubmitted = ref(false)
+
+	const onSubmit = handleSubmit(async (values) => {
+		await $fetch('/api/form', {
+			method: 'post',
+			body: { values },
+		}).then((res) => {
+			isFormSubmitted.value = true
+
+			mail.send({
+				from: 'Form',
+				subject: 'Form',
+				text: `
+					First name: ${res.firstName}\n
+					Last name: ${res.lastName}\n
+					Email: ${res.email}\n
+					Phone: ${res.phone}\n
+					Travel duration: ${res.travelDuration}\n
+					Date: ${res.date}\n
+					Comment: ${res.comment}\n
+				`,
+			})
+		})
 	})
+
+	const { value, setValue } = useField('date')
 </script>
 
 <template>
@@ -42,7 +66,7 @@
 
 			<p class="pt-4 text-center uppercase">{{ slice?.primary?.paragraph }}</p>
 
-			<form @submit.prevent="onSubmit" class="mt-[30px]">
+			<form @submit.prevent="onSubmit" class="mt-[30px]" v-if="!isFormSubmitted">
 				<div class="px-12 max-tablet:px-0 py-8">
 					<div class="flex flex-col gap-[30px]">
 						<div class="flex max-tablet:flex-col gap-[30px]">
@@ -58,12 +82,10 @@
 							</div>
 
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
-								<Field
-									class="min-h-[45px] w-full border-b border-gray-400 bg-transparent rounded-none"
-									type="text"
+								<Calendar
 									name="date"
-									onfocus="(this.type='date')"
-									onblur="(this.type='text')"
+									@update:model-value="$event = setValue($event)"
+									:model-value="value"
 									placeholder="When would you like to go?"
 									aria-label="When would you like to go?"
 								/>
@@ -135,7 +157,7 @@
 								as="textarea"
 								name="comment"
 								class="min-h-[170px] w-full border-b border-gray-400 bg-transparent rounded-none"
-								placeholder="Any specific comment or request?"
+								placeholder="Any specific comments or requests?"
 							/>
 							<ErrorMessage name="comment" class="text-[red]" />
 						</div>
@@ -152,6 +174,9 @@
 					</button>
 				</div>
 			</form>
+			<div v-else class="text-center mt-[30px] text-[20px] font-medium">
+				Thank you! We'll get back to you soon
+			</div>
 		</div>
 	</section>
 </template>
