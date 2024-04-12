@@ -34,15 +34,7 @@
 			mail.send({
 				from: 'Form',
 				subject: 'Form',
-				text: `
-					First name: ${res.firstName}\n
-					Last name: ${res.lastName}\n
-					Email: ${res.email}\n
-					Phone: ${res.phone}\n
-					Travel duration: ${res.travelDuration}\n
-					Date: ${res.date}\n
-					Comment: ${res.comment}\n
-				`,
+				text: `First name: ${res.firstName}\nLast name: ${res.lastName}\nEmail: ${res.email}\nPhone: ${res.phone}\nTravel duration: ${res.travelDuration}\nDate: ${res.date}\nComment: ${res.comment}\n`,
 			})
 		})
 	})

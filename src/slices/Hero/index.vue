@@ -80,8 +80,8 @@
 			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
 			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
 			@media screen and (max-width: 768px) { @keyframes scrollMob { 0% { transform: translateX(0); }
-			100% { transform: translateX(calc(-320px * {{ slice?.items.length }})); } } .hav-swiper {
-			animation: scrollMob 30s linear infinite; } }
+			100% { transform: translateX(calc(-270px * {{ slice?.items.length }})); } } .hav-swiper {
+			animation: scrollMob 15s linear infinite; } }
 		</component>
 		<div
 			v-motion-fade-in
@@ -92,11 +92,11 @@
 				<div
 					v-for="(slide, idx) in slice?.items"
 					:key="idx"
-					class="max-w-[400px] max-tablet:max-w-[300px] shrink-0"
+					class="max-w-[400px] max-tablet:max-w-[250px] shrink-0"
 				>
 					<NuxtImg
 						provider="prismic"
-						class="object-cover aspect-square max-tablet:max-w-[300px]"
+						class="object-cover aspect-square max-tablet:max-w-[250px]"
 						:src="slide?.image?.url"
 						width="600"
 						height="600"

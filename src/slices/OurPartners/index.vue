@@ -36,10 +36,10 @@
 		<div class="relative h-[250px] overflow-hidden">
 			<component is="style">
 				@keyframes scroll { 0% { transform: translateX(0); } 100% { transform:
-				translateX(calc(-250px * {{ slice?.items.length }})); } } .partners { animation: scroll 15s
+				translateX(calc(-250px * {{ slice.items.length }})); } } .partners { animation: scroll 15s
 				linear infinite; } @media screen and (max-width: 768px) { @keyframes scrollMob { 0% {
 				transform: translateX(0); } 100% { transform: translateX(calc(-180px *
-				{{ slice?.items.length }})); } } .partners { animation: scrollMob 15s linear infinite; } }
+				{{ slice.items.length }})); } } .partners { animation: scrollMob 15s linear infinite; } }
 			</component>
 			<div
 				class="partners absolute left-0 top-[55px] flex w-full items-end gap-[100px] max-tablet:gap-[30px]"
@@ -51,7 +51,7 @@
 						class="w-[150px] h-[90px] shrink-0 object-contain"
 						:src="item.logo?.url || ''"
 						width="150"
-						:quality="90"
+						:quality="100"
 					/>
 				</template>
 			</div>

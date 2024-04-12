@@ -53,9 +53,10 @@
 
 			<div
 				v-motion-fade-in
-				class="absolute text-center mx-2 top-1/2 left-1/3 max-tablet:left-auto max-w-[600px] uppercase z-10 text-[40px] font-semibold text-white max-tablet:text-[25px]"
+				class="absolute text-center mx-2 top-1/2 left-1/3 max-tablet:left-0 max-tablet:right-0 max-w-[600px] uppercase z-10 text-[40px] font-semibold text-white max-tablet:text-[25px]"
 			>
-				Your door to {{ slice?.items[getActiveCounty]?.country }}
+				Your door to
+				<span class="max-tablet:block">{{ slice?.items[getActiveCounty]?.country }}</span>
 			</div>
 		</div>
 

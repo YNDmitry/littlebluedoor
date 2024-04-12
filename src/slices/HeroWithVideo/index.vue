@@ -6,6 +6,14 @@
 	defineProps(
 		getSliceComponentProps<Content.HeroWithVideoSlice>(['slice', 'index', 'slices', 'context'])
 	)
+
+	function autoplayAllowed() {
+		if (typeof window !== 'undefined' && window.matchMedia) {
+			const matcher = window.matchMedia('(prefers-reduced-motion: reduce)')
+			return !matcher.matches
+		}
+		return true
+	}
 </script>
 
 <template>
@@ -16,12 +24,11 @@
 	>
 		<div class="relative">
 			<video
-				autoplay
+				:autoplay="autoplayAllowed()"
 				muted
 				loop
 				playsInline
 				class="w-full h-[550px] object-cover max-laptop:h-[400px] pointer-events-none"
-				@scroll="console.log('scroll')"
 				v-if="slice?.primary?.video?.url"
 			>
 				<source :src="slice?.primary?.video?.url" type="video/webm" />
