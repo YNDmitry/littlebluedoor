@@ -11,7 +11,7 @@
 		<div class="px-[16px]">
 			<div id="nav" class="relative flex h-headerHeight items-center justify-between gap-6">
 				<NuxtLink to="/" class="z-[1000]" @click="show = false">
-					<IconsLogo class="text-white w-[65px]" />
+					<IconsLogo class="text-white w-[55px]" />
 				</NuxtLink>
 
 				<Burger :show="show" @click="show = !show" class="z-[1000]" />

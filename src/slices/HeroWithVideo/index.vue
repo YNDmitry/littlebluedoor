@@ -41,7 +41,7 @@
 			>
 				<div v-motion-fade-in class="flex flex-col items-center">
 					<h1
-						class="text-center titleMainBanner capitalize max-largeDesktop:mt-[-10px] max-largeDesktop:text-[35px] max-tablet:text-[25px] text-[60px]"
+						class="text-center titleMainBanner capitalize max-largeDesktop:mt-[-10px] max-largeDesktop:text-[35px] text-[60px]"
 					>
 						<span
 							class="text-center text-[24px] tracking-[6px] block font-montserrat font-medium uppercase max-largeDesktop:text-[16px] max-tablet:text-[14px]"

@@ -36,6 +36,11 @@
 						}
 					}
 				]
+			},
+			"spacing": {
+				"__TYPE__": "FieldContent",
+				"value": "16px",
+				"type": "Select"
 			}
 		},
 		"items": []

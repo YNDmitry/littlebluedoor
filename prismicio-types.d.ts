@@ -1039,6 +1039,17 @@ export interface ImageWithTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   paragraph: prismic.RichTextField;
+
+  /**
+   * spacing field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 16px
+   * - **API ID Path**: image_with_text.primary.spacing
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  spacing: prismic.SelectField<"16px" | "64px", "filled">;
 }
 
 /**
