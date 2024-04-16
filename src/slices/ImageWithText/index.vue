@@ -25,5 +25,14 @@
 				:style="[`padding: 0 ${slice?.primary?.spacing}`]"
 			/>
 		</div>
+
+		<NuxtLink
+			v-motion-fade-in
+			v-if="slice.primary.button_label"
+			:to="slice.primary.button_link?.url"
+			class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
+		>
+			{{ slice.primary.button_label }}
+		</NuxtLink>
 	</section>
 </template>

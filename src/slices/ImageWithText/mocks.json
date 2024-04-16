@@ -41,6 +41,18 @@
 				"__TYPE__": "FieldContent",
 				"value": "16px",
 				"type": "Select"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "disease",
+				"type": "Text"
 			}
 		},
 		"items": []

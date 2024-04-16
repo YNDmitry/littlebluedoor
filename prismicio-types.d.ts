@@ -1050,6 +1050,26 @@ export interface ImageWithTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   spacing: prismic.SelectField<"16px" | "64px", "filled">;
+
+  /**
+   * Button label field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Button link field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
 }
 
 /**

@@ -19,7 +19,7 @@
 				<h2
 					v-motion-fade-in
 					v-if="slice?.primary?.title"
-					class="text-center font-[500] uppercase max-tablet:text-[20px] text-[28px]"
+					class="text-center font-[500] uppercase max-tablet:text-[25px] text-[28px]"
 				>
 					{{ slice?.primary?.title }}
 				</h2>
@@ -33,18 +33,19 @@
 				</p>
 			</div>
 		</div>
-		<div class="relative h-[250px] overflow-hidden">
+		<div class="relative h-[90px] mt-[55px] overflow-hidden">
 			<component is="style">
 				@keyframes scroll { 0% { transform: translateX(0); } 100% { transform:
 				translateX(calc(-250px * {{ slice.items.length }})); } } .partners { animation: scroll 15s
-				linear infinite; } @media screen and (max-width: 768px) { @keyframes scrollMob { 0% {
-				transform: translateX(0); } 100% { transform: translateX(calc(-180px *
-				{{ slice.items.length }})); } } .partners { animation: scrollMob 15s linear infinite; } }
+				linear infinite; will-change: transform; } @media screen and (max-width: 768px) { @keyframes
+				scrollMob { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-180px *
+				{{ slice.items.length }})); } } .partners { animation: scrollMob 15s linear infinite;
+				will-change: transform; } }
 			</component>
 			<div
-				class="partners absolute left-0 top-[55px] flex w-full items-end gap-[100px] max-tablet:gap-[30px]"
+				class="partners absolute transition-all left-0 flex w-full items-end gap-[100px] max-tablet:gap-[30px]"
 			>
-				<template v-for="item in 3" :key="item">
+				<template v-for="item in 5" :key="item">
 					<NuxtImg
 						v-for="(item, idx) in slice?.items"
 						:key="idx"

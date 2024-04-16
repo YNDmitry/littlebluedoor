@@ -40,6 +40,21 @@
             ],
             "default_value": "16px"
           }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button label",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button link",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}

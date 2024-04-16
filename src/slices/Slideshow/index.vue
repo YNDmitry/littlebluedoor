@@ -62,7 +62,7 @@
 
 		<div class="px-4 flex items-center justify-center" v-if="slice?.primary?.button_link">
 			<NuxtLink
-				:to="slice.primary.button_link"
+				:to="slice.primary.button_link.url"
 				class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors max-tablet:mt-[40px] mt-[40px] uppercase"
 			>
 				{{ slice.primary.button_label }}
