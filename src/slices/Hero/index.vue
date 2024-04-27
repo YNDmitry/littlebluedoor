@@ -3,7 +3,9 @@
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
-	defineProps(getSliceComponentProps<Content.HeroSlice>(['slice', 'index', 'slices', 'context']))
+	const props = defineProps(
+		getSliceComponentProps<Content.HeroSlice>(['slice', 'index', 'slices', 'context'])
+	)
 
 	const img = useImage()
 	const serializer = {
@@ -25,18 +27,19 @@
 	     `
 		},
 	}
+
+	const sliderCount = ref(props.slice.items?.length)
 </script>
 
 <template>
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="pt-headerHeight"
+		:class="!slice?.primary?.heading ? 'pt-[60px]' : 'pt-headerHeight'"
 	>
-		<div class="px-4 pt-2 pb-8">
+		<div class="px-4 pt-2 pb-8" v-if="slice?.primary?.heading">
 			<h1
 				v-motion-fade-in
-				v-if="slice?.primary?.heading"
 				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
 			>
 				{{ slice?.primary?.heading }}
@@ -76,19 +79,34 @@
 			/>
 		</div>
 
-		<component :is="'style'" v-if="slice?.variation === 'heroWithSlider'">
-			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
-			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
-			@media screen and (max-width: 768px) { @keyframes scrollMob { 0% { transform: translateX(0); }
-			100% { transform: translateX(calc(-270px * {{ slice?.items.length }})); } } .hav-swiper {
-			animation: scrollMob 15s linear infinite; } }
-		</component>
 		<div
 			v-motion-fade-in
-			v-if="slice?.variation === 'heroWithSlider'"
+			class="mx-auto flex max-w-[747px] flex-col items-center px-4"
+			v-if="slice.variation === 'heroWithSliderAndRichText'"
+		>
+			<PrismicRichText
+				:field="slice?.primary?.rich_text"
+				v-if="slice?.primary?.rich_text"
+				class="text-center"
+			/>
+
+			<div v-motion-fade-in class="block text-center mt-4" v-if="slice.primary.button_link">
+				<NuxtLink
+					:to="slice.primary.button_link.url || ''"
+					class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
+					>{{ slice.primary.button_label }}</NuxtLink
+				>
+			</div>
+		</div>
+
+		<div
+			v-if="
+				slice?.variation === ('heroWithSlider' || 'heroWithSliderAndRichText') &&
+				slice?.items.length > 0
+			"
 			class="mx-auto pt-4 hav-swiper flex gap-5"
 		>
-			<template v-for="(item, index) in 3" :key="index">
+			<template v-for="(item, index) in 3">
 				<div
 					v-for="(slide, idx) in slice?.items"
 					:key="idx"
@@ -106,3 +124,30 @@
 		</div>
 	</section>
 </template>
+
+<style scoped>
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-420px * v-bind(sliderCount)));
+		}
+	}
+	.hav-swiper {
+		animation: scroll 30s linear infinite;
+	}
+	@media screen and (max-width: 768px) {
+		@keyframes scrollMob {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(calc(-270px * v-bind(sliderCount)));
+			}
+		}
+		.hav-swiper {
+			animation: scrollMob 15s linear infinite;
+		}
+	}
+</style>

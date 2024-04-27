@@ -14,42 +14,14 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<div class="mx-auto max-w-[582px]">
-			<div class="px-[10px]">
-				<div
-					v-motion-fade-in
-					class="flex w-full justify-between text-[12px] text-white max-tablet:gap-3 max-tablet:px-4 tablet:gap-5 tablet:px-9"
-				>
-					<NuxtLink
-						to="/hotels"
-						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
-					>
-						Hotels
-					</NuxtLink>
-					<NuxtLink
-						to="/villas"
-						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
-					>
-						Villas
-					</NuxtLink>
-					<NuxtLink
-						to="/boats"
-						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
-					>
-						Boats
-					</NuxtLink>
-				</div>
-			</div>
-		</div>
-
 		<component :is="'style'" v-if="slice?.variation === 'default'">
 			@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-420px
 			* {{ slice?.items.length }})); } } .hav-swiper { animation: scroll 30s linear infinite; }
 		</component>
 		<div
 			v-motion-fade-in
-			class="mx-auto pt-4 mt-[60px] hav-swiper flex gap-5"
-			v-if="slice?.variation === 'default'"
+			class="mx-auto pt-4 mb-[60px] hav-swiper flex gap-5"
+			v-if="slice?.variation === 'default' && slice?.items.length > 0"
 		>
 			<template v-for="(item, index) in 3" :key="index">
 				<div
@@ -77,11 +49,39 @@
 			<NuxtImg
 				provider="prismic"
 				:src="slice?.primary?.image?.url"
-				class="w-full object-cover max-tablet:h-[250px] h-[440px] mt-[60px]"
+				class="w-full object-cover max-tablet:h-[250px] h-[440px] mb-[60px]"
 				width="2000"
 				height="600"
 				:quality="80"
 			/>
+		</div>
+
+		<div class="mx-auto max-w-[582px]">
+			<div class="px-[10px]">
+				<div
+					v-motion-fade-in
+					class="flex w-full justify-between text-[12px] text-white max-tablet:gap-3 max-tablet:px-4 tablet:gap-5 tablet:px-9"
+				>
+					<NuxtLink
+						to="/hotels"
+						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
+					>
+						Hotels
+					</NuxtLink>
+					<NuxtLink
+						to="/villas"
+						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
+					>
+						Villas
+					</NuxtLink>
+					<NuxtLink
+						to="/boats"
+						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
+					>
+						Boats
+					</NuxtLink>
+				</div>
+			</div>
 		</div>
 	</section>
 </template>

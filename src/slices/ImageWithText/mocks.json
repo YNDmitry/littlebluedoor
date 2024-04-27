@@ -39,7 +39,7 @@
 			},
 			"spacing": {
 				"__TYPE__": "FieldContent",
-				"value": "16px",
+				"value": "0px",
 				"type": "Select"
 			},
 			"button_link": {

@@ -794,12 +794,86 @@ export type HeroSliceHeroWithRichText = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceHeroWithSliderAndRichTextPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Rich text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Button label field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * button link field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceHeroWithSliderAndRichTextItem {
+  /**
+   * image field in *Hero → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * HeroWithSliderAndRichText variation for Hero Slice
+ *
+ * - **API ID**: `heroWithSliderAndRichText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceHeroWithSliderAndRichText = prismic.SharedSliceVariation<
+  "heroWithSliderAndRichText",
+  Simplify<HeroSliceHeroWithSliderAndRichTextPrimary>,
+  Simplify<HeroSliceHeroWithSliderAndRichTextItem>
+>;
+
+/**
  * Slice variation for *Hero*
  */
 type HeroSliceVariation =
   | HeroSliceDefault
   | HeroSliceHeroWithSlider
-  | HeroSliceHeroWithRichText;
+  | HeroSliceHeroWithRichText
+  | HeroSliceHeroWithSliderAndRichText;
 
 /**
  * Hero Shared Slice
@@ -1049,7 +1123,7 @@ export interface ImageWithTextSliceDefaultPrimary {
    * - **API ID Path**: image_with_text.primary.spacing
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  spacing: prismic.SelectField<"16px" | "64px", "filled">;
+  spacing: prismic.SelectField<"16px" | "64px" | "0px", "filled">;
 
   /**
    * Button label field in *ImageWithText → Primary*
@@ -2303,10 +2377,13 @@ declare module "@prismicio/client" {
       HeroSliceHeroWithSliderPrimary,
       HeroSliceHeroWithSliderItem,
       HeroSliceHeroWithRichTextPrimary,
+      HeroSliceHeroWithSliderAndRichTextPrimary,
+      HeroSliceHeroWithSliderAndRichTextItem,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceHeroWithSlider,
       HeroSliceHeroWithRichText,
+      HeroSliceHeroWithSliderAndRichText,
       HeroWithVideoSlice,
       HeroWithVideoSliceDefaultPrimary,
       HeroWithVideoSliceVariation,

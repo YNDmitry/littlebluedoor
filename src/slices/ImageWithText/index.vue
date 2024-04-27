@@ -12,9 +12,10 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="flex flex-col items-center pt-[60px] px-4"
+		class="flex flex-col items-center px-4"
+		:class="slice?.primary?.spacing === '0px' ? 'pt-0' : 'pt-[60px]'"
 	>
-		<div v-motion-fade-in class="pb-[50px]" v-if="slice?.primary?.image?.url">
+		<div v-motion-fade-in class="pb-[15px]" v-if="slice?.primary?.image?.url">
 			<NuxtImg :src="slice?.primary?.image?.url || ''" width="80" />
 		</div>
 
@@ -30,7 +31,7 @@
 			v-motion-fade-in
 			v-if="slice.primary.button_label"
 			:to="slice.primary.button_link?.url"
-			class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
+			class="hover:bg-mainColorHover min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
 		>
 			{{ slice.primary.button_label }}
 		</NuxtLink>

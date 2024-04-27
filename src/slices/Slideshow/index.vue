@@ -22,7 +22,8 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="relative pb-[100px]"
+		class="relative"
+		:class="slice?.primary?.button_label !== null ? 'pb-[60px]' : 'pb-[60px]'"
 	>
 		<div class="relative flex flex-col items-center justify-center">
 			<Swiper
@@ -60,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="px-4 flex items-center justify-center" v-if="slice?.primary?.button_link">
+		<div class="px-4 flex items-center justify-center" v-if="slice?.primary?.button_label">
 			<NuxtLink
 				:to="slice.primary.button_link.url"
 				class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors max-tablet:mt-[40px] mt-[40px] uppercase"

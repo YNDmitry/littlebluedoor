@@ -104,7 +104,7 @@
 						</h3>
 
 						<!-- Paragraph -->
-						<span v-motion-fade-in class="max-w-[450px] text-center text-[14px] font-medium">
+						<span v-motion-fade-in class="max-w-[450px] text-center text-[14px]">
 							{{ item?.paragraph }}
 						</span>
 

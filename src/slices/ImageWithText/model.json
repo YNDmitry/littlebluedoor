@@ -36,7 +36,8 @@
             "placeholder": "",
             "options": [
               "16px",
-              "64px"
+              "64px",
+              "0px"
             ],
             "default_value": "16px"
           }

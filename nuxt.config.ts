@@ -83,7 +83,7 @@ export default defineNuxtConfig({
 		},
 		importPT: { from: path.resolve(__dirname, './src/assets/presets/lara/calendar/index') },
 		components: {
-			include: ['Accordion', 'AccordionTab', 'Calendar'],
+			include: ['Accordion', 'AccordionTab', 'Calendar', 'Menu'],
 		},
 	},
 
