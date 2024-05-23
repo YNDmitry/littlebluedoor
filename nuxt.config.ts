@@ -56,6 +56,8 @@ export default defineNuxtConfig({
 		'nuxt-primevue',
 		'@formkit/auto-animate',
 		'nuxt-mail',
+		'@nuxtjs/robots',
+		'@nuxtjs/sitemap',
 	],
 
 	css: ['~/assets/css/global.css'],

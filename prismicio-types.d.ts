@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ExperiencesDocumentDataSlicesSlice = RichTextSlice | HeroSlice;
+type ExperiencesDocumentDataSlicesSlice =
+  | PaymentBlockSlice
+  | RichTextSlice
+  | HeroSlice;
 
 /**
  * Content for Experiences documents
@@ -1327,6 +1330,192 @@ export type OurPartnersSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PaymentBlock → Primary*
+ */
+export interface PaymentBlockSliceDefaultPrimary {
+  /**
+   * Button title (Download) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_title_download
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_title_download: prismic.KeyTextField;
+
+  /**
+   * Button link (Download) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_link_download
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_download: prismic.LinkField;
+
+  /**
+   * Body field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *PaymentBlock → Items*
+ */
+export interface PaymentBlockSliceDefaultItem {
+  /**
+   * image field in *PaymentBlock → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image: prismic.LinkField;
+}
+
+/**
+ * Default variation for PaymentBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PaymentBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PaymentBlockSliceDefaultPrimary>,
+  Simplify<PaymentBlockSliceDefaultItem>
+>;
+
+/**
+ * Primary content in *PaymentBlock → Primary*
+ */
+export interface PaymentBlockSlicePaymentBlockWithImagesPrimary {
+  /**
+   * Button title (Download) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_title_download
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_title_download: prismic.KeyTextField;
+
+  /**
+   * Button link (Download) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_link_download
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_download: prismic.LinkField;
+
+  /**
+   * Body field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * WhatsApp button title field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.whatsapp_button_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  whatsapp_button_title: prismic.KeyTextField;
+
+  /**
+   * WhatsApp button link field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.whatsapp_button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  whatsapp_button_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *PaymentBlock → Items*
+ */
+export interface PaymentBlockSlicePaymentBlockWithImagesItem {
+  /**
+   * Product title (button) field in *PaymentBlock → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.items[].product_title_button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  product_title_button: prismic.KeyTextField;
+
+  /**
+   * Product id field in *PaymentBlock → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.items[].product_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  product_id: prismic.KeyTextField;
+
+  /**
+   * Description field in *PaymentBlock → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * PaymentBlockWithButtons variation for PaymentBlock Slice
+ *
+ * - **API ID**: `paymentBlockWithImages`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PaymentBlockSlicePaymentBlockWithImages =
+  prismic.SharedSliceVariation<
+    "paymentBlockWithImages",
+    Simplify<PaymentBlockSlicePaymentBlockWithImagesPrimary>,
+    Simplify<PaymentBlockSlicePaymentBlockWithImagesItem>
+  >;
+
+/**
+ * Slice variation for *PaymentBlock*
+ */
+type PaymentBlockSliceVariation =
+  | PaymentBlockSliceDefault
+  | PaymentBlockSlicePaymentBlockWithImages;
+
+/**
+ * PaymentBlock Shared Slice
+ *
+ * - **API ID**: `payment_block`
+ * - **Description**: PaymentBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PaymentBlockSlice = prismic.SharedSlice<
+  "payment_block",
+  PaymentBlockSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -2412,6 +2601,14 @@ declare module "@prismicio/client" {
       OurPartnersSliceDefaultItem,
       OurPartnersSliceVariation,
       OurPartnersSliceDefault,
+      PaymentBlockSlice,
+      PaymentBlockSliceDefaultPrimary,
+      PaymentBlockSliceDefaultItem,
+      PaymentBlockSlicePaymentBlockWithImagesPrimary,
+      PaymentBlockSlicePaymentBlockWithImagesItem,
+      PaymentBlockSliceVariation,
+      PaymentBlockSliceDefault,
+      PaymentBlockSlicePaymentBlockWithImages,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

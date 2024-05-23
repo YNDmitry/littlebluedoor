@@ -19,7 +19,7 @@
 		heading4: ({ children }: any) => `<h4 class="text-[16px] my-[15px]">${children}</h4>`,
 		heading5: ({ children }: any) => `<h5>${children}</h5>`,
 		heading6: ({ children }: any) => `<h6>${children}</h6>`,
-		paragraph: ({ children }: any) => `<p class="my-[15px]">${children}</p>`,
+		paragraph: ({ children }: any) => `<p class="my-[15px] last:mb-0">${children}</p>`,
 		preformatted: ({ node }: any) => `<pre>${JSON.stringify(node.text)}</pre>`,
 		strong: ({ children }: any) => `<strong>${children}</strong>`,
 		em: ({ children }: any) => `<em>${children}</em>`,
@@ -58,10 +58,14 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="pt-[60px] pb-[100px]"
+		class="pt-[60px] pb-[60px]"
 	>
 		<div v-motion-fade-in v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
-			<PrismicRichText :field="slice?.primary?.body" :serializer="serializer" class="px-4" />
+			<PrismicRichText
+				:field="slice?.primary?.body"
+				:serializer="serializer"
+				class="px-4 text-center"
+			/>
 		</div>
 	</section>
 </template>

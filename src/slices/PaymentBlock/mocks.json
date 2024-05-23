@@ -1,0 +1,120 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"button_title_download": {
+				"__TYPE__": "FieldContent",
+				"value": "chose",
+				"type": "Text"
+			},
+			"button_link_download": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit cupidatat do enim proident culpa aute enim minim."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "paymentBlockWithImages",
+		"primary": {
+			"button_title_download": {
+				"__TYPE__": "FieldContent",
+				"value": "pay",
+				"type": "Text"
+			},
+			"button_link_download": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu aliqua amet occaecat enim velit proident reprehenderit culpa mollit consequat quis elit. Cupidatat quis consectetur ea qui amet nulla ad nostrud."
+						}
+					}
+				]
+			},
+			"whatsapp_button_title": {
+				"__TYPE__": "FieldContent",
+				"value": "handsome",
+				"type": "Text"
+			},
+			"whatsapp_button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"product_title_button",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "higher",
+							"type": "Text"
+						}
+					],
+					[
+						"product_id",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "dear",
+							"type": "Text"
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "straight",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

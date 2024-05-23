@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "payment_block": {
+              "type": "SharedSlice"
+            },
             "rich_text": {
               "type": "SharedSlice"
             },

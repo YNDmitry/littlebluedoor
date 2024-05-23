@@ -46,8 +46,8 @@
 					}"
 				>
 					<SwiperSlide
-						v-for="slide in slice?.items"
-						:key="slide"
+						v-for="(slide, idx) in slice?.items"
+						:key="idx"
 						class="max-largeDesktop:max-w-[450px] max-largeDesktop:mr-[20px] max-tablet:max-w-[300px]"
 					>
 						<NuxtLink v-motion-fade-in :to="settings?.data?.instagram?.url">

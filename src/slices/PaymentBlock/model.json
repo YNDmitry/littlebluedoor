@@ -1,0 +1,124 @@
+{
+  "id": "payment_block",
+  "type": "SharedSlice",
+  "name": "PaymentBlock",
+  "description": "PaymentBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "button_title_download": {
+          "type": "Text",
+          "config": {
+            "label": "Button title (Download)",
+            "placeholder": ""
+          }
+        },
+        "button_link_download": {
+          "type": "Link",
+          "config": {
+            "label": "Button link (Download)",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "image",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    },
+    {
+      "id": "paymentBlockWithImages",
+      "name": "PaymentBlockWithButtons",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "button_title_download": {
+          "type": "Text",
+          "config": {
+            "label": "Button title (Download)",
+            "placeholder": ""
+          }
+        },
+        "button_link_download": {
+          "type": "Link",
+          "config": {
+            "label": "Button link (Download)",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "whatsapp_button_title": {
+          "type": "Text",
+          "config": {
+            "label": "WhatsApp button title",
+            "placeholder": ""
+          }
+        },
+        "whatsapp_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "WhatsApp button link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {
+        "product_title_button": {
+          "type": "Text",
+          "config": {
+            "label": "Product title (button)",
+            "placeholder": ""
+          }
+        },
+        "product_id": {
+          "type": "Text",
+          "config": {
+            "label": "Product id",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}
