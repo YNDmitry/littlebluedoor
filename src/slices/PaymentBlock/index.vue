@@ -21,7 +21,7 @@
 		heading6: ({ children }: any) => `<h6>${children}</h6>`,
 		paragraph: ({ children }: any) => `<p class="my-[15px] last:m-0">${children}</p>`,
 		preformatted: ({ node }: any) => `<pre>${JSON.stringify(node.text)}</pre>`,
-		strong: ({ children }: any) => `<strong class="block">${children}</strong>`,
+		strong: ({ children }: any) => `<strong class="block my-4 last:mb-[36px]">${children}</strong>`,
 		em: ({ children }: any) => `<em>${children}</em>`,
 		listItem: ({ children }: any) => `<li>${children}</li>`,
 		oListItem: ({ children }: any) => `<li>${children}</li>`,
@@ -52,6 +52,87 @@
 		},
 		span: ({ text }: any) => (text ? text : ''),
 	}
+
+	function getBaseConfig() {
+		return {
+			env: process.env.NODE_ENV === 'development' ? 'demo' : 'prod',
+			recipientCode: process.env.NODE_ENV === 'development' ? 'DLB' : 'OLR',
+
+			requestPayerInfo: true,
+			requestRecipientInfo: true,
+
+			payerEmailNotifications: true,
+
+			paymentOptionsConfig: {
+				filters: {
+					type: ['credit_card'],
+					excludedCreditCardsBrands: ['amex'],
+				},
+			},
+
+			onCompleteCallback: function (args: any) {
+				if (args.status == 'success') {
+					alert(`Thank you for the payment! Will email you soon with all the details! `)
+				} else if (args.status == 'error') {
+					alert('Your payment was UNSUCCESSFUL please try again')
+				}
+			},
+		}
+	}
+
+	function getFormattedDate(date: Date) {
+		const yyyy = date.getFullYear()
+		const mm = String(date.getMonth() + 1).padStart(2, '0')
+		const dd = String(date.getDate()).padStart(2, '0')
+
+		return `${yyyy}-${mm}-${dd}`
+	}
+
+	function payBalance() {
+		if (!process.client) return
+
+		let config: any = getBaseConfig()
+		if (props.slice.variation === 'paymentBlockWithImages') {
+			config.amount = props.slice.items.find((el) => el.is_deposit === false)?.product_price
+		}
+
+		if (typeof window !== 'undefined') {
+			const modal = window.FlywirePayment.initiate(config)
+			modal.render()
+		}
+	}
+
+	function payDeposit() {
+		if (!process.client) return
+
+		const today = getFormattedDate(new Date())
+		const balanceDate = getFormattedDate(new Date(props.slice.primary?.date)) // Months are zero indexed
+
+		var config: any = getBaseConfig()
+		if (props.slice.variation === 'paymentBlockWithImages') {
+			config.amount = 0
+			config.scheduledPayments = {
+				type: 'scheduled',
+				data: {
+					instalments: [
+						{
+							amount: props.slice.items.find((el) => el.is_deposit === true)?.product_price,
+							date: today,
+						},
+						{
+							amount: props.slice.items.find((el) => el.is_deposit === true)?.product_price,
+							date: balanceDate,
+						},
+					],
+				},
+			}
+		}
+
+		if (typeof window !== 'undefined') {
+			const modal = window.FlywirePayment.initiate(config)
+			modal.render()
+		}
+	}
 </script>
 
 <template>
@@ -62,13 +143,6 @@
 	>
 		<div class="flex-col text-center flex justify-center">
 			<div class="max-w-[747px] px-4 mx-auto">
-				<div v-motion-fade-in v-if="slice.primary.button_title_download">
-					<PrismicLink
-						class="hover:bg-mainColorHover min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
-						:field="slice.primary.button_link_download"
-						>{{ slice.primary.button_title_download }}</PrismicLink
-					>
-				</div>
 				<div v-motion-fade-in class="mt-[20px]" v-if="slice?.primary?.body">
 					<PrismicRichText
 						:field="slice?.primary?.body"
@@ -76,11 +150,30 @@
 						class="px-4 text-center"
 					/>
 				</div>
+				<div
+					v-if="slice.variation === 'paymentBlockWithImages'"
+					class="mt-[40px] max-w-[747px] px-4 mx-auto"
+					:class="
+						slice?.items?.length === 1
+							? 'flex'
+							: 'grid grid-cols-[1fr_1fr] gap-3 max-tablet:flex max-tablet:flex-col max-tablet:gap-[50px]'
+					"
+				>
+					<div v-for="btn in slice.items" class="mx-auto">
+						<button
+							type="button"
+							v-motion-fade-in
+							class="hover:bg-mainColorHover min-w-[300px] cursor-pointer text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+							:class="slice.items.length > 1 ? 'w-full' : ''"
+							@click.prevent="btn.is_deposit ? payDeposit() : payBalance()"
+						>
+							{{ btn.product_title_button }}
+						</button>
+						<p class="mt-3 text-[10px] opacity-70">{{ btn.description }}</p>
+					</div>
+				</div>
 			</div>
-			<div
-				v-if="slice.variation === 'default'"
-				class="px-4 mt-[60px] mx-auto max-w-[1300px] w-full"
-			>
+			<div v-if="slice.variation === 'default'" class="px-4 mx-auto max-w-[1300px] w-full">
 				<div class="relative">
 					<Swiper
 						v-motion-fade-in
@@ -137,39 +230,27 @@
 				</div>
 			</div>
 			<div
-				v-if="slice.variation === 'paymentBlockWithImages'"
-				class="mt-[40px] max-w-[747px] px-4 mx-auto"
-				:class="
-					slice?.items?.length === 1
-						? 'flex'
-						: 'grid grid-cols-[1fr_1fr] gap-3 max-tablet:flex max-tablet:flex-col max-tablet:gap-[50px]'
-				"
+				class="w-full max-w-[747px] px-4 mx-auto"
+				v-if="slice.variation === 'paymenBlockWithWhatsAppAndPdf'"
 			>
-				<div v-for="btn in slice.items">
-					<NuxtLink
-						v-motion-fade-in
-						:to="'https://a3e524-b5.myshopify.com/cart/' + btn.product_id + '?checkout'"
-						target="_blank"
-						class="hover:bg-mainColorHover min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
-						:class="slice.items.length > 1 ? 'w-full' : ''"
+				<div v-motion-fade-in v-if="slice.primary.button_title_pdf" class="mb-10">
+					<PrismicLink
+						class="hover:bg-mainColorHover max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+						:field="slice.primary.button_link_pdf"
+						>{{ slice.primary.button_title_pdf }}</PrismicLink
 					>
-						{{ btn.product_title_button }}
-					</NuxtLink>
-					<p class="mt-3 text-[10px] opacity-70">{{ btn.description }}</p>
+					<p class="mt-3 opacity-70">{{ slice.primary.button_description_pdf }}</p>
 				</div>
-			</div>
-			<div
-				class="mt-8 w-full max-w-[747px] px-4 mx-auto"
-				v-if="slice.primary.whatsapp_button_title"
-			>
 				<NuxtLink
+					v-if="slice.primary.button_title_whatsapp"
 					v-motion-fade-in
-					:to="slice.primary.whatsapp_button_link.url"
+					:to="slice.primary.button_link_whatsapp.url"
 					target="_blank"
-					class="hover:bg-mainColorHover w-full min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+					class="hover:bg-mainColorHover max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
 				>
-					{{ slice.primary.whatsapp_button_title }}
+					{{ slice.primary.button_title_whatsapp }}
 				</NuxtLink>
+				<p class="mt-3 opacity-70">{{ slice.primary.button_description_whatsapp }}</p>
 			</div>
 		</div>
 	</section>

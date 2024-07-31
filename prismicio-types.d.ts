@@ -1334,26 +1334,6 @@ export type OurPartnersSlice = prismic.SharedSlice<
  */
 export interface PaymentBlockSliceDefaultPrimary {
   /**
-   * Button title (Download) field in *PaymentBlock → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.primary.button_title_download
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_title_download: prismic.KeyTextField;
-
-  /**
-   * Button link (Download) field in *PaymentBlock → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.primary.button_link_download
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_link_download: prismic.LinkField;
-
-  /**
    * Body field in *PaymentBlock → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1397,26 +1377,6 @@ export type PaymentBlockSliceDefault = prismic.SharedSliceVariation<
  */
 export interface PaymentBlockSlicePaymentBlockWithImagesPrimary {
   /**
-   * Button title (Download) field in *PaymentBlock → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.primary.button_title_download
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_title_download: prismic.KeyTextField;
-
-  /**
-   * Button link (Download) field in *PaymentBlock → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.primary.button_link_download
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_link_download: prismic.LinkField;
-
-  /**
    * Body field in *PaymentBlock → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1427,24 +1387,14 @@ export interface PaymentBlockSlicePaymentBlockWithImagesPrimary {
   body: prismic.RichTextField;
 
   /**
-   * WhatsApp button title field in *PaymentBlock → Primary*
+   * Date field in *PaymentBlock → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Timestamp
    * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.primary.whatsapp_button_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: payment_block.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
    */
-  whatsapp_button_title: prismic.KeyTextField;
-
-  /**
-   * WhatsApp button link field in *PaymentBlock → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.primary.whatsapp_button_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  whatsapp_button_link: prismic.LinkField;
+  date: prismic.TimestampField;
 }
 
 /**
@@ -1462,14 +1412,25 @@ export interface PaymentBlockSlicePaymentBlockWithImagesItem {
   product_title_button: prismic.KeyTextField;
 
   /**
-   * Product id field in *PaymentBlock → Items*
+   * Product price field in *PaymentBlock → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Number
    * - **Placeholder**: *None*
-   * - **API ID Path**: payment_block.items[].product_id
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: payment_block.items[].product_price
+   * - **Documentation**: https://prismic.io/docs/field#number
    */
-  product_id: prismic.KeyTextField;
+  product_price: prismic.NumberField;
+
+  /**
+   * Is deposit field in *PaymentBlock → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: payment_block.items[].is_deposit
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_deposit: prismic.BooleanField;
 
   /**
    * Description field in *PaymentBlock → Items*
@@ -1497,11 +1458,91 @@ export type PaymentBlockSlicePaymentBlockWithImages =
   >;
 
 /**
+ * Primary content in *PaymentBlock → Primary*
+ */
+export interface PaymentBlockSlicePaymenBlockWithWhatsAppAndPdfPrimary {
+  /**
+   * Button title (pdf) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_title_pdf
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_title_pdf: prismic.KeyTextField;
+
+  /**
+   * Button link (pdf) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_link_pdf
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_pdf: prismic.LinkField;
+
+  /**
+   * Button description (pdf) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_description_pdf
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_description_pdf: prismic.KeyTextField;
+
+  /**
+   * Button title (WhatsApp) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_title_whatsapp
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_title_whatsapp: prismic.KeyTextField;
+
+  /**
+   * Button link (WhatsApp) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_link_whatsapp
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_whatsapp: prismic.LinkField;
+
+  /**
+   * Button description (WhatsApp) field in *PaymentBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.primary.button_description_whatsapp
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_description_whatsapp: prismic.KeyTextField;
+}
+
+/**
+ * PaymenBlockWithWhatsAppAndPdf variation for PaymentBlock Slice
+ *
+ * - **API ID**: `paymenBlockWithWhatsAppAndPdf`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PaymentBlockSlicePaymenBlockWithWhatsAppAndPdf =
+  prismic.SharedSliceVariation<
+    "paymenBlockWithWhatsAppAndPdf",
+    Simplify<PaymentBlockSlicePaymenBlockWithWhatsAppAndPdfPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *PaymentBlock*
  */
 type PaymentBlockSliceVariation =
   | PaymentBlockSliceDefault
-  | PaymentBlockSlicePaymentBlockWithImages;
+  | PaymentBlockSlicePaymentBlockWithImages
+  | PaymentBlockSlicePaymenBlockWithWhatsAppAndPdf;
 
 /**
  * PaymentBlock Shared Slice
@@ -2606,9 +2647,11 @@ declare module "@prismicio/client" {
       PaymentBlockSliceDefaultItem,
       PaymentBlockSlicePaymentBlockWithImagesPrimary,
       PaymentBlockSlicePaymentBlockWithImagesItem,
+      PaymentBlockSlicePaymenBlockWithWhatsAppAndPdfPrimary,
       PaymentBlockSliceVariation,
       PaymentBlockSliceDefault,
       PaymentBlockSlicePaymentBlockWithImages,
+      PaymentBlockSlicePaymenBlockWithWhatsAppAndPdf,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

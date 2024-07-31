@@ -58,7 +58,7 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="pt-[60px] pb-[60px]"
+		class="pt-[60px] pb-[20px]"
 	>
 		<div v-motion-fade-in v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
 			<PrismicRichText

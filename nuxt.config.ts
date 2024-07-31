@@ -21,6 +21,9 @@ export default defineNuxtConfig({
 					defer: true,
 					src: 'https://static.cdn.prismic.io/prismic.js?new=true&repo=littlebluedoor',
 				},
+				{
+					src: 'https://checkout.flywire.com/flywire-payment.js',
+				},
 			],
 		},
 	},

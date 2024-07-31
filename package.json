@@ -38,8 +38,8 @@
   "devDependencies": {
     "@nuxtjs/prismic": "^3.0.0",
     "@prisma/client": "^5.12.1",
-    "@slicemachine/adapter-nuxt": "latest",
+    "@slicemachine/adapter-nuxt": "0.3.39",
     "prisma": "^5.12.1",
-    "slice-machine-ui": "latest"
+    "slice-machine-ui": "2.0.0"
   }
 }

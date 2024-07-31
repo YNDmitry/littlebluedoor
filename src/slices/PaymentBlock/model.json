@@ -12,21 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "button_title_download": {
-          "type": "Text",
-          "config": {
-            "label": "Button title (Download)",
-            "placeholder": ""
-          }
-        },
-        "button_link_download": {
-          "type": "Link",
-          "config": {
-            "label": "Button link (Download)",
-            "placeholder": "",
-            "select": null
-          }
-        },
         "body": {
           "type": "StructuredText",
           "config": {
@@ -56,21 +41,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "button_title_download": {
-          "type": "Text",
-          "config": {
-            "label": "Button title (Download)",
-            "placeholder": ""
-          }
-        },
-        "button_link_download": {
-          "type": "Link",
-          "config": {
-            "label": "Button link (Download)",
-            "placeholder": "",
-            "select": null
-          }
-        },
         "body": {
           "type": "StructuredText",
           "config": {
@@ -80,19 +50,11 @@
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "whatsapp_button_title": {
-          "type": "Text",
+        "date": {
+          "type": "Timestamp",
           "config": {
-            "label": "WhatsApp button title",
+            "label": "Date",
             "placeholder": ""
-          }
-        },
-        "whatsapp_button_link": {
-          "type": "Link",
-          "config": {
-            "label": "WhatsApp button link",
-            "placeholder": "",
-            "select": null
           }
         }
       },
@@ -104,11 +66,20 @@
             "placeholder": ""
           }
         },
-        "product_id": {
-          "type": "Text",
+        "product_price": {
+          "type": "Number",
           "config": {
-            "label": "Product id",
+            "label": "Product price",
             "placeholder": ""
+          }
+        },
+        "is_deposit": {
+          "type": "Boolean",
+          "config": {
+            "label": "Is deposit",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "description": {
@@ -119,6 +90,61 @@
           }
         }
       }
+    },
+    {
+      "id": "paymenBlockWithWhatsAppAndPdf",
+      "name": "PaymenBlockWithWhatsAppAndPdf",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "button_title_pdf": {
+          "type": "Text",
+          "config": {
+            "label": "Button title (pdf)",
+            "placeholder": ""
+          }
+        },
+        "button_link_pdf": {
+          "type": "Link",
+          "config": {
+            "label": "Button link (pdf)",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_description_pdf": {
+          "type": "Text",
+          "config": {
+            "label": "Button description (pdf)",
+            "placeholder": ""
+          }
+        },
+        "button_title_whatsapp": {
+          "type": "Text",
+          "config": {
+            "label": "Button title (WhatsApp)",
+            "placeholder": ""
+          }
+        },
+        "button_link_whatsapp": {
+          "type": "Link",
+          "config": {
+            "label": "Button link (WhatsApp)",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_description_whatsapp": {
+          "type": "Text",
+          "config": {
+            "label": "Button description (WhatsApp)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

@@ -3,18 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"button_title_download": {
-				"__TYPE__": "FieldContent",
-				"value": "chose",
-				"type": "Text"
-			},
-			"button_link_download": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com"
-				}
-			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -49,18 +37,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "paymentBlockWithImages",
 		"primary": {
-			"button_title_download": {
-				"__TYPE__": "FieldContent",
-				"value": "pay",
-				"type": "Text"
-			},
-			"button_link_download": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io"
-				}
-			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -72,17 +48,10 @@
 					}
 				]
 			},
-			"whatsapp_button_title": {
+			"date": {
 				"__TYPE__": "FieldContent",
-				"value": "handsome",
-				"type": "Text"
-			},
-			"whatsapp_button_link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io"
-				}
+				"type": "Timestamp",
+				"value": "2015-09-16T21:16:48Z"
 			}
 		},
 		"items": [
@@ -98,22 +67,75 @@
 						}
 					],
 					[
-						"product_id",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "dear",
-							"type": "Text"
-						}
-					],
-					[
 						"description",
 						{
 							"__TYPE__": "FieldContent",
 							"value": "straight",
 							"type": "Text"
 						}
+					],
+					[
+						"is_deposit",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": false
+						}
+					],
+					[
+						"product_price",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "29",
+							"type": "Number"
+						}
 					]
 				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "paymenBlockWithWhatsAppAndPdf",
+		"primary": {
+			"button_title_pdf": {
+				"__TYPE__": "FieldContent",
+				"value": "ball",
+				"type": "Text"
+			},
+			"button_description_pdf": {
+				"__TYPE__": "FieldContent",
+				"value": "essential",
+				"type": "Text"
+			},
+			"button_link_pdf": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"button_title_whatsapp": {
+				"__TYPE__": "FieldContent",
+				"value": "fewer",
+				"type": "Text"
+			},
+			"button_description_whatsapp": {
+				"__TYPE__": "FieldContent",
+				"value": "gave",
+				"type": "Text"
+			},
+			"button_link_whatsapp": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
 			}
 		]
 	}
