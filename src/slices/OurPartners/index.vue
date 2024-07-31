@@ -53,6 +53,7 @@
 						:src="item.logo?.url || ''"
 						width="150"
 						:quality="100"
+						placeholder
 					/>
 				</template>
 			</div>

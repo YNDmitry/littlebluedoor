@@ -58,6 +58,7 @@
 							:src="slide?.image?.url"
 							width="200"
 							height="300"
+							placeholder
 						/>
 						<div v-if="slide?.title" class="text-center mt-3">{{ slide?.title }}</div>
 					</SwiperSlide>

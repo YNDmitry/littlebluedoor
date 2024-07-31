@@ -58,6 +58,7 @@
 						class="h-[300px] w-full object-cover"
 						width="300"
 						:src="article?.image?.url"
+						placeholder
 					/>
 
 					<div class="flex flex-col items-center px-2">

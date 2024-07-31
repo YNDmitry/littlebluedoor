@@ -53,6 +53,7 @@
 				width="2000"
 				height="600"
 				:quality="80"
+				placeholder
 			/>
 		</div>
 

@@ -16,7 +16,7 @@
 		:class="slice?.primary?.spacing === '0px' ? 'pt-0' : 'pt-[60px]'"
 	>
 		<div v-motion-fade-in class="pb-[15px]" v-if="slice?.primary?.image?.url">
-			<NuxtImg :src="slice?.primary?.image?.url || ''" width="80" />
+			<NuxtImg :src="slice?.primary?.image?.url || ''" width="80" placeholder />
 		</div>
 
 		<div v-motion-fade-in v-if="slice?.primary?.paragraph.length > 0">

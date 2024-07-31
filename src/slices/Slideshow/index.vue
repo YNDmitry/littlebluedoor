@@ -48,6 +48,7 @@
 						width="2000"
 						height="600"
 						class="w-full object-cover h-[600px] max-tablet:h-[400px]"
+						placeholder
 					/>
 				</SwiperSlide>
 			</Swiper>

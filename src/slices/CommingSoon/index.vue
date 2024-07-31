@@ -22,6 +22,7 @@
 			class="mx-auto w-[80px]"
 			:src="slice?.primary?.image?.url"
 			width="80"
+			placeholder
 		/>
 		<p v-motion-fade-in class="text-center uppercase">
 			{{ slice?.primary?.title }}

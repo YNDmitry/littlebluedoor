@@ -78,6 +78,16 @@ export default defineNuxtConfig({
 		},
 	},
 
+	routeRules: {
+		'/': {
+			prerender: true,
+		},
+	},
+
+	experimental: {
+		inlineRouteRules: true,
+	},
+
 	fonts: {
 		families: [{ name: 'Montserrat', global: true, weights: [100, 800] }],
 	},

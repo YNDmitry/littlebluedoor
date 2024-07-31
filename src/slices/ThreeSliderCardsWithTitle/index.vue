@@ -61,6 +61,7 @@
 									class="object-cover aspect-square w-full"
 									:src="item?.image_2?.url"
 									width="300"
+									placeholder
 								/>
 							</SwiperSlide>
 							<SwiperSlide v-if="item?.image_3?.url">

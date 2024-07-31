@@ -205,6 +205,7 @@
 								:src="slide?.image?.url"
 								width="350"
 								:quality="80"
+								placeholder
 							/>
 						</SwiperSlide>
 					</Swiper>

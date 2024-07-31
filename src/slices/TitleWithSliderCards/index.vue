@@ -58,6 +58,7 @@
 								v-if="item?.image?.url"
 								:src="item?.image?.url"
 								:alt="item?.image?.alt || ''"
+								placeholder
 							/>
 						</SwiperSlide>
 						<SwiperSlide>

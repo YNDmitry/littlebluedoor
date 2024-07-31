@@ -33,6 +33,7 @@
 							:src="card?.icon?.url"
 							class="mb-3 mx-auto"
 							width="45"
+							placeholder
 						/>
 						<h3 class="font-bold max-tablet:text-[18px] text-[20px]">{{ card.title }}</h3>
 						<p class="mt-4">

@@ -63,6 +63,7 @@
 											width="30"
 											height="30"
 											class="object-cover w-full h-full"
+											placeholder
 										/>
 									</div>
 

@@ -47,6 +47,7 @@
 						class="w-full h-[350px] object-cover"
 						:src="item?.image?.url"
 						alt=""
+						placeholder
 					/>
 
 					<div class="flex flex-col gap-[10px] max-tablet:text-center" v-if="item?.body">

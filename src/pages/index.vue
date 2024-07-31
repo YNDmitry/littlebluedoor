@@ -25,8 +25,25 @@
 		ogTitle: page?.value?.data?.meta_title || 'Littlebluedoor',
 		description: page?.value?.data?.meta_description || null,
 		ogDescription: page?.value?.data?.meta_description || null,
+		ogUrl: 'https://www.littlebluedoor.com' + useRoute().path,
 		ogImage: page?.value?.data?.meta_image?.url || null,
+		twitterTitle: page?.value?.data?.meta_title || 'Littlebluedoor',
+		twitterDescription: page?.value?.data?.meta_description || null,
+		twitterImage: page?.value?.data?.meta_image?.url || null,
 		twitterCard: 'summary_large_image',
+	})
+
+	useHead({
+		htmlAttrs: {
+			lang: 'en',
+		},
+		link: [
+			{
+				rel: 'icon',
+				type: 'image/png',
+				href: '/favicon.png',
+			},
+		],
 	})
 </script>
 

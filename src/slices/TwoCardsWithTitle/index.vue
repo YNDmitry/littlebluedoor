@@ -31,6 +31,7 @@
 						:src="item?.image?.url"
 						v-if="item?.image?.url"
 						height="650"
+						placeholder
 					/>
 
 					<div v-motion-fade-in class="flex flex-col items-center gap-4 pt-[25px]">

@@ -58,6 +58,7 @@
 				width="80"
 				format="webp"
 				class="mx-auto"
+				placeholder
 			/>
 			<PrismicRichText
 				:field="slice?.primary?.rich_text"
@@ -76,6 +77,7 @@
 				height="600"
 				:quality="80"
 				format="webp"
+				placeholder
 			/>
 		</div>
 

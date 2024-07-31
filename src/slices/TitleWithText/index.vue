@@ -48,6 +48,7 @@
 					:quality="80"
 					width="200"
 					class="w-full"
+					placeholder
 				/>
 			</div>
 		</div>

@@ -37,6 +37,7 @@
 							height="417"
 							format="webp"
 							class="h-full object-cover w-full max-tablet:aspect-square"
+							placeholder
 						/>
 						<div
 							class="px-[25px] pb-3 pt-11 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black"
