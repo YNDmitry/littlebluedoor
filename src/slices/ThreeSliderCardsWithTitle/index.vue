@@ -36,92 +36,41 @@
 					v-for="(item, idx) in slice?.items"
 					:key="idx"
 				>
-					<div class="relative">
-						<Swiper
-							v-motion-fade-in
-							:modules="[SwiperNavigation]"
-							:navigation="{
-								nextEl: '#swiper-ldbOne-prev-' + idx,
-								prevEl: '#swiper-ldbOne-next-' + idx,
-							}"
-							:spaceBetween="20"
-							class="w-[300px] max-tablet:w-full max-tablet:max-w-[320px]"
-						>
-							<SwiperSlide class="w-full" v-if="item?.image?.url">
-								<NuxtImg
-									provider="prismic"
-									class="object-cover aspect-square w-full"
-									:src="item?.image?.url"
-									width="300"
-								/>
-							</SwiperSlide>
-							<SwiperSlide v-if="item?.image_2?.url">
-								<NuxtImg
-									provider="prismic"
-									class="object-cover aspect-square w-full"
-									:src="item?.image_2?.url"
-									width="300"
-									placeholder
-								/>
-							</SwiperSlide>
-							<SwiperSlide v-if="item?.image_3?.url">
-								<NuxtImg
-									provider="prismic"
-									class="object-cover aspect-square w-full"
-									:src="item?.image_3.url"
-									width="300"
-								/>
-							</SwiperSlide>
-						</Swiper>
-
-						<div
-							class="tablet:widthBtn z-10 flex justify-between max-tablet:pt-4 tablet:absolute tablet:left-0 tablet:top-1/2 tablet:translate-x-[-55px] tablet:translate-y-[-50%]"
-						>
-							<button
-								:id="'swiper-ldbOne-next-' + idx"
-								class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
-							>
-								<IconsArrow customClasses="rotate-180" />
-							</button>
-
-							<button
-								:id="'swiper-ldbOne-prev-' + idx"
-								class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
-							>
-								<IconsArrow />
-							</button>
-						</div>
-					</div>
-
-					<div
-						class="grid grid-rows-[min-content_1fr_min-content] h-full gap-6 pt-[20px] w-[300px] max-tablet:w-[320px]"
+					<NuxtLink
+						:to="item?.button_link?.url || '/experiences/' + item?.button_link?.uid || null"
+						class="relative w-full rounded-lg overflow-hidden group"
 					>
-						<!-- Title -->
-						<h3
-							v-motion-fade-in
-							class="min-h-[60px] max-tablet:min-h-max mb-auto text-[20px] font-medium uppercase text-center"
+						<NuxtImg
+							provider="prismic"
+							class="object-cover aspect-square max-tablet:aspect-auto max-tablet:h-[500px] w-full"
+							:src="item?.image?.url"
+							width="300"
+						/>
+						<div
+							class="absolute bottom-0 bg-bg2 backdrop-blur-md p-4 bg-opacity-50 rounded-t-lg z-10 flex flex-col gap-6"
 						>
-							{{ item?.title }}
-						</h3>
+							<!-- Title -->
+							<h3 v-motion-fade-in class="text-[20px] font-medium uppercase text-center">
+								{{ item?.title }}
+							</h3>
 
-						<!-- Paragraph -->
-						<span v-motion-fade-in class="max-w-[450px] text-center text-[14px]">
-							{{ item?.paragraph }}
-						</span>
-
-						<!-- Days, Nights, and Button -->
-						<div v-motion-fade-in class="flex flex-col items-center justify-end">
-							<p class="text-[20px] font-medium uppercase">
-								{{ item?.days_and_nights }}
-							</p>
-							<NuxtLink
-								v-if="item?.button_link"
-								:to="item?.button_link?.url || '/experiences/' + item?.button_link?.uid || null"
-								class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
+							<!-- Paragraph -->
+							<span
+								v-motion-fade-in
+								class="text-center max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 max-tablet:max-h-full text-[14px]"
 							>
-								find out more
-							</NuxtLink>
+								{{ item?.paragraph }}
+							</span>
 						</div>
+					</NuxtLink>
+					<div v-motion-fade-in class="flex flex-col items-center justify-end mt-4">
+						<NuxtLink
+							v-if="item?.button_link"
+							:to="item?.button_link?.url || '/experiences/' + item?.button_link?.uid || null"
+							class="hover:bg-primary-20 hover:text-white uppercase py-2 px-7 bg-white text-[16px] font-regular rounded-lg text-bg transition-colors"
+						>
+							find out more
+						</NuxtLink>
 					</div>
 				</div>
 			</div>

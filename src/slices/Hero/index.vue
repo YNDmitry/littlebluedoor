@@ -35,9 +35,9 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		:class="!slice?.primary?.heading ? 'pt-[60px]' : 'pt-headerHeight'"
+		class="flex items-center justify-center relative flex-col"
 	>
-		<div class="px-4 pt-2 pb-8" v-if="slice?.primary?.heading">
+		<div class="px-4 pt-2 pb-8 absolute mt-16 z-10" v-if="slice?.primary?.heading && slice?.variation === 'default'">
 			<h1
 				v-motion-fade-in
 				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
@@ -49,8 +49,14 @@
 		<div
 			v-motion-fade-in
 			v-if="slice?.primary?.rich_text && slice?.variation === 'heroWithRichText'"
-			class="text-center"
+			class="text-center w-full absolute z-10 top-[96px] bottom-4 flex flex-col items-center justify-center"
 		>
+			<h1
+				v-motion-fade-in
+				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+			>
+				{{ slice?.primary?.heading }}
+			</h1>
 			<NuxtImg
 				v-if="slice?.primary?.small_image?.url"
 				:src="slice?.primary?.small_image?.url"
@@ -67,12 +73,17 @@
 			/>
 		</div>
 
-		<div v-motion-fade-in v-if="slice?.variation === 'default' || 'heroWIthRichText'">
+		<div
+			v-motion-fade-in
+			v-if="slice?.variation === 'default' || 'heroWIthRichText'"
+			class="w-full relative"
+		>
+			<div class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50"</div>
 			<NuxtImg
 				provider="prismic"
 				v-if="slice?.primary?.image?.url"
 				:src="slice?.primary?.image?.url"
-				class="w-full object-cover max-tablet:h-[250px] h-[440px]"
+				class="w-full object-cover max-tablet:h-[350px] h-[500px]"
 				width="2000"
 				height="600"
 				:quality="80"

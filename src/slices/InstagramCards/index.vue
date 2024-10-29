@@ -51,7 +51,7 @@
 						class="max-largeDesktop:max-w-[450px] max-largeDesktop:mr-[20px] max-tablet:max-w-[300px]"
 					>
 						<NuxtLink v-motion-fade-in :to="settings?.data?.instagram?.url">
-							<div class="flex justify-between items-center bg-white px-3 py-3">
+							<div class="flex justify-between items-center bg-white text-black px-3 py-3">
 								<div class="flex items-center gap-3">
 									<div
 										class="rounded-[100%] overflow-hidden h-[30px] w-[30px]"
@@ -94,17 +94,17 @@
 					<button
 						id="inst-prev"
 						type="button"
-						class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
+						class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-white"
 					>
-						<IconsArrow customClasses="rotate-180" />
+						<IconsArrow customClasses="rotate-180 text-bg" />
 					</button>
 
 					<button
 						id="inst-next"
 						type="button"
-						class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
+						class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-white"
 					>
-						<IconsArrow />
+						<IconsArrow customClasses="text-bg" />
 					</button>
 				</div>
 			</div>

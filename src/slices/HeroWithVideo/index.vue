@@ -17,24 +17,22 @@
 </script>
 
 <template>
-	<section
-		:data-slice-type="slice.slice_type"
-		:data-slice-variation="slice.variation"
-		class="pt-headerHeightFull"
-	>
+	<section :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
 		<div class="relative">
 			<video
 				:autoplay="autoplayAllowed()"
 				muted
 				loop
 				playsInline
-				class="w-full h-[550px] object-cover max-laptop:h-[400px] pointer-events-none"
+				class="w-full h-[600px] object-cover max-laptop:h-[450px] pointer-events-none"
 				v-if="slice?.primary?.video?.url"
 			>
 				<source :src="slice?.primary?.video?.url" type="video/webm" />
 				<source :src="slice?.primary?.video_mp4?.url" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
+
+			<div class="absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-black opacity-50"></div>
 
 			<div
 				class="absolute left-1/2 top-1/2 flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center px-3 text-white"

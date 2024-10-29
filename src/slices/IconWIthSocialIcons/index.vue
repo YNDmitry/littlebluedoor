@@ -35,17 +35,17 @@
 				target="_blank"
 				class="hover:scale-125 transition-all"
 			>
-				<IconsInstagram customClasses="text-mainColor" />
+				<IconsInstagram customClasses="text-white" />
 			</NuxtLink>
 			<NuxtLink
 				:to="settings?.data?.whatsapp?.url"
 				target="_blank"
 				class="hover:scale-125 transition-all"
 			>
-				<IconsWhatsapp customClasses="text-mainColor" />
+				<IconsWhatsapp customClasses="text-white" />
 			</NuxtLink>
 			<NuxtLink :to="'mailto:' + settings?.data?.email?.url" class="hover:scale-125 transition-all">
-				<IconsMail customClasses="text-mainColor"
+				<IconsMail customClasses="text-white"
 			/></NuxtLink>
 		</div>
 	</section>

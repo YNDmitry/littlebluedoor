@@ -56,14 +56,17 @@
 	function getBaseConfig() {
 		return {
 			env: process.env.NODE_ENV === 'development' ? 'demo' : 'prod',
-			recipientCode: process.env.NODE_ENV === 'development' ? 'DLB' : 'OLR',
+			recipientCode: process.env.NODE_ENV === 'development' ? 'DLB' : 'DPB',
 
 			requestPayerInfo: true,
 			requestRecipientInfo: true,
 
+			currency: 'USD',
+
 			payerEmailNotifications: true,
 
 			paymentOptionsConfig: {
+				sort: [{ currency: ['local', 'foreign'] }],
 				filters: {
 					type: ['credit_card'],
 					excludedCreditCardsBrands: ['amex'],
@@ -163,7 +166,7 @@
 						<button
 							type="button"
 							v-motion-fade-in
-							class="hover:bg-mainColorHover min-w-[300px] cursor-pointer text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+							class="hover:bg-primary-20 hover:text-white rounded-lg min-w-[300px] cursor-pointer text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
 							:class="slice.items.length > 1 ? 'w-full' : ''"
 							@click.prevent="btn.is_deposit ? payDeposit() : payBalance()"
 						>
@@ -217,7 +220,7 @@
 							type="button"
 							class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 						>
-							<IconsArrow customClasses="rotate-180" />
+							<IconsArrow customClasses="rotate-180 text-bg2" />
 						</button>
 
 						<button
@@ -225,7 +228,7 @@
 							type="button"
 							class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 						>
-							<IconsArrow />
+							<IconsArrow customClasses="text-bg2" />
 						</button>
 					</div>
 				</div>
@@ -236,7 +239,7 @@
 			>
 				<div v-motion-fade-in v-if="slice.primary.button_title_pdf" class="mb-10">
 					<PrismicLink
-						class="hover:bg-mainColorHover max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+						class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
 						:field="slice.primary.button_link_pdf"
 						>{{ slice.primary.button_title_pdf }}</PrismicLink
 					>
@@ -247,7 +250,7 @@
 					v-motion-fade-in
 					:to="slice.primary.button_link_whatsapp.url"
 					target="_blank"
-					class="hover:bg-mainColorHover max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors uppercase"
+					class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black rounded-lg transition-colors uppercase"
 				>
 					{{ slice.primary.button_title_whatsapp }}
 				</NuxtLink>
