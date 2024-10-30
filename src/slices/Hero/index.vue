@@ -149,18 +149,18 @@
 				<NuxtLink
 					:to="settings?.data?.instagram?.url"
 					target="_blank"
-					class="hover:scale-125 transition-all"
+					class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all"
 				>
 					<IconsInstagram customClasses="text-white" />
 				</NuxtLink>
 				<NuxtLink
 					:to="settings?.data?.whatsapp?.url"
 					target="_blank"
-					class="hover:scale-125 transition-all"
+					class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all"
 				>
 					<IconsWhatsapp customClasses="text-white" />
 				</NuxtLink>
-				<NuxtLink :to="'mailto:' + settings?.data?.email?.url" class="hover:scale-125 transition-all">
+				<NuxtLink :to="'mailto:' + settings?.data?.email?.url" class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all">
 					<IconsMail customClasses="text-white"
 				/></NuxtLink>
 			</div>

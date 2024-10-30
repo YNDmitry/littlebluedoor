@@ -36,7 +36,7 @@
 							placeholder
 						/>
 						<h3 class="font-bold max-tablet:text-[18px] text-[20px]">{{ card.title }}</h3>
-						<p class="mt-4">
+						<p class="mt-4 opacity-80">
 							{{ card.paragraph }}
 						</p>
 					</div>

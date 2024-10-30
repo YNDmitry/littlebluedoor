@@ -24,7 +24,9 @@
 </script>
 
 <template>
-	<header class="fixed bg-opacity-50 z-[1000] backdrop-blur-lg w-full bg-bg2 text-white">
+	<header
+		class="fixed bg-opacity-50 z-[1000] top-2 left-2 right-2 rounded-lg backdrop-blur-lg bg-bg2 text-white"
+	>
 		<div class="px-[16px]">
 			<div id="nav" class="relative flex h-headerHeight items-center justify-between gap-6">
 				<NuxtLink to="/" class="z-[1000]" @click="show = false">
@@ -37,7 +39,7 @@
 					:class="{
 						'max-largeDesktop:hidden': !show,
 					}"
-					class="max-largeDesktop:fixed max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:bg-bg2 max-largeDesktop:h-[100000px] max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0 max-largeDesktop:pt-[150px]"
+					class="max-largeDesktop:fixed flex items-center max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:bg-bg2 max-largeDesktop:h-[100000px] max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0 max-largeDesktop:pt-[150px]"
 				>
 					<nav
 						class="absolute max-largeDesktop:static max-largeDesktop:top-0 left-[50%] translate-x-[-50%] max-largeDesktop:translate-x-0"
@@ -83,12 +85,12 @@
 
 					<NuxtLink
 						:to="settings?.data?.whatsapp?.url"
-						:target="settings?.data?.whatsapp?.target || ''"
-						class="flex items-center justify-center gap-2 max-largeDesktop:pt-[50px] max-largeDesktop:text-[20px]"
+						target="_blank"
+						class="flex bg-white rounded-lg hover:scale-105 transition-all px-4 py-1 text-[14px] text-bg items-center justify-center gap-2 max-largeDesktop:pt-[50px] max-largeDesktop:text-[20px]"
 					>
-						<IconsWhatsapp customClasses="text-white" />
+						<IconsWhatsapp customClasses="text-bg" />
 
-						<span>PLAN YOUR JOURNEY</span>
+						<span class="uppercase">Plan your journey</span>
 					</NuxtLink>
 				</div>
 			</div>

@@ -36,25 +36,29 @@
 		<div class="relative h-[90px] mt-[55px] overflow-hidden">
 			<component is="style">
 				@keyframes scroll { 0% { transform: translateX(0); } 100% { transform:
-				translateX(calc(-250px * {{ slice.items.length }})); } } .partners { animation: scroll 15s
+				translateX(calc(-200px * {{ slice.items.length }})); } } .partners { animation: scroll 15s
 				linear infinite; will-change: transform; } @media screen and (max-width: 768px) { @keyframes
 				scrollMob { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-180px *
 				{{ slice.items.length }})); } } .partners { animation: scrollMob 15s linear infinite;
 				will-change: transform; } }
 			</component>
 			<div
-				class="partners absolute transition-all left-0 flex w-full items-end gap-[100px] max-tablet:gap-[30px]"
+				class="partners absolute transition-all left-0 flex w-full items-end gap-[50px] max-tablet:gap-[30px]"
 			>
 				<template v-for="item in 5" :key="item">
-					<NuxtImg
+					<div
 						v-for="(item, idx) in slice?.items"
 						:key="idx"
-						class="w-[150px] h-[90px] shrink-0 object-contain"
-						:src="item.logo?.url || ''"
-						width="150"
-						:quality="100"
-						placeholder
-					/>
+						class="rounded-xl p-4 min-w-[150px] h-[90px] bg-white bg-opacity-80 flex items-center justify-center backdrop-blur-lg"
+					>
+						<NuxtImg
+							class="object-contain"
+							:src="item.logo?.url || ''"
+							width="150"
+							:quality="100"
+							placeholder
+						/>
+					</div>
 				</template>
 			</div>
 		</div>

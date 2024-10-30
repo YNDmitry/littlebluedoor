@@ -24,21 +24,25 @@
 
 			<div class="flex items-start justify-between gap-8 pt-[45px] max-tablet:flex-col">
 				<div class="flex flex-col w-full" v-for="item in slice?.items" :key="item">
-					<NuxtImg
-						v-motion-fade-in
-						provider="prismic"
-						class="w-full object-cover h-[550px]"
-						:src="item?.image?.url"
-						v-if="item?.image?.url"
-						height="650"
-						placeholder
-					/>
+					<div class="relative rounded-lg overflow-hidden">
+						<NuxtImg
+							v-motion-fade-in
+							provider="prismic"
+							class="w-full object-cover h-[550px]"
+							:src="item?.image?.url"
+							v-if="item?.image?.url"
+							height="650"
+							placeholder
+						/>
 
-					<div v-motion-fade-in class="flex flex-col items-center gap-4 pt-[25px]">
-						<p class="text-center font-[500] uppercase max-tablet:text-[20px] tablet:text-[25px]">
+						<p
+							class="text-center absolute p-2 rounded-t-lg bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md font-[500] uppercase max-tablet:text-[20px] tablet:text-[25px]"
+						>
 							{{ item?.title }}
 						</p>
+					</div>
 
+					<div v-motion-fade-in class="flex flex-col items-center gap-4 pt-4">
 						<PrismicRichText
 							v-motion-fade-in
 							:field="item?.body"

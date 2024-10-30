@@ -82,6 +82,18 @@ export default defineNuxtConfig({
 		'/': {
 			prerender: true,
 		},
+		'/contact-us': {
+			prerender: true,
+		},
+		'/about-us': {
+			prerender: true,
+		},
+		'/experiences': {
+			prerender: true,
+		},
+		'/ltineraries': {
+			prerender: true,
+		},
 	},
 
 	experimental: {
