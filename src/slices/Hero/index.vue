@@ -39,7 +39,7 @@
 		:data-slice-variation="slice.variation"
 		class="flex items-center justify-center relative flex-col max-tablet:min-h-[450px] min-h-[600px] pt-24"
 	>
-		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === 'default'">
+		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === ('default' || 'heroWithSlider')">
 			<h1
 				v-motion-fade-in
 				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
@@ -77,10 +77,10 @@
 
 		<div
 			v-motion-fade-in
-			v-if="slice?.variation === 'default' || 'heroWIthRichText' || 'heroWithIcons'"
+			v-if="slice?.variation === 'default' || 'heroWithRichText' || 'heroWithIcons'"
 			class="w-full absolute top-0 bottom-0 left-0 right-0 h-full"
 		>
-			<div v-if="slice?.variation === 'default' || 'heroWIthRichText' || 'heroWithIcons'" class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50"</div>
+			<div v-if="slice?.variation !== 'heroWithSlider'" class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50"</div>
 			<NuxtImg
 				provider="prismic"
 				v-if="slice?.primary?.image?.url"

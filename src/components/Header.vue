@@ -42,7 +42,7 @@
 					class="max-largeDesktop:fixed max-largeDesktop:flex-col flex items-center max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0"
 				>
 					<div
-						class="max-largeDesktop:bg-bg2 max-largeDesktop:w-full max-largeDesktop:pb-8 max-largeDesktop:px-4 max-largeDesktop:rounded-b-lg max-largeDesktop:pt-[80px] max-largeDesktop:rounded-lg"
+						class="max-largeDesktop:bg-bg2 max-largeDesktop:w-full max-largeDesktop:pb-8 max-largeDesktop:px-4 max-largeDesktop:rounded-b-lg max-largeDesktop:pt-[80px] max-largeDesktop:rounded-lg flex items-center max-largeDesktop:flex-col"
 					>
 						<nav
 							class="absolute max-largeDesktop:static max-largeDesktop:top-0 left-[50%] translate-x-[-50%] max-largeDesktop:translate-x-0"

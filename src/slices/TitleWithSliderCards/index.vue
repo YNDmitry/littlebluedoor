@@ -28,101 +28,93 @@
 			</h2>
 		</div>
 
-		<div
-			class="hotelTravel mx-auto flex max-w-[1210px] flex-col px-4 pt-[50px] max-tablet:gap-[50px] tablet:gap-[100px]"
-		>
+		<div class="mx-auto flex max-w-[1400px] flex-col pt-[50px]">
 			<article
-				class="grid max-laptop:grid-cols-travelPopularTablet max-laptop:even:grid-cols-travelPopularReverseTablet max-tablet:grid-cols-1 max-tablet:even:grid-cols-1 laptop:grid-cols-travelPopular gap-x-[120px] gap-y-7 laptop:even:grid-cols-travelPopularReverse"
+				class="relative flex items-center max-tablet:flex-col"
 				v-for="(item, idx) in slice?.items"
 				:key="idx"
 			>
-				<div v-motion-fade-in class="hotelSwiper relative flex flex-col gap-4">
-					<Swiper
-						:modules="[SwiperNavigation]"
-						class="w-full max-w-[455px] max-tablet:max-w-none ml-4"
-						:navigation="{
-							nextEl: '#swiper-popularTravelOne-next-' + idx,
-							prevEl: '#swiper-popularTravelOne-prev-' + idx,
-						}"
-						:breakpoints="{
-							320: {
-								slidesPerView: 1,
-								spaceBetween: 15,
-							},
-						}"
-					>
-						<SwiperSlide>
-							<NuxtImg
-								provider="prismic"
-								class="w-full object-cover"
-								v-if="item?.image?.url"
-								:src="item?.image?.url"
-								:alt="item?.image?.alt || ''"
-								placeholder
-							/>
-						</SwiperSlide>
-						<SwiperSlide>
-							<NuxtImg
-								provider="prismic"
-								class="w-full object-cover"
-								v-if="item?.image_2?.url"
-								:src="item?.image_2?.url"
-								:alt="item?.image_2?.alt || ''"
-							/>
-						</SwiperSlide>
-						<SwiperSlide>
-							<NuxtImg
-								provider="prismic"
-								class="w-full object-cover"
-								v-if="item?.image_3?.url"
-								:src="item?.image_3?.url"
-								:alt="item?.image_3?.alt || ''"
-							/>
-						</SwiperSlide>
-					</Swiper>
-
+				<div
+					v-motion-fade-in
+					class="relative h-[600px] gap-4 w-full max-tablet:!max-w-none max-tablet:h-auto"
+					:class="{ 'max-w-[400px]': idx % 2 === 0 }"
+				>
+					<NuxtImg
+						provider="prismic"
+						class="w-full h-full object-cover max-tablet:aspect-square"
+						width="1000"
+						height="600"
+						v-if="item?.image?.url"
+						:src="item?.image?.url"
+						:alt="item?.image?.alt || ''"
+						placeholder
+					/>
 					<div
-						class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 pt-4 absolute top-1/2 translate-y-[-50%]"
+						v-if="idx % 2 === 0"
+						class="items-start absolute max-tablet:relative max-tablet:py-8 left-0 right-0 top-0 bottom-0 p-4 max-tablet:bg-bg bg-bg2 bg-opacity-80 flex w-full flex-col justify-center gap-[15px] text-[14px] max-tablet:text-center"
 					>
-						<button
-							:id="'swiper-popularTravelOne-prev-' + idx"
-							class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
+						<h3
+							v-motion-fade-in
+							class="text-[20px] font-medium uppercase max-tablet:mx-auto"
+							v-if="item?.title"
 						>
-							<IconsArrow customClasses="rotate-180" />
-						</button>
+							{{ item?.title }}
+						</h3>
 
-						<button
-							:id="'swiper-popularTravelOne-next-' + idx"
-							class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
+						<div v-motion-fade-in v-if="item?.body">
+							<PrismicRichText :field="item?.body" />
+						</div>
+
+						<NuxtLink
+							v-motion-fade-in
+							v-if="item?.button_link"
+							:to="item?.button_link?.url"
+							class="hover:bg-primary-20 hover:text-white uppercase py-2 px-7 bg-white text-[16px] font-regular text-bg transition-colors mt-4 max-tablet:mx-auto rounded-lg"
 						>
-							<IconsArrow />
-						</button>
+							{{ item?.button_label }}
+						</NuxtLink>
 					</div>
 				</div>
-
 				<div
-					class="hotelContent items-start flex w-full flex-col justify-center gap-[15px] text-[14px] max-tablet:text-center"
+					v-motion-fade-in
+					class="relative h-[600px] w-full max-tablet:!h-auto max-tablet:max-w-none"
+					:class="{ 'max-w-[400px]': idx % 2 === 1 }"
 				>
-					<h3
-						v-motion-fade-in
-						class="text-[20px] font-medium uppercase max-tablet:mx-auto"
-						v-if="item?.title"
+					<NuxtImg
+						provider="prismic"
+						class="w-full h-full object-cover max-tablet:hidden"
+						width="1000"
+						height="600"
+						v-if="item?.image_2?.url"
+						:src="item?.image_2?.url"
+						:alt="item?.image_2?.alt || ''"
+						placeholder
+					/>
+					<div
+						v-if="idx % 2 === 1"
+						class="items-start flex absolute max-tablet:relative max-tablet:py-8 left-0 right-0 top-0 bottom-0 p-4 max-tablet:bg-bg bg-bg2 bg-opacity-80 w-full flex-col justify-center gap-[15px] text-[14px] max-tablet:text-center"
 					>
-						{{ item?.title }}
-					</h3>
+						<h3
+							v-motion-fade-in
+							class="text-[20px] font-medium uppercase max-tablet:mx-auto"
+							v-if="item?.title"
+						>
+							{{ item?.title }}
+						</h3>
 
-					<div v-motion-fade-in v-if="item?.body">
-						<PrismicRichText :field="item?.body" />
+						<div v-motion-fade-in v-if="item?.body">
+							<PrismicRichText :field="item?.body" />
+						</div>
+
+						<NuxtLink
+							v-motion-fade-in
+							v-if="item?.button_link"
+							:to="item?.button_link?.url"
+							class="hover:bg-primary-20 hover:text-white uppercase py-2 px-7 bg-white text-[16px] font-regular text-bg transition-colors mt-4 max-tablet:mx-auto rounded-lg"
+						>
+							{{ item?.button_label }}
+						</NuxtLink>
 					</div>
-
-					<NuxtLink
-						v-motion-fade-in
-						v-if="item?.button_link"
-						:to="item?.button_link?.url"
-						class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4 max-tablet:mx-auto"
-					>
-						{{ item?.button_label }}
-					</NuxtLink>
 				</div>
 			</article>
 		</div>

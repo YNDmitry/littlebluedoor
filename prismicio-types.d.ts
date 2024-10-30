@@ -2285,16 +2285,6 @@ export interface TitleWithSliderCardsSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   image_2: prismic.LinkToMediaField;
-
-  /**
-   * image 3 field in *TitleWithSliderCards → Items*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: title_with_slider_cards.items[].image_3
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  image_3: prismic.LinkToMediaField;
 }
 
 /**

@@ -65,19 +65,19 @@
 				>
 					<NuxtLink
 						to="/hotels"
-						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
+						class="h-[40px] flex items-center justify-center w-full bg-white text-bg rounded-lg px-2 uppercase transition-colors hover:bg-primary-20 hover:text-white"
 					>
 						Hotels
 					</NuxtLink>
 					<NuxtLink
 						to="/villas"
-						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
+						class="h-[40px] flex items-center justify-center w-full bg-white text-bg rounded-lg px-2 uppercase transition-colors hover:bg-primary-20 hover:text-white"
 					>
 						Villas
 					</NuxtLink>
 					<NuxtLink
 						to="/boats"
-						class="h-[40px] flex items-center justify-center w-full bg-mainColor px-2 uppercase transition-colors hover:bg-mainColorHover"
+						class="h-[40px] flex items-center justify-center w-full bg-white text-bg rounded-lg px-2 uppercase transition-colors hover:bg-primary-20 hover:text-white"
 					>
 						Boats
 					</NuxtLink>
