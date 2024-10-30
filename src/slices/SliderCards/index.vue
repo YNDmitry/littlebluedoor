@@ -62,7 +62,7 @@
 						/>
 						<div
 							v-if="slide?.title"
-							class="text-center py-2 px-4 w-full backdrop-blur-sm bg-bg2 bg-opacity-35 absolute bottom-0 mt-3"
+							class="text-center rounded-t-lg py-2 px-4 w-full backdrop-blur-sm bg-bg2 bg-opacity-35 absolute bottom-0 mt-3"
 						>
 							{{ slide?.title }}
 						</div>

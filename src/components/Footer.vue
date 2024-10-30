@@ -29,7 +29,7 @@
 </script>
 
 <template>
-	<footer class="bg-bg2 text-white">
+	<footer class="bg-bg2 text-white m-2 rounded-lg">
 		<div class="mx-auto px-4">
 			<div class="pb-[20px] pt-[40px]">
 				<div class="text-center max-w-[390px] mx-auto">

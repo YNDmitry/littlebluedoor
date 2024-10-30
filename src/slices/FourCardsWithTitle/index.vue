@@ -32,7 +32,7 @@
 			</p>
 
 			<div
-				class="grid gap-5 max-tablet:gap-y-12 pt-8 mt-9 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-4"
+				class="grid gap-5 max-tablet:gap-y-12 pt-8 mt-9 max-laptop:grid-cols-2 max-tablet:grid-cols-1 laptop:grid-cols-2"
 			>
 				<div
 					v-motion-fade-in
@@ -40,18 +40,27 @@
 					v-for="(item, idx) in slice?.items"
 					:key="idx"
 				>
-					<div v-if="item?.title">{{ item.title }}</div>
-					<NuxtImg
-						provider="prismic"
-						v-if="item?.image?.url"
-						class="w-full h-[350px] object-cover"
-						:src="item?.image?.url"
-						alt=""
-						placeholder
-					/>
-
-					<div class="flex flex-col gap-[10px] max-tablet:text-center" v-if="item?.body">
-						<PrismicRichText :field="item?.body" />
+					<div class="relative rounded-lg overflow-hidden">
+						<h3
+							v-if="item?.title"
+							class="absolute top-0 left-0 w-full text-center text-[20px] font-[500] uppercase px-4 py-2 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-b-md"
+						>
+							{{ item.title }}
+						</h3>
+						<NuxtImg
+							provider="prismic"
+							v-if="item?.image?.url"
+							class="w-full aspect-square object-cover"
+							:src="item?.image?.url"
+							alt=""
+							placeholder
+						/>
+						<div
+							class="flex flex-col gap-[10px] max-tablet:text-center absolute bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-t-lg p-4"
+							v-if="item?.body"
+						>
+							<PrismicRichText :field="item?.body" />
+						</div>
 					</div>
 				</div>
 			</div>

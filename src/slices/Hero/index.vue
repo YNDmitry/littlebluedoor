@@ -37,9 +37,9 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="flex items-center justify-center relative flex-col max-tablet:h-[350px] h-[500px]"
+		class="flex items-center justify-center relative flex-col max-tablet:min-h-[450px] min-h-[600px] pt-24"
 	>
-		<div class="px-4 pt-2 pb-8 absolute mt-16 z-10" v-if="slice?.primary?.heading && slice?.variation === 'default'">
+		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === 'default'">
 			<h1
 				v-motion-fade-in
 				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
@@ -51,7 +51,7 @@
 		<div
 			v-motion-fade-in
 			v-if="slice?.primary?.rich_text && slice?.variation === 'heroWithRichText'"
-			class="text-center w-full absolute z-10 top-[96px] bottom-4 flex flex-col items-center justify-center"
+			class="text-center w-full z-10 top-[96px] bottom-4 flex flex-col items-center justify-center"
 		>
 			<h1
 				v-motion-fade-in
