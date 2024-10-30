@@ -50,7 +50,7 @@
 						:key="idx"
 						class="max-largeDesktop:max-w-[450px] max-largeDesktop:mr-[20px] max-tablet:max-w-[300px]"
 					>
-						<NuxtLink v-motion-fade-in :to="settings?.data?.instagram?.url">
+						<NuxtLink v-motion-fade-in :to="settings?.data?.instagram?.url" target="_blank">
 							<div class="flex justify-between items-center bg-white text-black px-3 py-3">
 								<div class="flex items-center gap-3">
 									<div

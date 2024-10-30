@@ -49,18 +49,23 @@
 						},
 					}"
 				>
-					<SwiperSlide v-for="slide in slice?.items">
+					<SwiperSlide v-for="slide in slice?.items" class="relative rounded-lg overflow-hidden">
 						<NuxtImg
 							provider="prismic"
 							:quality="80"
-							class="mx-auto object-cover max-tablet:h-[200px] max-tablet:w-[200px] tablet:h-[300px] tablet:w-[300px]"
+							class="object-cover w-full max-tablet:h-[200px] tablet:h-[300px]"
 							v-if="slide?.image?.url"
 							:src="slide?.image?.url"
 							width="200"
 							height="300"
 							placeholder
 						/>
-						<div v-if="slide?.title" class="text-center mt-3">{{ slide?.title }}</div>
+						<div
+							v-if="slide?.title"
+							class="text-center py-2 px-4 w-full backdrop-blur-sm bg-bg2 bg-opacity-35 absolute bottom-0 mt-3"
+						>
+							{{ slide?.title }}
+						</div>
 					</SwiperSlide>
 				</Swiper>
 
@@ -71,14 +76,14 @@
 						type="button"
 						class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 					>
-						<IconsArrow customClasses="rotate-180" />
+						<IconsArrow customClasses="rotate-180 text-bg" />
 					</button>
 
 					<button
 						type="button"
 						class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
 					>
-						<IconsArrow />
+						<IconsArrow customClasses="text-bg" />
 					</button>
 				</div>
 			</div>

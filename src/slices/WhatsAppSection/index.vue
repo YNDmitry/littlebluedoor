@@ -19,7 +19,7 @@
 			:target="settings?.data?.whatsapp.target || ''"
 			class="flex flex-col items-center justify-center gap-5 px-4 pb-[100px]"
 		>
-			<IconsWhatsapp class="h-[64px] w-[64px] text-mainColor" />
+			<IconsWhatsapp class="h-[64px] w-[64px] text-white" />
 
 			<p class="text-center uppercase tablet:text-[20px]">{{ slice?.primary.title }}</p>
 		</NuxtLink>

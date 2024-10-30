@@ -150,6 +150,32 @@
           }
         }
       }
+    },
+    {
+      "id": "heroWithIcons",
+      "name": "heroWithIcons",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "Image",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

@@ -43,12 +43,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					]
@@ -68,12 +68,12 @@
 			"image": {
 				"__TYPE__": "LinkContent",
 				"value": {
+					"__TYPE__": "FileLink",
 					"id": "mock_Media_link",
 					"kind": "image/jpeg",
 					"name": "mock_name",
 					"url": "https://source.unsplash.com/daily",
-					"size": "0",
-					"__TYPE__": "FileLink"
+					"size": "0"
 				}
 			},
 			"rich_text": {
@@ -182,6 +182,36 @@
 						}
 					]
 				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "heroWithIcons",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "like",
+				"type": "Text"
+			},
+			"image": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ImageLink",
+					"id": "O453M2Liufs",
+					"name": "brown wooden boat moving towards the mountain",
+					"kind": "image",
+					"url": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHx0cmF2ZWx8ZW58MHx8fHwxNzMwMjc5MTM2fDA&ixlib=rb-4.0.3&q=85",
+					"size": "0",
+					"height": "3264",
+					"width": "4896"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
 			}
 		]
 	}

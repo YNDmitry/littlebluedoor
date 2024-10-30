@@ -66,7 +66,7 @@
 			payerEmailNotifications: true,
 
 			paymentOptionsConfig: {
-				sort: [{ currency: ['local', 'foreign'] }],
+				sort: [{ currency: ['local'] }],
 				filters: {
 					type: ['credit_card'],
 					excludedCreditCardsBrands: ['amex'],

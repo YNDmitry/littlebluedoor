@@ -29,13 +29,15 @@
 	}
 
 	const sliderCount = ref(props.slice.items?.length)
+
+	const settings = useSettings()
 </script>
 
 <template>
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="flex items-center justify-center relative flex-col"
+		class="flex items-center justify-center relative flex-col max-tablet:h-[350px] h-[500px]"
 	>
 		<div class="px-4 pt-2 pb-8 absolute mt-16 z-10" v-if="slice?.primary?.heading && slice?.variation === 'default'">
 			<h1
@@ -75,15 +77,15 @@
 
 		<div
 			v-motion-fade-in
-			v-if="slice?.variation === 'default' || 'heroWIthRichText'"
-			class="w-full relative"
+			v-if="slice?.variation === 'default' || 'heroWIthRichText' || 'heroWithIcons'"
+			class="w-full absolute top-0 bottom-0 left-0 right-0 h-full"
 		>
-			<div class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50"</div>
+			<div v-if="slice?.variation === 'default' || 'heroWIthRichText' || 'heroWithIcons'" class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50"</div>
 			<NuxtImg
 				provider="prismic"
 				v-if="slice?.primary?.image?.url"
 				:src="slice?.primary?.image?.url"
-				class="w-full object-cover max-tablet:h-[350px] h-[500px]"
+				class="w-full object-cover h-full"
 				width="2000"
 				height="600"
 				:quality="80"
@@ -106,7 +108,7 @@
 			<div v-motion-fade-in class="block text-center mt-4" v-if="slice.primary.button_link">
 				<NuxtLink
 					:to="slice.primary.button_link.url || ''"
-					class="hover:bg-mainColorHover inline-block mx-auto bg-mainColor text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
+					class="hover:bg-primary-20 hover:text-white rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
 					>{{ slice.primary.button_label }}</NuxtLink
 				>
 			</div>
@@ -134,6 +136,34 @@
 					/>
 				</div>
 			</template>
+		</div>
+
+		<div v-motion-fade-in v-if="slice?.variation === 'heroWithIcons'" class="mt-[15px] p-3">
+			<h1
+				v-motion-fade-in
+				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+			>
+				{{ slice?.primary?.heading }}
+			</h1>
+			<div class="flex items-center justify-center gap-5 mt-4">
+				<NuxtLink
+					:to="settings?.data?.instagram?.url"
+					target="_blank"
+					class="hover:scale-125 transition-all"
+				>
+					<IconsInstagram customClasses="text-white" />
+				</NuxtLink>
+				<NuxtLink
+					:to="settings?.data?.whatsapp?.url"
+					target="_blank"
+					class="hover:scale-125 transition-all"
+				>
+					<IconsWhatsapp customClasses="text-white" />
+				</NuxtLink>
+				<NuxtLink :to="'mailto:' + settings?.data?.email?.url" class="hover:scale-125 transition-all">
+					<IconsMail customClasses="text-white"
+				/></NuxtLink>
+			</div>
 		</div>
 	</section>
 </template>
