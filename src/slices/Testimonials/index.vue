@@ -24,7 +24,7 @@
 
 			<div
 				v-motion-fade-in
-				class="grid grid-cols-3 gap-[35px] max-tablet:gap-[20px] mt-11 max-laptop:grid-cols-2 max-mobile:grid-cols-1"
+				class="grid grid-cols-3 gap-[35px] max-tablet:gap-[20px] mt-11 max-laptop:grid-cols-1"
 			>
 				<template v-for="(item, idx) in slice?.items" :key="idx">
 					<div

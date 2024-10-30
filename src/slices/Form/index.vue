@@ -80,6 +80,9 @@
 									:model-value="value"
 									placeholder="When would you like to go?"
 									aria-label="When would you like to go?"
+									:pt="{
+										panel: 'bg-bg2 text-white rounded-lg',
+									}"
 								/>
 								<ErrorMessage name="date" class="text-[red]" />
 							</div>

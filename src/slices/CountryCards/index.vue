@@ -38,7 +38,7 @@
 		</div>
 		<div
 			v-if="slice?.variation === 'countryCards' && !isMobile"
-			class="mx-auto max-w-[1150px] px-4"
+			class="mx-auto max-w-[1400px] px-4"
 		>
 			<div class="flex justify-center items-center pb-5 text-center">
 				<h2 v-motion-fade-in class="text-[24px] font-semibold uppercase">
@@ -56,8 +56,9 @@
 					<div class="relative w-full rounded-lg overflow-hidden">
 						<NuxtImg
 							provider="prismic"
-							class="h-[300px] w-full object-cover"
-							width="300"
+							class="aspect-square w-full object-cover"
+							width="600"
+							height="600"
 							:src="article?.image?.url"
 							placeholder
 						/>
@@ -98,28 +99,34 @@
 						>
 							<article
 								v-motion-fade-in
-								class="inline-flex flex-col items-center gap-[10px]"
+								class="inline-flex flex-col items-center w-full"
 								v-for="(article, idx) in slice?.items"
 								:key="idx"
 							>
-								<NuxtImg
-									provider="prismic"
-									class="h-[300px] w-full object-cover"
-									width="300"
-									:src="article?.image?.url"
-								/>
+								<div class="relative w-full rounded-lg overflow-hidden">
+									<NuxtImg
+										provider="prismic"
+										class="aspect-square w-full object-cover"
+										width="600"
+										height="600"
+										:src="article?.image?.url"
+										placeholder
+									/>
 
-								<div class="flex flex-col items-center px-2">
-									<p class="text-[18px]">{{ article?.title }}</p>
-									<PrismicRichText :field="article?.body" class="text-[18px]" />
-
-									<NuxtLink
-										:to="settings?.data?.whatsapp?.url"
-										class="hover:bg-mainColorHover uppercase py-2 px-7 bg-mainColor text-[16px] font-regular text-bg transition-colors mt-4"
+									<div
+										class="flex absolute rounded-t-lg bottom-0 left-0 right-0 px-4 py-2 flex-col items-center bg-bg2 bg-opacity-50 backdrop-blur-md"
 									>
-										Book your room
-									</NuxtLink>
+										<p class="text-[18px]">{{ article?.title }}</p>
+										<PrismicRichText :field="article?.body" class="text-[18px]" />
+									</div>
 								</div>
+								<NuxtLink
+									:to="settings?.data?.whatsapp?.url"
+									target="_blank"
+									class="hover:bg-primary-20 hover:text-white rounded-lg uppercase py-2 px-7 bg-white text-[16px] font-regular text-bg transition-colors mt-4"
+								>
+									Book your room
+								</NuxtLink>
 							</article>
 						</div>
 					</template>
