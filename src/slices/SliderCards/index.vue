@@ -27,10 +27,10 @@
 				<Swiper
 					v-motion-fade-in
 					class="max-tablet:pt-[50px]"
-					:modules="[SwiperNavigation]"
-					:navigation="{
-						nextEl: '.swiper-lbdOne-btn.button-next',
-						prevEl: '.swiper-lbdOne-btn.button-prev',
+					:modules="[SwiperPagination]"
+					:pagination="{
+						el: '#cards-pagination',
+						clickable: true,
 					}"
 					:breakpoints="{
 						320: {
@@ -67,25 +67,8 @@
 							{{ slide?.title }}
 						</div>
 					</SwiperSlide>
+					<div id="cards-pagination"></div>
 				</Swiper>
-
-				<div
-					class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 max-tablet:static max-tablet:mt-7 pt-4 absolute top-1/2 translate-y-[-50%]"
-				>
-					<button
-						type="button"
-						class="swiper-lbdOne-btn button-prev flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
-					>
-						<IconsArrow customClasses="rotate-180 text-bg" />
-					</button>
-
-					<button
-						type="button"
-						class="swiper-lbdOne-btn button-next flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
-					>
-						<IconsArrow customClasses="text-bg" />
-					</button>
-				</div>
 			</div>
 		</div>
 	</section>

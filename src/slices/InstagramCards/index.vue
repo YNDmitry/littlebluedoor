@@ -30,10 +30,10 @@
 					v-motion-fade-in
 					id="instagram-slider"
 					class="pt-[50px] mt-6 !ml-[-1rem] !pl-[1rem] !mr-[-1rem] !pr-[1rem]"
-					:modules="[SwiperNavigation]"
-					:navigation="{
-						nextEl: '#inst-next',
-						prevEl: '#inst-prev',
+					:modules="[SwiperPagination]"
+					:pagination="{
+						el: '#inst-pagination',
+						clickable: true,
 					}"
 					:breakpoints="{
 						320: {
@@ -87,26 +87,8 @@
 							</div>
 						</NuxtLink>
 					</SwiperSlide>
+					<div id="inst-pagination"></div>
 				</Swiper>
-				<div
-					class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 max-tablet:static max-tablet:mt-7 pt-4 absolute top-1/2 translate-y-[-50%]"
-				>
-					<button
-						id="inst-prev"
-						type="button"
-						class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-white"
-					>
-						<IconsArrow customClasses="rotate-180 text-bg" />
-					</button>
-
-					<button
-						id="inst-next"
-						type="button"
-						class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-white"
-					>
-						<IconsArrow customClasses="text-bg" />
-					</button>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -115,5 +97,13 @@
 <style>
 	#instagram-slider .swiper-wrapper {
 		@apply overflow-visible;
+	}
+
+	.swiper-pagination-bullets {
+		@apply text-center mt-4;
+	}
+
+	.swiper-pagination-bullets .swiper-pagination-bullet {
+		@apply w-[30px] h-1 rounded-lg bg-white bg-opacity-50;
 	}
 </style>
