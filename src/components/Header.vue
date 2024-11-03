@@ -93,7 +93,7 @@
 						<NuxtLink
 							:to="settings?.data?.whatsapp?.url"
 							target="_blank"
-							class="flex bg-white rounded-lg hover:scale-105 transition-all px-4 py-1 text-[14px] text-bg items-center justify-center gap-2 max-largeDesktop:mt-[50px] max-largeDesktop:text-[20px]"
+							class="flex bg-white max-tablet:text-[0.875rem] rounded-lg hover:scale-105 transition-all px-4 py-1 text-[14px] text-bg items-center justify-center gap-2 max-largeDesktop:mt-[50px] max-largeDesktop:text-[20px]"
 						>
 							<IconsWhatsapp customClasses="text-bg" />
 

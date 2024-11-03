@@ -37,7 +37,7 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="flex items-center justify-center relative flex-col max-tablet:min-h-[450px] min-h-[600px] pt-24"
+		class="flex items-center relative flex-col max-tablet:min-h-[20rem] min-h-[37.5rem] pt-[10rem] max-tablet:pt-[7rem]"
 	>
 		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === ('default' || 'heroWithSlider')">
 			<h1
