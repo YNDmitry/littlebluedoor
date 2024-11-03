@@ -17,7 +17,7 @@
 </script>
 
 <template>
-	<section :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
+	<section critical :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
 		<div class="relative">
 			<video
 				:autoplay="autoplayAllowed()"

@@ -26,6 +26,7 @@
     "@vueuse/motion": "^2.1.0",
     "@vueuse/nuxt": "^10.9.0",
     "nuxt": "^3.11.1",
+    "nuxt-booster": "^3.1.6",
     "nuxt-build-cache": "^0.1.1",
     "nuxt-lenis": "^1.0.8",
     "nuxt-mail": "^5.0.0",

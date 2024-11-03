@@ -61,6 +61,7 @@ export default defineNuxtConfig({
 		'nuxt-mail',
 		'@nuxtjs/robots',
 		'@nuxtjs/sitemap',
+		'nuxt-booster',
 	],
 
 	css: ['~/assets/css/global.css'],

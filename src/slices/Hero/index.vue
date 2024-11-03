@@ -35,6 +35,7 @@
 
 <template>
 	<section
+		critical
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 		class="flex items-center relative flex-col max-tablet:min-h-[20rem] min-h-[37.5rem] pt-[10rem] max-tablet:pt-[7rem]"
