@@ -36,7 +36,7 @@
 						/>
 
 						<p
-							class="text-center absolute p-2 rounded-t-lg bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md font-[500] uppercase max-tablet:text-[20px] tablet:text-[25px]"
+							class="text-center text-white absolute p-2 rounded-t-lg bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md font-[500] uppercase max-tablet:text-[20px] tablet:text-[25px]"
 						>
 							{{ item?.title }}
 						</p>

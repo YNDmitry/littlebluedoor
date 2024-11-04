@@ -93,17 +93,3 @@
 		</div>
 	</section>
 </template>
-
-<style>
-	#instagram-slider .swiper-wrapper {
-		@apply overflow-visible;
-	}
-
-	.swiper-pagination-bullets {
-		@apply text-center mt-4;
-	}
-
-	.swiper-pagination-bullets .swiper-pagination-bullet {
-		@apply w-[30px] h-1 rounded-lg bg-white bg-opacity-50;
-	}
-</style>

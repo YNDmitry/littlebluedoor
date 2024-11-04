@@ -55,14 +55,14 @@
 					>
 						<h3
 							v-motion-fade-in
-							class="text-[20px] font-medium uppercase max-tablet:mx-auto"
+							class="text-[20px] font-medium text-white uppercase max-tablet:mx-auto"
 							v-if="item?.title"
 						>
 							{{ item?.title }}
 						</h3>
 
 						<div v-motion-fade-in v-if="item?.body">
-							<PrismicRichText :field="item?.body" />
+							<PrismicRichText :field="item?.body" class="!text-white" />
 						</div>
 
 						<NuxtLink
@@ -96,14 +96,14 @@
 					>
 						<h3
 							v-motion-fade-in
-							class="text-[20px] font-medium uppercase max-tablet:mx-auto"
+							class="text-[20px] text-white font-medium uppercase max-tablet:mx-auto"
 							v-if="item?.title"
 						>
 							{{ item?.title }}
 						</h3>
 
 						<div v-motion-fade-in v-if="item?.body">
-							<PrismicRichText :field="item?.body" />
+							<PrismicRichText :field="item?.body" class="!text-white" />
 						</div>
 
 						<NuxtLink

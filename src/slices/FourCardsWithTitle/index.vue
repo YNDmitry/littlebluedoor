@@ -43,7 +43,7 @@
 					<div class="relative rounded-lg overflow-hidden">
 						<h3
 							v-if="item?.title"
-							class="absolute top-0 left-0 w-full text-center text-[20px] font-[500] uppercase px-4 py-2 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-b-md"
+							class="absolute top-0 text-white left-0 w-full text-center text-[20px] font-[500] uppercase px-4 py-2 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-b-md"
 						>
 							{{ item.title }}
 						</h3>
@@ -59,7 +59,7 @@
 							class="flex flex-col gap-[10px] max-tablet:text-center absolute bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-t-lg p-4"
 							v-if="item?.body"
 						>
-							<PrismicRichText :field="item?.body" />
+							<PrismicRichText :field="item?.body" class="!text-white" />
 						</div>
 					</div>
 				</div>

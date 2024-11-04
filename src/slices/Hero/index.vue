@@ -43,7 +43,7 @@
 		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === ('default' || 'heroWithSlider')">
 			<h1
 				v-motion-fade-in
-				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+				class="text-center font-[500] text-white uppercase max-tablet:text-[25px] tablet:text-[35px]"
 			>
 				{{ slice?.primary?.heading }}
 			</h1>
@@ -56,7 +56,7 @@
 		>
 			<h1
 				v-motion-fade-in
-				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+				class="text-center font-[500] text-white uppercase max-tablet:text-[25px] tablet:text-[35px]"
 			>
 				{{ slice?.primary?.heading }}
 			</h1>
@@ -72,7 +72,7 @@
 			<PrismicRichText
 				:field="slice?.primary?.rich_text"
 				:serializer="serializer"
-				class="max-w-[650px] mx-auto text-center px-8 mb-8"
+				class="max-w-[650px] mx-auto !text-white text-center px-8 mb-8"
 			/>
 		</div>
 
@@ -103,7 +103,7 @@
 			<PrismicRichText
 				:field="slice?.primary?.rich_text"
 				v-if="slice?.primary?.rich_text"
-				class="text-center"
+				class="text-center !text-white"
 			/>
 
 			<div v-motion-fade-in class="block text-center mt-4" v-if="slice.primary.button_link">
@@ -142,7 +142,7 @@
 		<div v-motion-fade-in v-if="slice?.variation === 'heroWithIcons'" class="mt-[15px] p-3">
 			<h1
 				v-motion-fade-in
-				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
+				class="text-center font-[500] text-white uppercase max-tablet:text-[25px] tablet:text-[35px]"
 			>
 				{{ slice?.primary?.heading }}
 			</h1>
