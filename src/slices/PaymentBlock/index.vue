@@ -182,10 +182,10 @@
 						v-motion-fade-in
 						id="instagram-slider"
 						class="pt-[50px] !ml-[-1rem] !pl-[1rem] !mr-[-1rem] !pr-[1rem]"
-						:modules="[SwiperNavigation]"
-						:navigation="{
-							nextEl: '#inst-next',
-							prevEl: '#inst-prev',
+						:modules="[SwiperPagination]"
+						:pagination="{
+							el: '#payment-pagination',
+							clickable: true,
 						}"
 						:breakpoints="{
 							320: {
@@ -211,26 +211,8 @@
 								placeholder
 							/>
 						</SwiperSlide>
+						<div id="payment-pagination"></div>
 					</Swiper>
-					<div
-						class="z-10 flex justify-between left-[-50px] right-[-50px] max-tablet:left-6 max-tablet:right-6 max-tablet:static max-tablet:mt-7 pt-4 absolute top-1/2 translate-y-[-50%]"
-					>
-						<button
-							id="inst-prev"
-							type="button"
-							class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
-						>
-							<IconsArrow customClasses="rotate-180 text-bg2" />
-						</button>
-
-						<button
-							id="inst-next"
-							type="button"
-							class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-gray-200"
-						>
-							<IconsArrow customClasses="text-bg2" />
-						</button>
-					</div>
 				</div>
 			</div>
 			<div
