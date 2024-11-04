@@ -50,14 +50,14 @@
 							class="absolute bottom-0 bg-bg2 backdrop-blur-md p-4 bg-opacity-50 rounded-t-lg z-10 flex flex-col gap-6"
 						>
 							<!-- Title -->
-							<h3 v-motion-fade-in class="text-[20px] font-medium uppercase text-center">
+							<h3 v-motion-fade-in class="text-[20px] text-white font-medium uppercase text-center">
 								{{ item?.title }}
 							</h3>
 
 							<!-- Paragraph -->
 							<span
 								v-motion-fade-in
-								class="text-center max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 max-tablet:max-h-full text-[14px]"
+								class="text-center text-white max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 max-tablet:max-h-full text-[14px]"
 							>
 								{{ item?.paragraph }}
 							</span>
