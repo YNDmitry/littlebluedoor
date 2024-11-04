@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#141319",
+        bg: "#272b37",
         bg2: "#29282e",
         mainColor: "#131f5b",
         mainColorHover: "rgb(79 108 161)",
         "primary-100": "#9593b4",
-        "primary-20": "#31346c"
+        "primary-20": "#324a75"
       },
 
       height: {

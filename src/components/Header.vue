@@ -25,7 +25,7 @@
 
 <template>
 	<header
-		class="fixed bg-opacity-50 z-[1000] top-2 left-2 right-2 rounded-lg backdrop-blur-lg bg-bg2 text-white"
+		class="fixed bg-opacity-50 z-[1000] top-2 left-2 right-2 rounded-lg backdrop-blur-lg bg-[#3c3f4a] text-white"
 	>
 		<div class="px-[16px]">
 			<div id="nav" class="relative flex h-headerHeight items-center justify-between gap-6">
