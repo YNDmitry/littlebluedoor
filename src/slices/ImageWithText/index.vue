@@ -22,7 +22,7 @@
 		<div v-motion-fade-in v-if="slice?.primary?.paragraph.length > 0">
 			<PrismicRichText
 				:field="slice?.primary?.paragraph"
-				class="max-w-[650px] max-tablet:px-8 text-center"
+				class="max-w-[650px] max-tablet:!px-0 text-center"
 				:style="[`padding: 0 ${slice?.primary?.spacing}`]"
 			/>
 		</div>
