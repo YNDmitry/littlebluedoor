@@ -40,9 +40,9 @@
   },
   "devDependencies": {
     "@nuxtjs/prismic": "^3.0.0",
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.22.0",
     "@slicemachine/adapter-nuxt": "^0.3.55",
-    "prisma": "^5.12.1",
+    "prisma": "^5.22.0",
     "slice-machine-ui": "^2.10.1"
   }
 }

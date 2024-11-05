@@ -1,20 +1,20 @@
 import { PrismaClient } from '@prisma/client'
 
+const prisma = new PrismaClient()
+
 export default defineEventHandler(async (event) => {
 	const body = await readBody(event)
-
-	const prisma = new PrismaClient()
 
 	try {
 		const { comment, date, destination, email, firstName, lastName, travelDuration, phone } =
 			body.values
 
-		const formatedDate = new Date(date).toISOString()
+		const formattedDate = new Date(date).toISOString()
 
 		const d = await prisma.form.create({
 			data: {
 				comment,
-				date: formatedDate,
+				date: formattedDate,
 				destination,
 				email,
 				firstName,
@@ -24,11 +24,13 @@ export default defineEventHandler(async (event) => {
 			},
 		})
 
-		prisma.$disconnect()
-
-		return d
+		// Успешный ответ
+		return { success: true, message: 'Form submitted successfully', data: d }
 	} catch (error) {
-		prisma.$disconnect()
-		throw createError({ statusCode: 500, message: error.message })
+		// Ошибка
+		return { success: false, message: error.message || 'Server error' }
+	} finally {
+		// Отключаем Prisma после завершения запроса
+		await prisma.$disconnect()
 	}
 })

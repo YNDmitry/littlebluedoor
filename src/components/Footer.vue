@@ -14,17 +14,21 @@
 	const isFormSubmitted = ref(false)
 
 	const onSubmit = handleSubmit(async (values) => {
-		await $fetch('/api/newsletter', {
-			method: 'post',
-			body: { email: values.email },
-		}).then((res) => {
+		try {
+			const res = await $fetch('/api/newsletter', {
+				method: 'post',
+				body: { email: values.email },
+			})
+
 			isFormSubmitted.value = true
-			mail.send({
+			await mail.send({
 				from: 'Newsletter',
 				subject: 'Newsletter',
 				text: 'New newsletter email: ' + res.email,
 			})
-		})
+		} catch (error) {
+			alert(error)
+		}
 	})
 </script>
 
