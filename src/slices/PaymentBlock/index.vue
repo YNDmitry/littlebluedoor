@@ -184,7 +184,7 @@
 
 <template>
 	<section
-		class="pb-16 pt-16 max-tablet:pt-9 max-tablet:pb-9"
+		class="pt-16 last:pt-8 last:pb-8 max-tablet:pt-9 max-tablet:pb-9"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
