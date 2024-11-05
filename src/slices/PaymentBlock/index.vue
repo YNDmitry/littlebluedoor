@@ -267,7 +267,7 @@
 				class="w-full max-w-[747px] px-4 mx-auto"
 				v-if="slice.variation === 'paymenBlockWithWhatsAppAndPdf'"
 			>
-				<div class="flex flex-col">
+				<div class="flex max-tablet:flex-col">
 					<div
 						class="max-tablet:hidden flex flex-col gap-4 items-start justify-start max-w-12 w-full"
 					>
