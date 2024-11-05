@@ -39,10 +39,10 @@
 					:class="{
 						'max-largeDesktop:hidden': !show,
 					}"
-					class="max-largeDesktop:fixed max-largeDesktop:flex-col flex items-center max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0"
+					class="max-largeDesktop:fixed max-largeDesktop:h-[calc(100dvh-1rem)] max-largeDesktop:flex-col flex items-center max-largeDesktop:z-[999] max-largeDesktop:left-0 max-largeDesktop:right-0 max-largeDesktop:bottom-0 max-largeDesktop:top-0"
 				>
 					<div
-						class="max-largeDesktop:bg-bg2 max-largeDesktop:w-full max-largeDesktop:pb-8 max-largeDesktop:px-4 max-largeDesktop:rounded-b-lg max-largeDesktop:pt-[80px] max-largeDesktop:rounded-lg flex items-center max-largeDesktop:flex-col"
+						class="max-largeDesktop:bg-bg2 max-largeDesktop:overflow-y-auto max-largeDesktop:w-full max-largeDesktop:pb-8 max-largeDesktop:px-4 max-largeDesktop:rounded-b-lg max-largeDesktop:pt-[80px] max-largeDesktop:rounded-lg flex items-center max-largeDesktop:flex-col"
 					>
 						<nav
 							class="absolute max-largeDesktop:static max-largeDesktop:top-0 left-[50%] translate-x-[-50%] max-largeDesktop:translate-x-0"
@@ -67,7 +67,9 @@
 										@mouseleave="popover = false"
 										class="absolute max-laptop:hidden z-10 top-0 bottom-0 pt-10"
 									>
-										<div class="flex flex-col gap-2 bg-bg2 text-white rounded-md px-4 py-2">
+										<div
+											class="flex flex-col gap-2 bg-bg shadow-md text-white rounded-md px-4 py-2"
+										>
 											<NuxtLink
 												:prefetch="true"
 												v-for="item in items"

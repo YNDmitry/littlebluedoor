@@ -130,6 +130,17 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev"
 				}
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Proident cillum ea elit ipsum nisi ad dolore culpa quis magna sint et enim aliquip. Deserunt culpa aliquip ipsum tempor ea tempor sunt sit occaecat veniam sunt deserunt laborum dolor fugiat."
+						}
+					}
+				]
 			}
 		},
 		"items": [

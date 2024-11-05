@@ -99,6 +99,15 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
         "button_title_pdf": {
           "type": "Text",
           "config": {

@@ -53,6 +53,50 @@
 		span: ({ text }: any) => (text ? text : ''),
 	}
 
+	const serializerRichText = {
+		heading1: ({ children }: any) =>
+			`<h1 class="first:mt-0 font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px] mb-[25px]">${children}</h1>`,
+		heading2: ({ children }: any) =>
+			`<h2 class="first:mt-0 font-[500] uppercase max-tablet:text-[20px] text-[28px] mb-[20px] mt-[25px]">${children}</h2>`,
+		heading3: ({ children }: any) =>
+			`<h3 class="text-[20px] mb-[15px] mt-[20px] uppercase font-[500]">${children}</h3>`,
+		heading4: ({ children }: any) => `<h4 class="text-[16px] my-[15px]">${children}</h4>`,
+		heading5: ({ children }: any) => `<h5>${children}</h5>`,
+		heading6: ({ children }: any) => `<h6>${children}</h6>`,
+		paragraph: ({ children }: any) => `<p class="my-[15px] first:mt-0 last:mb-0">${children}</p>`,
+		preformatted: ({ node }: any) => `<pre>${JSON.stringify(node.text)}</pre>`,
+		strong: ({ children }: any) => `<strong>${children}</strong>`,
+		em: ({ children }: any) => `<em>${children}</em>`,
+		listItem: ({ children }: any) => `<li>${children}</li>`,
+		oListItem: ({ children }: any) => `<li>${children}</li>`,
+		list: ({ children }: any) => `<ul>${children}</ul>`,
+		oList: ({ children }: any) => `<ol>${children}</ol>`,
+		image: ({ node }: any) => {
+			const linkUrl = node.linkTo ? linkResolver(node.linkTo) : null
+			const linkTarget =
+				node.linkTo && node.linkTo.target ? `target="${node.linkTo.target}" rel="noopener"` : ''
+			const wrapperClassList = [node.label || '', 'block-img']
+			const img = `<img class="my-[50px] last:mb-0" src="${node.url}" alt="${
+				node.alt ? node.alt : ''
+			}" copyright="${node.copyright ? node.copyright : ''}" />`
+
+			return `
+        <p class="${wrapperClassList.join(' ')}">
+          ${linkUrl ? `<a ${linkTarget} href="${linkUrl}">${img}</a>` : img}
+        </p>
+      `
+		},
+		hyperlink: ({ node, children }: any) => {
+			const target = node.data.target ? `target="${node.data.target}" rel="noopener"` : ''
+			const url = linkResolver(node.data)
+			return `<a ${target} href="${url}">${children}</a>`
+		},
+		label: ({ node, children }: any) => {
+			return `<span class="${node.data.label}">${children}</span>`
+		},
+		span: ({ text }: any) => (text ? text : ''),
+	}
+
 	function getBaseConfig() {
 		return {
 			env: process.env.NODE_ENV === 'development' ? 'demo' : 'prod',
@@ -140,13 +184,17 @@
 
 <template>
 	<section
-		class="pb-16 max-tablet:pb-9"
+		class="pb-16 pt-16 max-tablet:pt-9 max-tablet:pb-9"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
 		<div class="flex-col text-center flex justify-center">
 			<div class="max-w-[747px] px-4 mx-auto">
-				<div v-motion-fade-in class="mt-[20px]" v-if="slice?.primary?.body">
+				<div
+					v-motion-fade-in
+					class="mt-[20px]"
+					v-if="slice?.primary?.body && slice.variation === 'paymentBlockWithImages'"
+				>
 					<PrismicRichText
 						:field="slice?.primary?.body"
 						:serializer="serializer"
@@ -219,24 +267,66 @@
 				class="w-full max-w-[747px] px-4 mx-auto"
 				v-if="slice.variation === 'paymenBlockWithWhatsAppAndPdf'"
 			>
-				<div v-motion-fade-in v-if="slice.primary.button_title_pdf" class="mb-10">
-					<PrismicLink
-						class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
-						:field="slice.primary.button_link_pdf"
-						>{{ slice.primary.button_title_pdf }}</PrismicLink
+				<div class="flex">
+					<div
+						class="max-tablet:hidden flex flex-col gap-4 items-start justify-start max-w-12 w-full"
 					>
-					<p class="mt-3 opacity-70">{{ slice.primary.button_description_pdf }}</p>
+						<PrismicLink
+							v-motion-fade-in
+							v-tooltip="slice.primary.button_description_pdf"
+							class="hover:scale-110 flex items-center justify-center min-h-12 min-w-12 rounded-lg bg-white text-black transition-all"
+							:field="slice.primary.button_link_pdf"
+							target="_blank"
+						>
+							<IconsPdf class="w-6 h-6" />
+						</PrismicLink>
+						<NuxtLink
+							:to="slice.primary.button_link_whatsapp.url"
+							v-tooltip="slice.primary.button_description_whatsapp"
+							target="_blank"
+							class="hover:scale-110 flex items-center justify-center min-h-12 min-w-12 rounded-lg bg-white text-black transition-all"
+						>
+							<IconsWhatsapp />
+						</NuxtLink>
+					</div>
+					<div v-motion-fade-in v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
+						<PrismicRichText
+							:field="slice?.primary?.body"
+							:serializer="serializerRichText"
+							class="px-4 max-tablet:text-center text-left"
+						/>
+					</div>
+					<div
+						v-motion-fade-in
+						v-if="slice.primary.button_title_pdf"
+						class="mb-10 max-tablet:block hidden"
+					>
+						<PrismicLink
+							class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
+							:field="slice.primary.button_link_pdf"
+							>{{ slice.primary.button_title_pdf }}</PrismicLink
+						>
+						<p class="mt-3 opacity-70">
+							{{ slice.primary.button_description_pdf }}
+						</p>
+					</div>
+					<div
+						v-if="slice.primary.button_title_whatsapp"
+						v-motion-fade-in
+						class="max-tablet:block hidden"
+					>
+						<NuxtLink
+							:to="slice.primary.button_link_whatsapp.url"
+							target="_blank"
+							class="hover:bg-primary-20 hover:text-white max-tablet:block max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black rounded-lg transition-colors uppercase"
+						>
+							{{ slice.primary.button_title_whatsapp }}
+						</NuxtLink>
+						<p class="mt-3 opacity-70">
+							{{ slice.primary.button_description_whatsapp }}
+						</p>
+					</div>
 				</div>
-				<NuxtLink
-					v-if="slice.primary.button_title_whatsapp"
-					v-motion-fade-in
-					:to="slice.primary.button_link_whatsapp.url"
-					target="_blank"
-					class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black rounded-lg transition-colors uppercase"
-				>
-					{{ slice.primary.button_title_whatsapp }}
-				</NuxtLink>
-				<p class="mt-3 opacity-70">{{ slice.primary.button_description_whatsapp }}</p>
 			</div>
 		</div>
 	</section>

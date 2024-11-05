@@ -109,6 +109,9 @@ export default defineNuxtConfig({
 		options: {
 			unstyled: true,
 		},
+		directives: {
+			include: ['Tooltip'],
+		},
 		importPT: { from: path.resolve(__dirname, './src/assets/presets/lara/calendar/index') },
 		components: {
 			include: ['Accordion', 'AccordionTab', 'Calendar', 'Menu'],

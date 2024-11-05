@@ -1501,6 +1501,16 @@ export type PaymentBlockSlicePaymentBlockWithImages =
  */
 export interface PaymentBlockSlicePaymenBlockWithWhatsAppAndPdfPrimary {
   /**
+   * Body field in *PaymentBlock → PaymenBlockWithWhatsAppAndPdf → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.paymenBlockWithWhatsAppAndPdf.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
    * Button title (pdf) field in *PaymentBlock → PaymenBlockWithWhatsAppAndPdf → Primary*
    *
    * - **Field Type**: Text
