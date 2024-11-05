@@ -267,7 +267,7 @@
 				class="w-full max-w-[747px] px-4 mx-auto"
 				v-if="slice.variation === 'paymenBlockWithWhatsAppAndPdf'"
 			>
-				<div class="flex">
+				<div class="flex flex-col">
 					<div
 						class="max-tablet:hidden flex flex-col gap-4 items-start justify-start max-w-12 w-full"
 					>
@@ -299,7 +299,7 @@
 					<div
 						v-motion-fade-in
 						v-if="slice.primary.button_title_pdf"
-						class="mb-10 max-tablet:block hidden"
+						class="mb-10 max-tablet:block hidden mt-10"
 					>
 						<PrismicLink
 							class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
