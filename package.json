@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nuxt dev && start-slicemachine",
     "build": "nuxt build",
-    "vercel-build": "prisma generate && prisma migrate deploy && nuxt build",
+    "vercel-build": "prisma generate && nuxt build",
     "nuxt:dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
