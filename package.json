@@ -32,7 +32,7 @@
     "nuxt-mail": "^5.0.0",
     "nuxt-primevue": "^0.3.1",
     "nuxt-swiper": "^1.2.2",
-    "primevue": "^3.50.0",
+    "primevue": "3.53.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "yup": "^1.4.0"

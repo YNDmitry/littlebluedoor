@@ -264,70 +264,49 @@
 				</div>
 			</div>
 			<div
-				class="w-full max-w-[747px] px-4 mx-auto"
+				class="w-full max-w-[900px] px-4 mx-auto"
 				v-if="slice.variation === 'paymenBlockWithWhatsAppAndPdf'"
 			>
-				<div class="flex max-tablet:flex-col">
-					<div
-						class="max-tablet:hidden flex flex-col gap-4 items-start justify-start max-w-12 w-full"
-					>
-						<PrismicLink
-							v-motion-fade-in
-							v-tooltip="slice.primary.button_description_pdf"
-							class="hover:scale-110 flex items-center justify-center min-h-12 min-w-12 rounded-lg bg-white text-black transition-all"
-							:field="slice.primary.button_link_pdf"
-							target="_blank"
-						>
-							<IconsPdf class="w-6 h-6" />
-						</PrismicLink>
-						<NuxtLink
-							:to="slice.primary.button_link_whatsapp.url"
-							v-tooltip="slice.primary.button_description_whatsapp"
-							target="_blank"
-							class="hover:scale-110 flex items-center justify-center min-h-12 min-w-12 rounded-lg bg-white text-black transition-all"
-						>
-							<IconsWhatsapp />
-						</NuxtLink>
-					</div>
-					<div v-motion-fade-in v-if="slice?.primary?.body" class="max-w-[747px] mx-auto">
+				<div class="flex max-tablet:flex-col gap-4">
+					<div v-motion-fade-in v-if="slice?.primary?.body" class="mx-auto">
 						<PrismicRichText
 							:field="slice?.primary?.body"
 							:serializer="serializerRichText"
 							class="px-4 max-tablet:text-center text-left"
 						/>
 					</div>
-					<div
-						v-motion-fade-in
-						v-if="slice.primary.button_title_pdf"
-						class="mb-10 max-tablet:block hidden mt-10"
-					>
-						<PrismicLink
-							class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
-							:field="slice.primary.button_link_pdf"
-							>{{ slice.primary.button_title_pdf }}</PrismicLink
-						>
-						<p class="mt-3 opacity-70">
-							{{ slice.primary.button_description_pdf }}
-						</p>
-					</div>
-					<div
-						v-if="slice.primary.button_title_whatsapp"
-						v-motion-fade-in
-						class="max-tablet:block hidden"
-					>
-						<NuxtLink
-							:to="slice.primary.button_link_whatsapp.url"
-							target="_blank"
-							class="hover:bg-primary-20 hover:text-white max-tablet:block max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black rounded-lg transition-colors uppercase"
-						>
-							{{ slice.primary.button_title_whatsapp }}
-						</NuxtLink>
-						<p class="mt-3 opacity-70">
-							{{ slice.primary.button_description_whatsapp }}
-						</p>
+					<div class="flex flex-col max-tablet:mt-10">
+						<div v-motion-fade-in v-if="slice.primary.button_title_pdf" class="mb-10">
+							<PrismicLink
+								class="hover:bg-primary-20 hover:text-white max-tablet:w-full min-w-[300px] text-center rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
+								:field="slice.primary.button_link_pdf"
+								>{{ slice.primary.button_title_pdf }}</PrismicLink
+							>
+							<p class="mt-3 opacity-70">
+								{{ slice.primary.button_description_pdf }}
+							</p>
+						</div>
+						<div v-if="slice.primary.button_title_whatsapp" v-motion-fade-in>
+							<NuxtLink
+								:to="slice.primary.button_link_whatsapp.url"
+								target="_blank"
+								class="hover:bg-primary-20 hover:text-white max-tablet:block max-tablet:w-full min-w-[300px] text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black rounded-lg transition-colors uppercase"
+							>
+								{{ slice.primary.button_title_whatsapp }}
+							</NuxtLink>
+							<p class="mt-3 opacity-70">
+								{{ slice.primary.button_description_whatsapp }}
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </template>
+
+<style>
+	.p-tooltip {
+		position: fixed;
+	}
+</style>
