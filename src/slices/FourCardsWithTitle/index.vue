@@ -36,7 +36,7 @@
 			>
 				<div
 					v-motion-fade-in
-					class="flex flex-col gap-[15px] max-laptop:items-center"
+					class="flex group flex-col gap-[15px] max-laptop:items-center"
 					v-for="(item, idx) in slice?.items"
 					:key="idx"
 				>
@@ -56,7 +56,7 @@
 							placeholder
 						/>
 						<div
-							class="flex flex-col gap-[10px] max-tablet:text-center absolute bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-t-lg p-4"
+							class="flex group-hover:max-h-96 group-hover:mb-0 -mb-10 max-tablet:mb-0 max-h-0 transition-all duration-500 max-tablet:!max-h-none flex-col gap-[10px] max-tablet:text-center absolute bottom-0 left-0 right-0 bg-bg2 bg-opacity-50 backdrop-blur-md rounded-t-lg p-4"
 							v-if="item?.body"
 						>
 							<PrismicRichText :field="item?.body" class="!text-white" />

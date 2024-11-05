@@ -49,7 +49,7 @@
 					<div
 						v-for="(item, idx) in slice?.items"
 						:key="idx"
-						class="rounded-xl p-4 min-w-[150px] h-[90px] bg-white bg-opacity-80 flex items-center justify-center backdrop-blur-lg"
+						class="rounded-xl p-4 min-w-[150px] h-[90px] bg-white flex items-center justify-center"
 					>
 						<NuxtImg
 							class="object-contain"
