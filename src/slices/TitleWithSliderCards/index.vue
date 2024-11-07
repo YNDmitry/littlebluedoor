@@ -15,7 +15,7 @@
 
 <template>
 	<section
-		class="py-[60px]"
+		class="py-[60px] max-tablet:py-[40px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
