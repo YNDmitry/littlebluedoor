@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt dev && start-slicemachine",
-    "build": "prisma generate && nuxt build",
+    "build": "prisma generate && nuxt generate",
     "nuxt:dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
