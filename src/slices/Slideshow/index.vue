@@ -23,7 +23,6 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 		class="relative"
-		:class="slice?.primary?.button_label !== null ? 'pb-[60px]' : 'pb-[60px]'"
 	>
 		<div class="relative flex flex-col items-center justify-center">
 			<Swiper
