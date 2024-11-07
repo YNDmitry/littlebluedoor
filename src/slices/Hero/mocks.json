@@ -206,6 +206,17 @@
 					"height": "3264",
 					"width": "4896"
 				}
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit et anim id ut. Est eu pariatur sint cillum aliquip duis ullamco nostrud. Et id labore reprehenderit deserunt dolore reprehenderit ea."
+						}
+					}
+				]
 			}
 		},
 		"items": [

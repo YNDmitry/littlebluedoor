@@ -884,6 +884,16 @@ export interface HeroSliceHeroWithIconsPrimary {
   heading: prismic.KeyTextField;
 
   /**
+   * body field in *Hero → heroWithIcons → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.heroWithIcons.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
    * Image field in *Hero → heroWithIcons → Primary*
    *
    * - **Field Type**: Link to Media

@@ -146,6 +146,7 @@
 			>
 				{{ slice?.primary?.heading }}
 			</h1>
+			<PrismicRichText :serializer="serializer" :field="slice?.primary?.body" v-if="slice?.primary?.body" class="text-center"/>
 			<div class="flex items-center justify-center gap-5 mt-4">
 				<NuxtLink
 					:to="settings?.data?.instagram?.url"
