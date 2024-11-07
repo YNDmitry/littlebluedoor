@@ -55,12 +55,15 @@
 							</h3>
 
 							<!-- Paragraph -->
-							<span
+							<p
 								v-motion-fade-in
 								class="text-center text-white max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 max-tablet:max-h-full text-[14px]"
 							>
-								{{ item?.paragraph }}
-							</span>
+								<span>{{ item?.paragraph }}</span>
+								<span class="text-center block text-white text-[14px]">
+									{{ item?.days_and_nights }}
+								</span>
+							</p>
 						</div>
 					</NuxtLink>
 					<div v-motion-fade-in class="flex flex-col items-center justify-end mt-4">

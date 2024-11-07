@@ -2003,6 +2003,26 @@ export interface ThreeSliderCardsWithTitleSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Spacing bottom field in *ThreeSliderCardsWithTitle → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_slider_cards_with_title.default.primary.spacing_bottom
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  spacing_bottom: prismic.SelectField<"0" | "30" | "60">;
+
+  /**
+   * Spacing top field in *ThreeSliderCardsWithTitle → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_slider_cards_with_title.default.primary.spacing_top
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  spacing_top: prismic.SelectField<"0" | "30" | "60">;
 }
 
 /**

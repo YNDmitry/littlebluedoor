@@ -32,7 +32,7 @@
 			<div v-motion-fade-in class="block text-center mt-[40px]" v-if="slice.primary.button_link">
 				<NuxtLink
 					:to="slice.primary.button_link.url || ''"
-					class="hover:bg-primary-20 hover:text-white inline-block rounded-lg mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-bg2 transition-colors mt-[40px] uppercase"
+					class="hover:bg-primary-20 hover:text-white inline-block rounded-lg mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-bg2 transition-colors uppercase"
 					>{{ slice.primary.button_label }}</NuxtLink
 				>
 			</div>

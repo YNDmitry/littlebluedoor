@@ -7,6 +7,16 @@
 				"__TYPE__": "FieldContent",
 				"value": "scientist",
 				"type": "Text"
+			},
+			"spacing_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "60",
+				"type": "Select"
+			},
+			"spacing_top": {
+				"__TYPE__": "FieldContent",
+				"value": "30",
+				"type": "Select"
 			}
 		},
 		"items": [
@@ -18,12 +28,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					],
@@ -32,12 +42,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					],
@@ -46,12 +56,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					],
@@ -112,12 +122,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					],
@@ -126,12 +136,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					],
@@ -140,12 +150,12 @@
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
+								"__TYPE__": "FileLink",
 								"id": "mock_Media_link",
 								"kind": "image/jpeg",
 								"name": "mock_name",
 								"url": "https://source.unsplash.com/daily",
-								"size": "0",
-								"__TYPE__": "FileLink"
+								"size": "0"
 							}
 						}
 					],
