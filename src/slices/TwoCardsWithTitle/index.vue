@@ -14,7 +14,7 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
-		<div class="mx-auto max-w-[1165px] px-4">
+		<div class="mx-auto max-w-[900px] px-4">
 			<h1
 				v-motion-fade-in
 				class="text-center font-[500] uppercase max-tablet:text-[25px] tablet:text-[35px]"
@@ -28,7 +28,7 @@
 						<NuxtImg
 							v-motion-fade-in
 							provider="prismic"
-							class="w-full object-cover h-[550px]"
+							class="w-full object-cover aspect-square"
 							:src="item?.image?.url"
 							v-if="item?.image?.url"
 							height="650"

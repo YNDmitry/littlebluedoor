@@ -13,7 +13,7 @@
 
 <template>
 	<section
-		class="pb-[100px] pt-[100px]"
+		class="py-[100px] max-tablet:py-[50px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>

@@ -17,7 +17,7 @@
 			v-motion-fade-in
 			:to="settings?.data?.whatsapp.url"
 			:target="settings?.data?.whatsapp.target || ''"
-			class="flex flex-col items-center justify-center gap-5 px-4 pb-[100px]"
+			class="flex flex-col items-center justify-center gap-5 px-4 py-12"
 		>
 			<IconsWhatsapp class="h-[64px] w-[64px] text-white" />
 

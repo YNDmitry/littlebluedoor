@@ -39,6 +39,7 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 		class="flex items-center relative flex-col max-tablet:min-h-[20rem] min-h-[33rem] pt-[10rem] max-tablet:pt-[7rem]"
+		:class="{'!py-[50px]': slice.variation === 'heroWithSlider'}"
 	>
 		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === ('default' || 'heroWithSlider')">
 			<h1
@@ -52,7 +53,7 @@
 		<div
 			v-motion-fade-in
 			v-if="slice?.primary?.rich_text && slice?.variation === 'heroWithRichText'"
-			class="text-center w-full z-10 top-[96px] bottom-4 flex flex-col items-center justify-center"
+			class="text-center w-full z-10 top-[96px] bottom-4 flex flex-col items-center justify-center px-2"
 		>
 			<h1
 				v-motion-fade-in
@@ -81,7 +82,7 @@
 			v-if="slice?.variation === 'default' || 'heroWithRichText' || 'heroWithIcons'"
 			class="w-full absolute top-0 bottom-0 left-0 right-0 h-full"
 		>
-			<div v-if="slice?.variation !== 'heroWithSlider'" class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50"</div>
+			<div v-if="slice?.variation !== 'heroWithSlider'" class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50 max-tablet:opacity-70"</div>
 			<NuxtImg
 				provider="prismic"
 				v-if="slice?.primary?.image?.url"
@@ -120,7 +121,7 @@
 				slice?.variation === ('heroWithSlider' || 'heroWithSliderAndRichText') &&
 				slice?.items.length > 0
 			"
-			class="mx-auto pt-4 hav-swiper flex gap-5"
+			class="mx-auto hav-swiper flex gap-5"
 		>
 			<template v-for="(item, index) in 3">
 				<div
@@ -192,7 +193,7 @@
 			}
 		}
 		.hav-swiper {
-			animation: scrollMob 15s linear infinite;
+			animation: scrollMob 25s linear infinite;
 		}
 	}
 </style>

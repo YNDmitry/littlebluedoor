@@ -12,7 +12,7 @@
 	<section
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
-		class="py-[60px] pt-[120px]"
+		class="py-[70px] max-tablet:py-[50px]"
 	>
 		<div class="mx-auto max-w-[1415px] px-4 pb-5">
 			<h2

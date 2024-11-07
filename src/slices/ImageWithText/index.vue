@@ -13,7 +13,7 @@
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 		class="flex flex-col items-center px-4"
-		:class="slice?.primary?.spacing === '0px' ? 'pt-0' : 'pt-[60px]'"
+		:class="slice?.primary?.spacing === '0px' ? 'pt-0' : 'pt-[50px]'"
 	>
 		<div v-motion-fade-in class="pb-[15px]" v-if="slice?.primary?.image?.url">
 			<NuxtImg :src="slice?.primary?.image?.url || ''" width="80" placeholder />

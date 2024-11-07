@@ -15,7 +15,7 @@
 
 <template>
 	<section
-		class="pb-[150px] pt-[100px] max-tablet:pb-[80px] max-tablet:pt-[60px]"
+		class="py-[100px] max-tablet:py-[50px]"
 		:data-slice-type="slice.slice_type"
 		:data-slice-variation="slice.variation"
 	>
@@ -92,12 +92,20 @@
 						/>
 					</div>
 
-					<div v-motion-fade-in class="flex flex-col justify-between gap-4 pt-[20px] h-full">
-						<h3 class="text-[20px] font-medium uppercase text-center">{{ item?.title }}</h3>
+					<div
+						v-if="item?.title || item?.days_and_nights"
+						v-motion-fade-in
+						class="flex flex-col justify-between gap-4 pt-[20px] h-full"
+					>
+						<h3 v-if="item?.title" class="text-[20px] font-medium uppercase text-center">
+							{{ item?.title }}
+						</h3>
 
-						<span class="text-center text-[14px] font-medium uppercase">{{
-							item?.days_and_nights
-						}}</span>
+						<span
+							v-if="item?.days_and_nights"
+							class="text-center text-[14px] font-medium uppercase"
+							>{{ item?.days_and_nights }}</span
+						>
 					</div>
 				</article>
 			</div>
