@@ -28,7 +28,7 @@
 			</h2>
 		</div>
 
-		<div class="mx-auto flex max-w-[1400px] flex-col pt-[50px]">
+		<div class="mx-auto flex max-w-[1300px] flex-col pt-[50px]">
 			<article
 				class="relative flex items-center max-tablet:flex-col"
 				v-for="(item, idx) in slice?.items"
@@ -37,7 +37,7 @@
 				<div
 					v-motion-fade-in
 					class="relative h-[600px] gap-4 w-full max-tablet:!max-w-none max-tablet:h-auto"
-					:class="{ 'max-w-[400px]': idx % 2 === 0 }"
+					:class="{ 'max-w-[500px]': idx % 2 === 0 }"
 				>
 					<NuxtImg
 						provider="prismic"
@@ -78,7 +78,7 @@
 				<div
 					v-motion-fade-in
 					class="relative h-[600px] w-full max-tablet:!h-auto max-tablet:max-w-none"
-					:class="{ 'max-w-[400px]': idx % 2 === 1 }"
+					:class="{ 'max-w-[500px]': idx % 2 === 1 }"
 				>
 					<NuxtImg
 						provider="prismic"
