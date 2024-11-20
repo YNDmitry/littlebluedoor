@@ -81,6 +81,13 @@
 					>
 						Boats
 					</NuxtLink>
+					<NuxtLink
+						to="https://littlebluedoorjets.com/"
+						target="_blank"
+						class="h-[40px] flex items-center justify-center w-full bg-white text-bg rounded-lg px-2 uppercase transition-colors hover:bg-primary-20 hover:text-white"
+					>
+						Jets
+					</NuxtLink>
 				</div>
 			</div>
 		</div>

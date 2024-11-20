@@ -20,6 +20,10 @@
 			label: 'Boats',
 			path: '/boats',
 		},
+		{
+			label: 'Jets',
+			path: 'https://littlebluedoorjets.com/',
+		},
 	])
 </script>
 

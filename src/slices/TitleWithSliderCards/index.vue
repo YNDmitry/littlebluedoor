@@ -36,7 +36,7 @@
 			>
 				<div
 					v-motion-fade-in
-					class="relative h-[600px] gap-4 w-full max-tablet:!max-w-none max-tablet:h-auto"
+					class="relative h-[500px] gap-4 w-full max-tablet:!max-w-none max-tablet:h-auto"
 					:class="{ 'max-w-[600px]': idx % 2 === 0 }"
 				>
 					<NuxtImg
@@ -77,7 +77,7 @@
 				</div>
 				<div
 					v-motion-fade-in
-					class="relative h-[600px] w-full max-tablet:!h-auto max-tablet:max-w-none"
+					class="relative h-[500px] w-full max-tablet:!h-auto max-tablet:max-w-none"
 					:class="{ 'max-w-[600px]': idx % 2 === 1 }"
 				>
 					<NuxtImg
