@@ -109,7 +109,9 @@ export default defineNuxtConfig({
 	},
 
 	fonts: {
-		families: [{ name: 'Montserrat', global: true, weights: [100, 800] }],
+		google: {
+			families: [{ name: 'Montserrat', global: true, weights: [100, 800] }],
+		},
 	},
 
 	primevue: {
