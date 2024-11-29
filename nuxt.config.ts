@@ -95,13 +95,7 @@ export default defineNuxtConfig({
 		'/ltineraries': {
 			prerender: true,
 		},
-		'/api/**': {
-			prerender: false,
-		},
-	},
-
-	nitro: {
-		preset: 'vercel',
+		'/api/**': { ssr: false, isr: false },
 	},
 
 	experimental: {
