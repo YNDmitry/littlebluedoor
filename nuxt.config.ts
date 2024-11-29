@@ -95,6 +95,9 @@ export default defineNuxtConfig({
 		'/ltineraries': {
 			prerender: true,
 		},
+		'/api/**': {
+			prerender: false,
+		},
 	},
 
 	experimental: {
