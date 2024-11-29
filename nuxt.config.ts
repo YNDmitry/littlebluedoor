@@ -106,15 +106,12 @@ export default defineNuxtConfig({
 	},
 
 	primevue: {
-		options: {
-			unstyled: true,
-		},
 		directives: {
 			include: ['Tooltip'],
 		},
 		importPT: { from: path.resolve(__dirname, './src/assets/presets/lara/calendar/index') },
 		components: {
-			include: ['Accordion', 'AccordionTab', 'Calendar', 'Menu'],
+			include: ['Accordion', 'AccordionTab', 'Calendar', 'Menu', 'Toast'],
 		},
 	},
 

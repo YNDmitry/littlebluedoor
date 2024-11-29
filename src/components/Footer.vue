@@ -13,12 +13,18 @@
 
 	const isFormSubmitted = ref(false)
 
+	const toast = useToast()
+
 	const onSubmit = handleSubmit(async (values) => {
 		try {
 			const res = await $fetch('/api/newsletter', {
 				method: 'post',
 				body: { email: values.email },
 			})
+
+			if (res.statusCode === 400) {
+				return toast.add({ severity: 'error', summary: 'Error', detail: res.message, life: 5000 })
+			}
 
 			isFormSubmitted.value = true
 			await mail.send({
@@ -27,12 +33,21 @@
 				text: 'New newsletter email: ' + res.email,
 			})
 		} catch (error) {
-			alert(error)
+			toast.add({ severity: 'error', summary: 'Error', detail: error, life: 3000000 })
 		}
 	})
 </script>
 
 <template>
+	<Toast
+		:pt="{
+			container: 'p-2 bg-[red] rounded-md text-white',
+			buttoncontainer: 'absolute right-2 top-2',
+			summary: 'text-[1rem]',
+			text: 'mt-2',
+			detail: 'text-[0.7rem]',
+		}"
+	/>
 	<footer class="bg-[#3c3f4a] backdrop-blur-md bg-opacity-40 text-white m-2 rounded-lg">
 		<div class="mx-auto px-4">
 			<div class="pb-[20px] pt-[40px]">

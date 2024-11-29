@@ -19,13 +19,13 @@ export default defineEventHandler(async (event) => {
 			})
 			return { statusCode: 200, email: d.email }
 		} else {
-			throw createError({
+			return {
 				statusCode: 400,
 				message: 'Email already exists',
-			})
+			}
 		}
 	} catch (error) {
-		throw createError({ statusCode: error.statusCode || 500, message: error.message })
+		throw Error(error)
 	} finally {
 		await prisma.$disconnect()
 	}
