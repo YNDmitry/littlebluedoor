@@ -1,4 +1,4 @@
-import path from 'path'
+import Aura from '@primevue/themes/lara'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -56,12 +56,11 @@ export default defineNuxtConfig({
 		'@vueuse/nuxt',
 		'@vueuse/motion/nuxt',
 		'@vee-validate/nuxt',
-		'nuxt-primevue',
+		'@primevue/nuxt-module',
 		'@formkit/auto-animate',
 		'nuxt-mail',
 		'@nuxtjs/robots',
 		'@nuxtjs/sitemap',
-		'nuxt-booster',
 	],
 
 	css: ['~/assets/css/global.css'],
@@ -112,9 +111,13 @@ export default defineNuxtConfig({
 		directives: {
 			include: ['Tooltip'],
 		},
-		importPT: { from: path.resolve(__dirname, './src/assets/presets/lara/calendar/index') },
+		options: {
+			theme: {
+				preset: Aura,
+			},
+		},
 		components: {
-			include: ['Accordion', 'AccordionTab', 'Calendar', 'Menu', 'Toast'],
+			include: ['Accordion', 'AccordionTab', 'DatePicker', 'Menu', 'Toast'],
 		},
 	},
 

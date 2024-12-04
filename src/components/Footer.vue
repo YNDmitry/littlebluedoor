@@ -70,7 +70,7 @@
 								name="email"
 								type="email"
 								placeholder="EMAIL ADDRESS"
-								class="w-full h-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black rounded-none"
+								class="w-full bg-white h-full border-b border-gray-400 pl-4 tracking-[3px] text-[12px] text-black rounded-none"
 							/>
 							<ErrorMessage name="email" class="absolute bottom-[-2rem] text-red" />
 						</div>

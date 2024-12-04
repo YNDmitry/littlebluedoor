@@ -74,14 +74,15 @@
 							</div>
 
 							<div v-auto-animate class="w-full flex flex-col gap-y-2">
-								<Calendar
+								<DatePicker
 									name="date"
 									@update:model-value="$event = setValue($event)"
 									:model-value="value"
 									placeholder="When would you like to go?"
 									aria-label="When would you like to go?"
 									:pt="{
-										panel: 'bg-bg2 text-white rounded-lg',
+										panel: 'text-white rounded-lg',
+										pcInputText: '!bg-transparent text-white rounded-lg',
 									}"
 								/>
 								<ErrorMessage name="date" class="text-[red]" />
@@ -175,3 +176,21 @@
 		</div>
 	</section>
 </template>
+
+<style>
+	.p-inputtext.p-component.p-datepicker-input {
+		@apply bg-transparent border-b shadow-none border-gray-400 border-t-0 border-l-0 border-r-0 rounded-none px-0;
+	}
+
+	.p-inputtext.p-component.p-datepicker-input:hover {
+		@apply border-gray-400;
+	}
+
+	.p-inputtext.p-component.p-datepicker-input:focus {
+		@apply border-gray-400 shadow-none;
+	}
+
+	.p-datepicker.p-component.p-inputwrapper.p-inputwrapper-focus.p-focus {
+		@apply shadow-none outline-none;
+	}
+</style>
