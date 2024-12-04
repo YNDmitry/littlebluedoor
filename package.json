@@ -35,10 +35,10 @@
     "primevue": "3.53.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
-    "yup": "^1.4.0"
+    "yup": "^1.5.0"
   },
   "devDependencies": {
-    "@nuxtjs/prismic": "^3.4.3",
+    "@nuxtjs/prismic": "^3.4.4",
     "@prisma/client": "^5.22.0",
     "@slicemachine/adapter-nuxt": "^0.3.58",
     "prisma": "^5.22.0",
