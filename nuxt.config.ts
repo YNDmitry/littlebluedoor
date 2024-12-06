@@ -94,6 +94,9 @@ export default defineNuxtConfig({
 		'/ltineraries': {
 			prerender: true,
 		},
+		'/experiences/*': {
+			prerender: true,
+		},
 		'/api/**': { ssr: false, isr: false },
 	},
 

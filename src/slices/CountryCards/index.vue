@@ -66,8 +66,8 @@
 						<div
 							class="flex absolute rounded-t-lg bottom-0 left-0 right-0 px-4 py-2 flex-col items-center bg-bg2 bg-opacity-50 backdrop-blur-md"
 						>
-							<p class="text-[18px]">{{ article?.title }}</p>
-							<PrismicRichText :field="article?.body" class="text-[18px]" />
+							<p class="text-[18px] text-white">{{ article?.title }}</p>
+							<PrismicRichText :field="article?.body" class="text-[18px] text-white" />
 						</div>
 					</div>
 					<NuxtLink
@@ -86,6 +86,7 @@
 					v-motion-fade-in
 					:pt="{
 						headerAction: 'flex justify-between items-center flex-row-reverse',
+						content: 'p-0',
 					}"
 				>
 					<template #header>
@@ -116,8 +117,8 @@
 									<div
 										class="flex absolute rounded-t-lg bottom-0 left-0 right-0 px-4 py-2 flex-col items-center bg-bg2 bg-opacity-50 backdrop-blur-md"
 									>
-										<p class="text-[18px]">{{ article?.title }}</p>
-										<PrismicRichText :field="article?.body" class="text-[18px]" />
+										<p class="text-[18px] text-white">{{ article?.title }}</p>
+										<PrismicRichText :field="article?.body" class="text-[18px] text-white" />
 									</div>
 								</div>
 								<NuxtLink
@@ -135,3 +136,13 @@
 		</div>
 	</section>
 </template>
+
+<style>
+	[data-pc-section='content'] {
+		@apply !px-0 bg-transparent border-none;
+	}
+
+	[data-pc-name='accordionheader'] {
+		@apply !bg-transparent border-none p-0;
+	}
+</style>
