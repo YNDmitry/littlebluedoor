@@ -139,10 +139,10 @@
 
 <style>
 	[data-pc-section='content'] {
-		@apply !px-0 bg-transparent border-none;
+		@apply !px-0 !bg-transparent !border-none;
 	}
 
 	[data-pc-name='accordionheader'] {
-		@apply !bg-transparent border-none p-0;
+		@apply !bg-transparent !border-none !p-0;
 	}
 </style>
