@@ -3,10 +3,6 @@
 	const prismic = usePrismic()
 	const route = useRoute()
 
-	defineRouteRules({
-		prerender: true,
-	})
-
 	const { data: page } = await useAsyncData(
 		`[page-uid-${route.params.uid}]`,
 		async () => {

@@ -1,4 +1,36 @@
 import Aura from '@primevue/themes/lara'
+import * as prismic from '@prismicio/client'
+
+const fetchRoutes = async (): Promise<string[]> => {
+	const client = prismic.createClient('https://littlebluedoor.cdn.prismic.io/api/v2', {
+		accessToken: process.env.PRISMIC_TOKEN,
+	})
+
+	const types = ['experiences', 'page']
+	// Загружаем все документы по каждому типу
+	const allRoutes = await Promise.all(
+		types.map(async (type) => {
+			const documents = await client.getAllByType(type)
+
+			// Формируем маршруты для каждого документа
+			return documents.map((doc) => {
+				if (type === 'page') {
+					// Убираем префикс для `page`
+					return `/${doc.uid}`
+				}
+				// Для остальных типов добавляем префикс
+				return `/${type}/${doc.uid}`
+			})
+		})
+	)
+
+	// Объединяем массивы маршрутов
+	return allRoutes.flat()
+
+	return routes
+}
+
+const routes = await fetchRoutes()
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -25,6 +57,12 @@ export default defineNuxtConfig({
 					src: 'https://checkout.flywire.com/flywire-payment.js',
 				},
 			],
+		},
+	},
+
+	nitro: {
+		prerender: {
+			routes,
 		},
 	},
 
@@ -76,28 +114,6 @@ export default defineNuxtConfig({
 				},
 			],
 		},
-	},
-
-	routeRules: {
-		'/': {
-			prerender: true,
-		},
-		'/contact-us': {
-			prerender: true,
-		},
-		'/about-us': {
-			prerender: true,
-		},
-		'/experiences': {
-			prerender: true,
-		},
-		'/ltineraries': {
-			prerender: true,
-		},
-		'/experiences/*': {
-			prerender: true,
-		},
-		'/api/**': { ssr: false, isr: false },
 	},
 
 	experimental: {
