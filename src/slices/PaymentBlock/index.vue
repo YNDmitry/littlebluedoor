@@ -100,12 +100,18 @@
 	function getBaseConfig() {
 		return {
 			env: process.env.NODE_ENV === 'development' ? 'demo' : 'prod',
-			recipientCode: process.env.NODE_ENV === 'development' ? 'DLB' : 'DPB',
+			recipientCode:
+				process.env.NODE_ENV === 'development'
+					? 'DLB'
+					: props.slice.variation === 'paymentBlockWithImages'
+						? props.slice.primary?.payment_code
+						: 'DPB',
 
 			requestPayerInfo: true,
 			requestRecipientInfo: true,
 
-			currency: 'USD',
+			currency:
+				props.slice.variation === 'paymentBlockWithImages' ? props.slice.primary?.currency : 'USD',
 
 			payerEmailNotifications: true,
 
@@ -135,49 +141,49 @@
 		return `${yyyy}-${mm}-${dd}`
 	}
 
-	function payBalance() {
+	function payBalance(price: number) {
 		if (!process.client) return
 
-		let config: any = getBaseConfig()
 		if (props.slice.variation === 'paymentBlockWithImages') {
-			config.amount = props.slice.items.find((el) => el.is_deposit === false)?.product_price
-		}
+			let config: any = getBaseConfig()
+			config.amount = price
 
-		if (typeof window !== 'undefined') {
-			const modal = window.FlywirePayment.initiate(config)
-			modal.render()
+			if (typeof window !== 'undefined') {
+				const modal = window.FlywirePayment.initiate(config)
+				modal.render()
+			}
 		}
 	}
 
-	function payDeposit() {
-		if (!process.client) return
+	function payDeposit(price: number) {
+		if (!process.client && props.slice.variation !== 'paymentBlockWithImages') return
 
-		const today = getFormattedDate(new Date())
-		const balanceDate = getFormattedDate(new Date(props.slice.primary?.date)) // Months are zero indexed
-
-		var config: any = getBaseConfig()
 		if (props.slice.variation === 'paymentBlockWithImages') {
+			const today = getFormattedDate(new Date())
+			const balanceDate = getFormattedDate(new Date(props.slice.primary?.date as string)) // Months are zero indexed
+
+			var config: any = getBaseConfig()
+
 			config.amount = 0
 			config.scheduledPayments = {
 				type: 'scheduled',
 				data: {
 					instalments: [
 						{
-							amount: props.slice.items.find((el) => el.is_deposit === true)?.product_price,
+							amount: price,
 							date: today,
 						},
 						{
-							amount: props.slice.items.find((el) => el.is_deposit === true)?.product_price,
+							amount: price,
 							date: balanceDate,
 						},
 					],
 				},
 			}
-		}
-
-		if (typeof window !== 'undefined') {
-			const modal = window.FlywirePayment.initiate(config)
-			modal.render()
+			if (typeof window !== 'undefined') {
+				const modal = window.FlywirePayment.initiate(config)
+				modal.render()
+			}
 		}
 	}
 </script>
@@ -216,7 +222,9 @@
 							v-motion-fade-in
 							class="hover:bg-primary-20 hover:text-white rounded-lg min-w-[300px] cursor-pointer text-center inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-black transition-colors uppercase"
 							:class="slice.items.length > 1 ? 'w-full' : ''"
-							@click.prevent="btn.is_deposit ? payDeposit() : payBalance()"
+							@click.prevent="
+								btn.is_deposit ? payDeposit(btn.product_price) : payBalance(btn.product_price)
+							"
 						>
 							{{ btn.product_title_button }}
 						</button>

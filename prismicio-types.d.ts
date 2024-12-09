@@ -1444,6 +1444,27 @@ export interface PaymentBlockSlicePaymentBlockWithImagesPrimary {
    * - **Documentation**: https://prismic.io/docs/field#timestamp
    */
   date: prismic.TimestampField;
+
+  /**
+   * Currency field in *PaymentBlock → PaymentBlockWithButtons → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: USD
+   * - **API ID Path**: payment_block.paymentBlockWithImages.primary.currency
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  currency: prismic.SelectField<"USD" | "EUR", "filled">;
+
+  /**
+   * Payment code field in *PaymentBlock → PaymentBlockWithButtons → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: payment_block.paymentBlockWithImages.primary.payment_code
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  payment_code: prismic.KeyTextField;
 }
 
 /**

@@ -56,6 +56,25 @@
             "label": "Date",
             "placeholder": ""
           }
+        },
+        "currency": {
+          "type": "Select",
+          "config": {
+            "label": "Currency",
+            "placeholder": "",
+            "options": [
+              "USD",
+              "EUR"
+            ],
+            "default_value": "USD"
+          }
+        },
+        "payment_code": {
+          "type": "Text",
+          "config": {
+            "label": "Payment code",
+            "placeholder": ""
+          }
         }
       },
       "items": {

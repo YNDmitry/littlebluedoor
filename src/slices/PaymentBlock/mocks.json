@@ -52,6 +52,16 @@
 				"__TYPE__": "FieldContent",
 				"type": "Timestamp",
 				"value": "2015-09-16T21:16:48Z"
+			},
+			"currency": {
+				"__TYPE__": "FieldContent",
+				"value": "EUR",
+				"type": "Select"
+			},
+			"payment_code": {
+				"__TYPE__": "FieldContent",
+				"value": "date",
+				"type": "Text"
 			}
 		},
 		"items": [
