@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "two_cards_with_title": {
+              "type": "SharedSlice"
+            },
             "payment_block": {
               "type": "SharedSlice"
             },

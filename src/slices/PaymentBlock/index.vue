@@ -21,7 +21,7 @@
 		heading6: ({ children }: any) => `<h6>${children}</h6>`,
 		paragraph: ({ children }: any) => `<p class="my-[15px] last:m-0">${children}</p>`,
 		preformatted: ({ node }: any) => `<pre>${JSON.stringify(node.text)}</pre>`,
-		strong: ({ children }: any) => `<strong class="block my-4 last:mb-[36px]">${children}</strong>`,
+		strong: ({ children }: any) => `<strong >${children}</strong>`,
 		em: ({ children }: any) => `<em>${children}</em>`,
 		listItem: ({ children }: any) => `<li>${children}</li>`,
 		oListItem: ({ children }: any) => `<li>${children}</li>`,
