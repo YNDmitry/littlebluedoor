@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { type Content } from '@prismicio/client'
 	import { object, string } from 'yup'
-	const mail = useMail()
+	const { $mail } = useNuxtApp()
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
@@ -25,18 +25,22 @@
 	const isFormSubmitted = ref(false)
 
 	const onSubmit = handleSubmit(async (values) => {
-		await $fetch('/api/form', {
-			method: 'post',
-			body: { values },
-		}).then((res) => {
-			isFormSubmitted.value = true
+		try {
+			const res = await $fetch('/api/form', {
+				method: 'post',
+				body: { values },
+			})
 
-			mail.send({
+			const resMail = await $mail.send({
 				from: 'Form',
 				subject: 'Form',
-				text: `First name: ${res.firstName}\nLast name: ${res.lastName}\nEmail: ${res.email}\nPhone: ${res.phone}\nTravel duration: ${res.travelDuration}\nDate: ${res.date}\nComment: ${res.comment}\n`,
+				text: `First name: ${values.firstName}\nLast name: ${values.lastName}\nEmail: ${values.email}\nPhone: ${values.phone}\nTravel duration: ${values.travelDuration}\nDate: ${values.date}\nComment: ${values.comment}\n`,
 			})
-		})
+
+			isFormSubmitted.value = true
+		} catch (error) {
+			console.error(error)
+		}
 	})
 
 	const { value, setValue } = useField('date')
