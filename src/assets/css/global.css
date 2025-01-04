@@ -16,15 +16,21 @@ body {
 }
 
 #instagram-slider .swiper-wrapper {
-	@apply overflow-visible;
+	@apply overflow-visible relative;
 }
 
-.swiper-pagination-bullets {
-	@apply text-center mt-4;
+:root {
+	--swiper-pagination-bullet-width: 1.875rem;
+	--swiper-pagination-bullet-height: 0.25rem;
+	--swiper-pagination-bullet-border-radius: 0.5rem;
+	--swiper-pagination-bullet-inactive-color: white;
+	--swiper-pagination-color: white;
+	--swiper-pagination-bullet-inactive-opacity: 0.2;
+	--swiper-pagination-bullet-opacity: 0.5;
 }
 
-.swiper-pagination-bullets .swiper-pagination-bullet {
-	@apply w-[30px] h-1 rounded-lg bg-white bg-opacity-50;
+swiper-container::part(pagination) {
+	@apply static mt-4;
 }
 
 p {
@@ -38,10 +44,6 @@ p {
 input:focus,
 textarea:focus {
 	outline: none;
-}
-
-.swiper-button-disabled {
-	opacity: 0.2;
 }
 
 @media (min-width: 768px) {

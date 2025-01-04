@@ -22,7 +22,7 @@
 		validationSchema: schema,
 	})
 
-	const isFormSubmitted = ref(false)
+	const isFormSubmitted = useState<boolean>('isFormSubmitted', () => false)
 
 	const onSubmit = handleSubmit(async (values) => {
 		try {
@@ -38,6 +38,8 @@
 			})
 
 			isFormSubmitted.value = true
+
+			return navigateTo('/thank-you')
 		} catch (error) {
 			console.error(error)
 		}
@@ -62,7 +64,7 @@
 
 			<p class="pt-4 text-center uppercase">{{ slice?.primary?.paragraph }}</p>
 
-			<form @submit.prevent="onSubmit" class="mt-[30px]" v-if="!isFormSubmitted">
+			<form @submit.prevent="onSubmit" class="mt-[30px]">
 				<div class="px-12 max-tablet:px-0 py-8">
 					<div class="flex flex-col gap-[30px]">
 						<div class="flex max-tablet:flex-col gap-[30px]">
@@ -174,9 +176,6 @@
 					</button>
 				</div>
 			</form>
-			<div v-else class="text-center mt-[30px] text-[20px] font-medium">
-				Thank you! We'll get back to you soon
-			</div>
 		</div>
 	</section>
 </template>

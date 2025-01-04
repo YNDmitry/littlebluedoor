@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import { type Content } from '@prismicio/client'
+	import { Pagination } from 'swiper/modules'
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
@@ -186,6 +187,25 @@
 			}
 		}
 	}
+
+	const swiperRef = ref<null>(null)
+	const swiper = useSwiper(swiperRef, {
+		modules: [Pagination],
+		pagination: {
+			el: '#payment-pagination',
+			clickable: true,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 'auto',
+			},
+			1200: {
+				slidesPerView: 4,
+				spaceBetween: 35,
+			},
+		},
+	})
+	const next = () => swiper.next()
 </script>
 
 <template>
@@ -234,41 +254,30 @@
 			</div>
 			<div v-if="slice.variation === 'default'" class="px-4 mx-auto max-w-[1300px] w-full">
 				<div class="relative">
-					<Swiper
-						v-motion-fade-in
-						id="instagram-slider"
-						class="pt-[50px] !ml-[-1rem] !pl-[1rem] !mr-[-1rem] !pr-[1rem]"
-						:modules="[SwiperPagination]"
-						:pagination="{
-							el: '#payment-pagination',
-							clickable: true,
-						}"
-						:breakpoints="{
-							320: {
-								slidesPerView: 'auto',
-							},
-							1200: {
-								slidesPerView: 4,
-								spaceBetween: 35,
-							},
-						}"
-					>
-						<SwiperSlide
-							v-for="(slide, idx) in slice?.items"
-							:key="idx"
-							class="max-largeDesktop:max-w-[450px] max-largeDesktop:mr-[20px] max-tablet:max-w-[300px]"
+					<ClientOnly>
+						<swiper-container
+							v-motion-fade-in
+							id="instagram-slider"
+							ref="swiperRef"
+							class="pt-[50px] !ml-[-1rem] !pl-[1rem] !mr-[-1rem] !pr-[1rem]"
 						>
-							<NuxtImg
-								provider="prismic"
-								class="mx-auto object-cover w-full aspect-[4/5]"
-								:src="slide?.image?.url"
-								width="350"
-								:quality="80"
-								placeholder
-							/>
-						</SwiperSlide>
-						<div id="payment-pagination"></div>
-					</Swiper>
+							<swiper-slide
+								v-for="(slide, idx) in slice?.items"
+								:key="idx"
+								class="max-largeDesktop:max-w-[450px] max-largeDesktop:mr-[20px] max-tablet:max-w-[300px]"
+							>
+								<NuxtImg
+									provider="prismic"
+									class="mx-auto object-cover w-full aspect-[4/5]"
+									:src="slide?.image?.url"
+									width="350"
+									:quality="80"
+									placeholder
+								/>
+							</swiper-slide>
+							<div id="payment-pagination"></div>
+						</swiper-container>
+					</ClientOnly>
 				</div>
 			</div>
 			<div

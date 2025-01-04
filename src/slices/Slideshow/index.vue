@@ -1,5 +1,9 @@
 <script setup lang="ts">
 	import { type Content } from '@prismicio/client'
+	import { EffectFade, Autoplay } from 'swiper/modules'
+	import { Swiper, SwiperSlide } from 'swiper/vue'
+	import 'swiper/css/effect-fade'
+	import 'swiper/css'
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
@@ -25,32 +29,31 @@
 		class="relative"
 	>
 		<div class="relative flex flex-col items-center justify-center">
-			<Swiper
-				class="pt-[40px] w-full"
-				:space-between="20"
-				:modules="[SwiperEffectFade, SwiperAutoplay]"
-				:speed="700"
-				:autoplay="{
-					delay: 1500,
-					disableOnInteraction: true,
-				}"
-				:loop="true"
-				:effect="'fade'"
-				@slide-change="getSlideIndex($event.realIndex)"
-			>
-				<SwiperSlide v-for="item in slice?.items">
-					<NuxtImg
-						provider="prismic"
-						v-if="item?.image?.url"
-						:src="item?.image?.url"
-						:quality="80"
-						width="2000"
-						height="600"
-						class="w-full object-cover h-[600px] max-tablet:h-[400px]"
-						placeholder
-					/>
-				</SwiperSlide>
-			</Swiper>
+			<ClientOnly>
+				<Swiper
+					class="pt-[40px] w-full"
+					:speed="700"
+					:loop="true"
+					:effect="'fade'"
+					:crossFade="true"
+					:autoplay="{ delay: 1500, disableOnInteraction: true }"
+					:modules="[EffectFade, Autoplay]"
+					@slideChange="($event) => getSlideIndex($event.activeIndex)"
+				>
+					<SwiperSlide v-for="item in slice?.items">
+						<NuxtImg
+							provider="prismic"
+							v-if="item?.image?.url"
+							:src="item?.image?.url"
+							:quality="80"
+							width="2000"
+							height="600"
+							class="w-full object-cover h-[600px] max-tablet:h-[400px]"
+							placeholder
+						/>
+					</SwiperSlide>
+				</Swiper>
+			</ClientOnly>
 
 			<div
 				v-motion-fade-in
