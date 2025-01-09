@@ -33,8 +33,24 @@
 		twitterImage: page?.value?.data?.meta_image?.url || null,
 		twitterCard: 'summary_large_image',
 	})
+
+	useHead({
+		htmlAttrs: {
+			style: `
+        --exp-background-color: ${page?.value?.data?.background_color};
+        --exp-text-color: ${page?.value?.data?.text_color};
+      `,
+		},
+	})
 </script>
 
 <template>
 	<SliceZone wrapper="main" :components="components" :slices="page?.data?.slices || []" />
 </template>
+
+<style>
+	body {
+		background-color: var(--exp-background-color, #272b37) !important;
+		color: var(--exp-text-color, #d9d9d9) !important;
+	}
+</style>

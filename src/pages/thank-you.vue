@@ -17,7 +17,7 @@
 		<p class="mt-2">
 			We’ve received your message and will get back to you as soon as possible. If you have any
 			urgent inquiries, feel free to contact us directly at
-			<NuxtLink to="mailto:info@littlebluedoor.co" class="underline">email</NuxtLink> or
+			<NuxtLink to="mailto:info@littlebluedoor.io" class="underline">email</NuxtLink> or
 			<NuxtLink to="https://wa.me/message/ZOKXUIMPTQOQE1" target="_blank" class="underline"
 				>WhatsApp</NuxtLink
 			>.

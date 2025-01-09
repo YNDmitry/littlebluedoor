@@ -59,6 +59,22 @@
         },
         "type": "Text"
       }
+    },
+    "Page styles": {
+      "background_color": {
+        "type": "Text",
+        "config": {
+          "label": "Background color",
+          "placeholder": "Background color (HEX) Example - #000000"
+        }
+      },
+      "text_color": {
+        "type": "Text",
+        "config": {
+          "label": "Text color",
+          "placeholder": "Text color (HEX) Example - #ffffff"
+        }
+      }
     }
   }
 }

@@ -54,7 +54,27 @@ interface ExperiencesDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  meta_title: prismic.KeyTextField;
+  meta_title: prismic.KeyTextField /**
+   * Background color field in *Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Background color (HEX) Example - #000000
+   * - **API ID Path**: experiences.background_color
+   * - **Tab**: Page styles
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  background_color: prismic.KeyTextField;
+
+  /**
+   * Text color field in *Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Text color (HEX) Example - #ffffff
+   * - **API ID Path**: experiences.text_color
+   * - **Tab**: Page styles
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_color: prismic.KeyTextField;
 }
 
 /**
