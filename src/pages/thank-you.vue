@@ -10,7 +10,9 @@
 		title: 'Thank you | Littlebluedoor',
 	})
 
-	document.body.classList.remove('custom')
+	onMounted(() => {
+		document.body.classList.remove('custom')
+	})
 </script>
 
 <template>

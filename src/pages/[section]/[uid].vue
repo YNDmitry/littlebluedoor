@@ -34,19 +34,21 @@
 		twitterCard: 'summary_large_image',
 	})
 
-	function changeBodyStyle() {
-		if (page?.value?.data?.background_color && page?.value?.data?.text_color) {
-			document.body.classList.add('custom')
-			document.documentElement.style.setProperty(
-				'--exp-background-color',
-				page.value.data.background_color
-			)
-			document.documentElement.style.setProperty('--exp-text-color', page.value.data.text_color)
-		} else {
-			document.body.classList.remove('custom')
+	onMounted(() => {
+		function changeBodyStyle() {
+			if (page?.value?.data?.background_color && page?.value?.data?.text_color) {
+				document.body.classList.add('custom')
+				document.documentElement.style.setProperty(
+					'--exp-background-color',
+					page.value.data.background_color
+				)
+				document.documentElement.style.setProperty('--exp-text-color', page.value.data.text_color)
+			} else {
+				document.body.classList.remove('custom')
+			}
 		}
-	}
-	changeBodyStyle()
+		changeBodyStyle()
+	})
 </script>
 
 <template>

@@ -34,7 +34,9 @@
 		twitterCard: 'summary_large_image',
 	})
 
-	document.body.classList.remove('custom')
+	onMounted(() => {
+		document.body.classList.remove('custom')
+	})
 </script>
 
 <template>

@@ -37,7 +37,9 @@
 		prerender: true,
 	})
 
-	document.body.classList.remove('custom')
+	onMounted(() => {
+		document.body.classList.remove('custom')
+	})
 </script>
 
 <template>
