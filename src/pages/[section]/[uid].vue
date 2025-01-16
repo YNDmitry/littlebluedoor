@@ -47,14 +47,6 @@
 		}
 	}
 	changeBodyStyle()
-
-	watch(
-		route,
-		(value) => {
-			changeBodyStyle()
-		},
-		{ deep: true, immediate: true }
-	)
 </script>
 
 <template>
