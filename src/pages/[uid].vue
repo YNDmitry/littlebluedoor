@@ -33,6 +33,8 @@
 		twitterImage: page?.value?.data?.meta_image?.url || null,
 		twitterCard: 'summary_large_image',
 	})
+
+	document.body.classList.remove('custom')
 </script>
 
 <template>

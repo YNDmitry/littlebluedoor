@@ -34,23 +34,29 @@
 		twitterCard: 'summary_large_image',
 	})
 
-	useHead({
-		htmlAttrs: {
-			style: `
-        --exp-background-color: ${page?.value?.data?.background_color};
-        --exp-text-color: ${page?.value?.data?.text_color};
-      `,
+	function changeBodyStyle() {
+		if (page?.value?.data?.background_color && page?.value?.data?.text_color) {
+			document.body.classList.add('custom')
+			document.documentElement.style.setProperty(
+				'--exp-background-color',
+				page.value.data.background_color
+			)
+			document.documentElement.style.setProperty('--exp-text-color', page.value.data.text_color)
+		} else {
+			document.body.classList.remove('custom')
+		}
+	}
+	changeBodyStyle()
+
+	watch(
+		route,
+		(value) => {
+			changeBodyStyle()
 		},
-	})
+		{ deep: true, immediate: true }
+	)
 </script>
 
 <template>
 	<SliceZone wrapper="main" :components="components" :slices="page?.data?.slices || []" />
 </template>
-
-<style>
-	body {
-		background-color: var(--exp-background-color, #272b37) !important;
-		color: var(--exp-text-color, #d9d9d9) !important;
-	}
-</style>

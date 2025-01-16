@@ -36,6 +36,8 @@
 	defineRouteRules({
 		prerender: true,
 	})
+
+	document.body.classList.remove('custom')
 </script>
 
 <template>

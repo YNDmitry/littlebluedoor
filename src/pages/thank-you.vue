@@ -9,6 +9,8 @@
 	useSeoMeta({
 		title: 'Thank you | Littlebluedoor',
 	})
+
+	document.body.classList.remove('custom')
 </script>
 
 <template>
