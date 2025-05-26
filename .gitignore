@@ -25,3 +25,8 @@ logs
 .vercel
 
 .data
+
+dev.db
+dev.db-journal
+generated
+.vscode

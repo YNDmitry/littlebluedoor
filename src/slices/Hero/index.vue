@@ -1,5 +1,6 @@
 <script setup lang="ts">
-	import { type Content } from '@prismicio/client'
+	import { isFilled } from '@prismicio/client'
+import { type Content } from '@prismicio/client'
 
 	// The array passed to `getSliceComponentProps` is purely optional.
 	// Consider it as a visual hint for you when templating your slice.
@@ -41,7 +42,7 @@
 		class="flex items-center relative flex-col max-tablet:min-h-[20rem] min-h-[33rem] pt-[10rem] max-tablet:pt-[7rem]"
 		:class="{'!py-[50px]': slice.variation === 'heroWithSlider'}"
 	>
-		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && slice?.variation === ('default' || 'heroWithSlider')">
+		<div class="px-4 pb-8 z-10" v-if="slice?.primary?.heading && (slice?.variation === 'heroWithSlider' || slice?.variation === 'default')">
 			<h1
 				v-motion-fade-in
 				class="text-center font-[500] text-white uppercase max-tablet:text-[25px] tablet:text-[35px]"
@@ -52,7 +53,7 @@
 
 		<div
 			v-motion-fade-in
-			v-if="slice?.primary?.rich_text && slice?.variation === 'heroWithRichText'"
+			v-if="slice?.variation === 'heroWithRichText' && isFilled.richText(slice?.primary?.rich_text)"
 			class="text-center w-full z-10 top-[96px] bottom-4 flex flex-col items-center justify-center px-2"
 		>
 			<h1
@@ -62,12 +63,12 @@
 				{{ slice?.primary?.heading }}
 			</h1>
 			<NuxtImg
-				v-if="slice?.primary?.small_image?.url"
+				v-if="isFilled.image(slice?.primary?.small_image)"
 				:src="slice?.primary?.small_image?.url"
 				provider="prismic"
 				width="80"
-				format="webp"
-				class="mx-auto"
+				format="avif"
+				class="mx-auto object-cover"
 				placeholder
 			/>
 			<PrismicRichText
@@ -85,13 +86,14 @@
 			<div v-if="slice?.variation !== 'heroWithSlider'" class="absolute top-0 left-0 w-full h-full z-10 bg-black opacity-50 max-tablet:opacity-70"</div>
 			<NuxtImg
 				provider="prismic"
-				v-if="slice?.primary?.image?.url"
-				:src="slice?.primary?.image?.url"
+				v-if="isFilled.image(slice.primary.image)"
+				:src="slice?.primary?.image.url"
 				class="w-full object-cover h-full"
 				width="2000"
+				fit="cover"
 				height="600"
 				:quality="80"
-				format="webp"
+				format="avif"
 				placeholder
 			/>
 		</div>
@@ -107,8 +109,9 @@
 				class="text-center !text-white"
 			/>
 
-			<div v-motion-fade-in class="block text-center mt-4" v-if="slice.primary.button_link">
+			<div v-motion-fade-in class="block text-center mt-4">
 				<NuxtLink
+				    v-if="isFilled.link(slice.primary.button_link)"
 					:to="slice.primary.button_link.url || ''"
 					class="hover:bg-primary-20 hover:text-white rounded-lg inline-block mx-auto bg-white text-[16px] py-[16px] px-[25px] font-medium text-bg transition-colors mt-[40px] uppercase"
 					>{{ slice.primary.button_label }}</NuxtLink
@@ -118,7 +121,7 @@
 
 		<div
 			v-if="
-				slice?.variation === ('heroWithSlider' || 'heroWithSliderAndRichText') &&
+				(slice?.variation === 'heroWithSlider' || slice.variation === 'heroWithSliderAndRichText') &&
 				slice?.items.length > 0
 			"
 			class="mx-auto hav-swiper flex gap-5"
@@ -132,7 +135,10 @@
 					<NuxtImg
 						provider="prismic"
 						class="object-cover aspect-square max-tablet:max-w-[250px]"
+						v-if="isFilled.image(slide.image)"
 						:src="slide?.image?.url"
+						fit="cover"
+						placeholder
 						width="600"
 						height="600"
 					/>
@@ -150,20 +156,22 @@
 			<PrismicRichText :serializer="serializer" :field="slice?.primary?.body" v-if="slice?.primary?.body" class="text-center"/>
 			<div class="flex items-center justify-center gap-5 mt-4">
 				<NuxtLink
-					:to="settings?.data?.instagram?.url"
+				    v-if="isFilled.link(settings?.data.instagram)"
+					:to="settings.data.instagram.url"
 					target="_blank"
 					class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all"
 				>
 					<IconsInstagram customClasses="text-white" />
 				</NuxtLink>
 				<NuxtLink
-					:to="settings?.data?.whatsapp?.url"
+				    v-if="isFilled.link(settings?.data.whatsapp)"
+					:to="settings.data.whatsapp.url"
 					target="_blank"
 					class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all"
 				>
 					<IconsWhatsapp customClasses="text-white" />
 				</NuxtLink>
-				<NuxtLink :to="'mailto:' + settings?.data?.email?.url" class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all">
+				<NuxtLink v-if="isFilled.link(settings?.data.email)" :to="'mailto:' + settings.data.email.url" class="hover:scale-125 p-1 rounded-lg backdrop-blur-md bg-bg2 bg-opacity-50 transition-all">
 					<IconsMail customClasses="text-white"
 				/></NuxtLink>
 			</div>

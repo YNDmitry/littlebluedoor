@@ -1,0 +1,113 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"group": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"rich_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Cupidatat non do eu qui est magna excepteur adipisicing magna excepteur eiusmod nostrud elit dolor. Deserunt et veniam officia laborum cupidatat nostrud in. Id ea elit enim fugiat in veniam nulla minim proident."
+											}
+										}
+									]
+								}
+							],
+							[
+								"table",
+								{
+									"__TYPE__": "TableContent",
+									"content": [
+										{
+											"key": "8bca76f9-4b71-49b9-83a5-e36142c8dc44",
+											"type": "tableRow",
+											"content": [
+												{
+													"key": "a95d059e-9114-4088-a99b-e354c6e34cb1",
+													"type": "tableHeader",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Et."
+																}
+															}
+														]
+													}
+												},
+												{
+													"key": "80ab7fd3-02ce-47fe-9079-684466aca74a",
+													"type": "tableHeader",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Aute nostrud."
+																}
+															}
+														]
+													}
+												}
+											]
+										},
+										{
+											"key": "22fab03c-df65-4e85-88c6-c9f851ee7839",
+											"type": "tableRow",
+											"content": [
+												{
+													"key": "6d16e7a5-08f7-4e50-a52e-22382d3ea4c6",
+													"type": "tableCell",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Duis nulla duis nulla ullamco eiusmod."
+																}
+															}
+														]
+													}
+												},
+												{
+													"key": "241b2025-6275-4c93-ac08-79ba691b41d0",
+													"type": "tableCell",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Proident sint sunt sint veniam."
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

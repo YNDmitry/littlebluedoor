@@ -1,0 +1,81 @@
+{
+  "id": "travel_guide",
+  "type": "SharedSlice",
+  "name": "TravelGuide",
+  "description": "TravelGuide",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {
+                    "width": null,
+                    "height": null
+                  },
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "name",
+            "placeholder": ""
+          }
+        },
+        "card_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card description",
+            "placeholder": "A small description for the product card"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item,heading2,heading3"
+          }
+        },
+        "price": {
+          "type": "Number",
+          "config": {
+            "label": "price",
+            "placeholder": ""
+          }
+        },
+        "currency": {
+          "type": "Select",
+          "config": {
+            "label": "Currency",
+            "placeholder": "",
+            "options": [
+              "DPB-USD",
+              "RBB-EUR"
+            ],
+            "default_value": "DPB-USD"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

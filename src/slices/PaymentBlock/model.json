@@ -70,10 +70,15 @@
           }
         },
         "payment_code": {
-          "type": "Text",
+          "type": "Select",
           "config": {
             "label": "Payment code",
-            "placeholder": ""
+            "placeholder": "DPB - $$$, RBB - Euro",
+            "options": [
+              "RBB",
+              "DPB"
+            ],
+            "default_value": "RBB"
           }
         }
       },

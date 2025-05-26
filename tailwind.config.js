@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,vue,ts}"],
+  content: ["./src/**/*.{js,vue,ts}", "./layers/**/*.{js,vue,ts}"],
   theme: {
     extend: {
       colors: {
@@ -9,7 +9,7 @@ export default {
         mainColor: "#131f5b",
         mainColorHover: "rgb(79 108 161)",
         "primary-100": "#9593b4",
-        "primary-20": "#324a75"
+        "primary-20": "#324a75",
       },
 
       height: {
@@ -44,5 +44,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-motion")],
 };

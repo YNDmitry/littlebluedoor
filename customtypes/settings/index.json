@@ -6,6 +6,14 @@
   "status": true,
   "json": {
     "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "navigation": {
         "type": "Group",
         "config": {
@@ -24,18 +32,33 @@
               "config": {
                 "label": "Link",
                 "placeholder": "",
-                "select": null
+                "select": null,
+                "repeat": true,
+                "allowText": true,
+                "allowTargetBlank": true
               }
             }
           }
         }
       },
-      "logo": {
-        "type": "Image",
+      "footer_links": {
+        "type": "Group",
         "config": {
-          "label": "Logo",
-          "constraint": {},
-          "thumbnails": []
+          "label": "Footer links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": false,
+                "allowText": true,
+                "repeat": true
+              }
+            }
+          }
         }
       },
       "whatsapp": {
@@ -60,6 +83,13 @@
           "label": "Instagram",
           "placeholder": "",
           "select": null
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
         }
       }
     }

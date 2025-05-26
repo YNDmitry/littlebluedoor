@@ -22,6 +22,7 @@
 					[
 						"image",
 						{
+							"key": "405b04f0-5179-4a14-aeae-8f3662d55ef8",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -60,8 +61,8 @@
 			},
 			"payment_code": {
 				"__TYPE__": "FieldContent",
-				"value": "date",
-				"type": "Text"
+				"value": "DPB",
+				"type": "Select"
 			}
 		},
 		"items": [
@@ -118,6 +119,7 @@
 				"type": "Text"
 			},
 			"button_link_pdf": {
+				"key": "911f282b-dd0d-42f1-9dda-1393f781e14d",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
@@ -135,6 +137,7 @@
 				"type": "Text"
 			},
 			"button_link_whatsapp": {
+				"key": "2c59a6db-5624-49dc-9b34-6998c88cde64",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",

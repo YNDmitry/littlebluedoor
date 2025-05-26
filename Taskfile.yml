@@ -1,0 +1,11 @@
+version: "3"
+
+tasks:
+  default:
+    deps: [dev, prismic]
+  dev:
+    cmds:
+      - bun run dev
+  prismic:
+    cmds:
+      - bun run slicemachine

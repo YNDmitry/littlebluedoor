@@ -6,6 +6,11 @@ import { defineSliceZoneComponents } from "@prismicio/vue";
 export const components = defineSliceZoneComponents({
   comming_soon: defineAsyncComponent(() => import("./CommingSoon/index.vue")),
   country_cards: defineAsyncComponent(() => import("./CountryCards/index.vue")),
+  doc_rich_text: defineAsyncComponent(() => import("./DocRichText/index.vue")),
+  travel_guides_grid: defineAsyncComponent(
+    () => import("./TravelGuidesGrid/index.vue"),
+  ),
+  travel_guide: defineAsyncComponent(() => import("./TravelGuide/index.vue")),
   form: defineAsyncComponent(() => import("./Form/index.vue")),
   four_cards_with_title: defineAsyncComponent(
     () => import("./FourCardsWithTitle/index.vue"),

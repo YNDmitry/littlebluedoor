@@ -1,19 +1,10 @@
-<script setup lang="ts">
-	const LenisOptions = ref({
-		duration: 0.2,
-		lerp: 0.1,
-		syncTouchLerp: 0.075,
-		smoothWheel: true,
-		wheelMultiplier: 1,
-		touchMultiplier: 1,
-		autoResize: true,
-	})
-</script>
+<script setup lang="ts"></script>
 
 <template>
-	<div class="flex min-h-screen flex-col">
-		<NuxtLayout>
-			<NuxtPage />
-		</NuxtLayout>
-	</div>
+  <div class="flex min-h-screen flex-col">
+    <LoadingIndicator />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>

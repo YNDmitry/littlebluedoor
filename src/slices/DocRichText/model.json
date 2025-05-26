@@ -1,0 +1,43 @@
+{
+  "id": "doc_rich_text",
+  "type": "SharedSlice",
+  "name": "DocRichText",
+  "description": "DocRichText",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "group": {
+          "type": "Group",
+          "config": {
+            "label": "group",
+            "repeat": true,
+            "fields": {
+              "rich_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Rich text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "table": {
+                "type": "Table",
+                "config": {
+                  "label": "Table "
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
