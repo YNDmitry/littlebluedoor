@@ -17,17 +17,17 @@ const linkResolver = (doc: any) => "/" + doc.uid;
 
 const serializer = {
   heading2: ({ children }: any) =>
-    `<h2 class="first:mt-0 font-[500] uppercase max-tablet:text-[20px] text-[28px] mb-[20px] mt-[25px]">${children}</h2>`,
+    `<h2 class="first:mt-0 font-[500] uppercase max-tablet:text-[1.25rem] text-[1.75rem] mb-[1.25rem] mt-[1.5625rem]">${children}</h2>`,
   heading3: ({ children }: any) =>
-    `<h3 class="text-[20px] mb-[15px] mt-[20px] uppercase font-[500]">${children}</h3>`,
+    `<h3 class="text-[1.25rem] mb-[0.9375rem] mt-[1.25rem] uppercase font-[500]">${children}</h3>`,
   heading4: ({ children }: any) =>
-    `<h4 class="text-[16px] my-[15px]">${children}</h4>`,
+    `<h4 class="text-[1rem] my-[0.9375rem]">${children}</h4>`,
   paragraph: ({ children }: any) =>
-    `<p class="my-[15px] last:mb-0">${children}</p>`,
+    `<p class="my-[0.9375rem] max-tablet:text-[0.875rem] last:mb-0">${children}</p>`,
   list: ({ children }: any) =>
-    `<ul class="list-disc list-inside">${children}</ul>`,
+    `<ul class="list-disc max-tablet:text-[0.875rem] list-inside">${children}</ul>`,
   oList: ({ children }: any) =>
-    `<ol class="list-decimal list-inside">${children}</ol>`,
+    `<ol class="list-decimal max-tablet:text-[0.875rem] list-inside">${children}</ol>`,
   image: ({ node }: any) => {
     const linkUrl = node.linkTo ? linkResolver(node.linkTo) : null;
     const linkTarget =
@@ -35,7 +35,7 @@ const serializer = {
         ? `target="${node.linkTo.target}" rel="noopener"`
         : "";
     const wrapperClassList = [node.label || "", "block-img"];
-    const img = `<img class="my-[50px] last:mb-0" src="${node.url}" alt="${
+    const img = `<img class="my-[3.125rem] last:mb-0" src="${node.url}" alt="${
       node.alt ? node.alt : ""
     }" copyright="${node.copyright ? node.copyright : ""}" />`;
 
