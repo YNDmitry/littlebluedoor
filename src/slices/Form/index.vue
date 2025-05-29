@@ -8,6 +8,7 @@ import examples from "libphonenumber-js/examples.mobile.json";
 import IntlTelInput from "intl-tel-input/vueWithUtils";
 import "intl-tel-input/styles";
 const { $mail } = useNuxtApp();
+import { useFormSubmitted } from "../../composables/useFormSubmitted";
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
@@ -42,7 +43,7 @@ const { handleSubmit, isSubmitting } = useForm({
   validationSchema: schema,
 });
 
-const isFormSubmitted = useState<boolean>("isFormSubmitted", () => false);
+const isFormSubmitted = useFormSubmitted();
 
 const onSubmit = handleSubmit(async (values) => {
   try {
@@ -51,17 +52,15 @@ const onSubmit = handleSubmit(async (values) => {
       body: { values },
     });
 
-    const resMail = await $mail.send({
+    await $mail.send({
       from: "Form",
       subject: "Form",
       text: `First name: ${values.firstName}\nLast name: ${values.lastName}\nEmail: ${values.email}\nPhone: ${telRef.value?.instance.getNumber()}\nTravel duration: ${values.travelDuration}\nDate: ${values.date}\nComment: ${values.comment}\n`,
     });
 
     isFormSubmitted.value = true;
-
-    useRoute().query.from = "submitted";
-    if (res && resMail) {
-      return navigateTo("/thank-you");
+    if (res) {
+      return await navigateTo("/thank-you");
     }
   } catch (error) {
     console.error(error);
