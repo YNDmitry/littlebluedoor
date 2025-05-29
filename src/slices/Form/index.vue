@@ -54,7 +54,7 @@ const onSubmit = handleSubmit(async (values) => {
     const resMail = await $mail.send({
       from: "Form",
       subject: "Form",
-      text: `First name: ${values.firstName}\nLast name: ${values.lastName}\nEmail: ${values.email}\nPhone: ${values.phone}\nTravel duration: ${values.travelDuration}\nDate: ${values.date}\nComment: ${values.comment}\n`,
+      text: `First name: ${values.firstName}\nLast name: ${values.lastName}\nEmail: ${values.email}\nPhone: ${telRef.value?.instance.getNumber()}\nTravel duration: ${values.travelDuration}\nDate: ${values.date}\nComment: ${values.comment}\n`,
     });
 
     isFormSubmitted.value = true;
