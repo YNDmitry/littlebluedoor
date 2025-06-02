@@ -53,7 +53,7 @@ export default defineNuxtConfig({
           "cache-control": "public, max-age=0, s-maxage=0, must-revalidate",
         },
       },
-      "/**/**": { isr: true, swr: 300 },
+      "/**": { isr: true, swr: 300 },
       "/slice-simulator": { ssr: false, cache: false },
     },
   },
