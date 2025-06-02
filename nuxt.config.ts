@@ -33,6 +33,11 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "vercel",
+    vercel: {
+      config: {
+        bypassToken: process.env.VERCEL_BYPASS_TOKEN,
+      },
+    },
     output: { dir: ".vercel/output" },
     compressPublicAssets: true,
     prerender: {
@@ -54,7 +59,7 @@ export default defineNuxtConfig({
         },
       },
       "/slice-simulator": { ssr: false, cache: false },
-      "/**": { isr: 300 },
+      "/**": { isr: 60 * 5 },
     },
   },
 
