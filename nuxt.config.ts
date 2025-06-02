@@ -53,13 +53,15 @@ export default defineNuxtConfig({
           "cache-control": "public, max-age=0, s-maxage=0, must-revalidate",
         },
       },
-      "/**": { isr: true, swr: 300 },
       "/slice-simulator": { ssr: false, cache: false },
+      "/**": { isr: 300 },
     },
   },
 
   runtimeConfig: {
     previewPassword: process.env.NUXT_PREVIEW_PASSWORD || "123456",
+    nitro: { envPrefix: "VERCEL_" },
+    region: process.env.VERCEL_REGION,
     public: {
       previewEnabled:
         process.env.NUXT_PREVIEW === "1" ||
