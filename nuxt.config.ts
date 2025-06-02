@@ -1,36 +1,5 @@
 import Aura from "@primeuix/themes/aura";
-import * as prismic from "@prismicio/client";
 import { fileURLToPath } from "node:url";
-
-async function fetchPrismicRoutes() {
-  const client = prismic.createClient(
-    "https://littlebluedoor.cdn.prismic.io/api/v2",
-    {
-      accessToken: process.env.PRISMIC_TOKEN,
-    },
-  );
-
-  const types = ["experiences", "page", "travel_guide", "travel_guides_home"];
-
-  const routeArrays = await Promise.all(
-    types.map(async (type) => {
-      const docs = await client.getAllByType(type);
-
-      return docs.map((doc) => {
-        // важное исправление: два полноценных сравнения
-        if (type === "page" || type === "travel_guides_home") {
-          // «домашний» гид имеет фиксированный url, остальные страницы — uid
-          return type === "travel_guides_home"
-            ? "/travel-guides"
-            : `/${doc.uid}`;
-        }
-        return `/${type}/${doc.uid}`;
-      });
-    }),
-  );
-
-  return routeArrays.flat();
-}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -65,16 +34,14 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel",
     output: { dir: ".vercel/output" },
-    compressPublicAssets: true, // gzip/brotli статики
-    publicAssets: [
-      { dir: "public", maxAge: 60 * 60 * 24 * 365 }, // годовой кеш
-    ],
-
+    compressPublicAssets: true,
     prerender: {
       routes: ["/"],
+      crawlLinks: true,
+      ignore: ["/api/**"],
+      failOnError: false,
     },
-
-    // кастомные заголовки на CDN
+    publicAssets: [{ dir: "public", maxAge: 60 * 60 * 24 * 365 }],
     routeRules: {
       "/_nuxt/**": {
         headers: {
@@ -86,13 +53,10 @@ export default defineNuxtConfig({
           "cache-control": "public, max-age=0, s-maxage=0, must-revalidate",
         },
       },
-    },
-  },
-
-  hooks: {
-    async "prerender:routes"({ routes }) {
-      const extra = await fetchPrismicRoutes();
-      extra.forEach((r) => routes.add(r));
+      "/travel-guides/**": { isr: true, swr: 300 },
+      "/experiences/**": { isr: true, swr: 300 },
+      "/**": { isr: true, swr: 300 },
+      "/slice-simulator": { ssr: false, cache: false },
     },
   },
 

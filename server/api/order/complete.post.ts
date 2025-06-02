@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
-// import { presignPdf } from "~/server/utils/s3";
-// import { sendTicketEmail } from "../../utils/mandrill";
+import { presignPdf } from "@server/utils/S3";
+import { sendTicketEmail } from "@server/utils/mandrill";
 
 /**
  * Валидация подписи Flywire (HMAC‑SHA256).
@@ -57,7 +57,7 @@ export default defineEventHandler(async (event) => {
     },
   );
 
-  if (payment.status !== "success")
+  if (payment && payment?.status !== "success")
     throw createError({
       statusCode: 400,
       statusMessage: "Payment not settled",
@@ -68,8 +68,8 @@ export default defineEventHandler(async (event) => {
   if (!email) throw createError({ statusCode: 422, statusMessage: "No email" });
 
   // 4. Отправляем билет
-  // const url = await presignPdf(pdfKey);
-  // await sendTicketEmail(email, url);
+  const url = await presignPdf(pdfKey);
+  await sendTicketEmail(email, url);
 
   return { ok: true, data: payment };
 });
